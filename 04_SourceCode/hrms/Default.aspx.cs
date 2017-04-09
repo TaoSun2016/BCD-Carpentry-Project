@@ -37,6 +37,14 @@ public partial class _Default : System.Web.UI.Page
         cmdParameter.Value = Password.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);
 
+        cmdParameter = new SqlParameter("@Forename", SqlDbType.VarChar,50);
+        cmdParameter.Direction = ParameterDirection.Output;
+        myCommand.Parameters.Add(cmdParameter);
+
+        cmdParameter = new SqlParameter("@Surname", SqlDbType.VarChar, 50);
+        cmdParameter.Direction = ParameterDirection.Output;
+        myCommand.Parameters.Add(cmdParameter);
+
         cmdParameter = new SqlParameter("@LogTime", SqlDbType.DateTime);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
@@ -67,14 +75,10 @@ public partial class _Default : System.Web.UI.Page
         {
             LogTime = (DateTime)myCommand.Parameters["@LogTime"].Value;
             Session.Add("UserName", UserName.Text);
+            Session.Add("Forename", (string)myCommand.Parameters["@Forename"].Value);
+            Session.Add("Surname", (string)myCommand.Parameters["@Surname"].Value);
             Session.Add("LogTime", LogTime );
             Response.Redirect("Home.aspx");
         }
-  
-
-
-       // Response.Write("<script language='JavaScript'>alert('OK')</script>");
-
-
     }
 }

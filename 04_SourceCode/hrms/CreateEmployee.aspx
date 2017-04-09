@@ -109,8 +109,20 @@
                 <div style="float: left; width: 25%">
                     <asp:TextBox ID="DriverLicenseExpiryDate" runat="server" MaxLength="8"></asp:TextBox>
                 </div>
-                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
-                <div style="float: left; width: 35%">&nbsp;&nbsp;</div>
+                <div style="float: left; width: 15%; text-align: right">Site Safe Number:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%"><asp:TextBox ID="SiteSafeNumber" runat="server" MaxLength="50"></asp:TextBox></div>
+            </div>
+            <br />
+            <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                   Site Safe ExpiryDate:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="SiteSafeExpiryDate" runat="server" MaxLength="8"></asp:TextBox>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Other Positions:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%"><asp:TextBox ID="OtherPositions" runat="server" MaxLength="128"></asp:TextBox></div>
             </div>
             <br />
             <br />

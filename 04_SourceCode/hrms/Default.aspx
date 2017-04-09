@@ -9,12 +9,36 @@
         .auto-style1 {
             font-size: large;
         }
+        .auto-style2 {
+            height: 186px;
+            width: 100%;
+        }
+        .auto-style3 {
+            font-size: xx-large;
+            color: #FF0000;
+        }
+        .auto-style4 {
+            font-size: xx-large;
+            color: #0000FF;
+        }
+        .auto-style5 {
+            font-size: xx-large;
+        }
     </style>
 </head>
 <body style="background-position: center; background-image: url('/hrms/Images/Bankground.jpg'); background-repeat: repeat;">
+    <div style="text-align:center" class="auto-style2">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <strong><span class="auto-style3">BCD</span></strong> <span class="auto-style4"><strong>CARPENTRY</strong></span> <span class="auto-style5"><strong>LTD</strong></span></div>
 
+    <div>
     <form id="form1" runat="server">
-        <div style="height: 230px; width: 100%"></div>
+
+            <hr />
         <div style="height: 40%">
             <table style="width:100%;table-layout:fixed">
                 <tr>
@@ -68,10 +92,13 @@
                 </tr>
             </table>
         </div>
+        <hr />
         <div style="height: 30%;text-align:center">
             <asp:Label ID="Error" runat="server" ForeColor="Red"></asp:Label>
         </div>
     </form>
+    </div>
+    <div style="height:30%">&nbsp;&nbsp;</div>
 
 </body>
 </html>
