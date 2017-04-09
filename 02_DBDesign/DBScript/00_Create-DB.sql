@@ -5,8 +5,9 @@ go
 
 CREATE TABLE EMPLOYEE (
   EmployeeID              int  IDENTITY(1,1) NOT NULL, 
-  Position                varchar(10) NOT NULL, 
-  Forename                 varchar(50) NOT NULL, 
+  Position                varchar(10) NOT NULL,
+  OtherPositions		  varchar(128) NULL, 
+  Forename                varchar(50) NOT NULL, 
   Surname                 varchar(50) NOT NULL, 
   HomeNumber              varchar(20) NULL, 
   MobileNumber            varchar(20) NOT NULL, 
@@ -22,7 +23,9 @@ CREATE TABLE EMPLOYEE (
   DriverLicenseNumber     varchar(30) NULL, 
   DriverLicenseClass      varchar(10) NULL, 
   DriverLicenseExpiryDate date NULL, 
-  DriverLicensePhoto      varchar(255) NULL, 
+  DriverLicensePhoto      varchar(255) NULL,
+  SiteSafeNumber		  varchar(50) NULL,
+  SiteSafeExpiryDate	  date NULL, 
   SiteSafePhoto           varchar(255) NULL, 
   HireDate                date NOT NULL, 
   ResignDate              date NULL, 
@@ -168,24 +171,33 @@ CREATE TABLE TAX_REPORT(
 )
 go
 CREATE TABLE COMPETENCY (
-  EmployeeID        int NOT NULL, 
-  [Date]            date NOT NULL, 
+  EmployeeID        int NOT NULL PRIMARY KEY, 
+  Qualifications    varchar(1024) NULL, 
   GeneralCompetency varchar(7) NOT NULL CHECK(GeneralCompetency in ('LOW','AVERAGE','HIGH')), 
   ToolCompetency    varchar(7) NOT NULL CHECK(ToolCompetency in ('LOW','AVERAGE','HIGH')), 
-  PRIMARY KEY (EmployeeID, 
-  [Date]));
+)
 go
-CREATE TABLE CERTIFICATION (
-  EmployeeID     int NOT NULL, 
-  CertCategory   varchar(60) NOT NULL, 
-  CertGetDate    date NOT NULL, 
-  CertExpiryDate date NULL, 
-  CertNumber     varchar(60) NULL, 
-  CopyFlag       int DEFAULT 0 NOT NULL CHECK(CopyFlag in (0,1)), 
-  Comments       varchar(120) NULL, 
-  PRIMARY KEY (EmployeeID, 
-  CertCategory, 
-  CertGetDate));
+CREATE TABLE CERTIFICATION(
+	EmployeeID	int	PRIMARY KEY,
+	CopyFlag	int NOT NULL CHECK (CopyFlag in (0,1)),
+	LBP			int	CHECK(LBP in (0,1)),
+	Expiry		date,
+	BCITONumber	varchar(50),
+	NZQANumber	varchar(50),
+	FirstAid	int NOT NULL CHECK(FirstAid in (0,1)),
+	FallArrest	int NOT NULL CHECK(FallArrest in (0,1)),
+	ConfindSpaces int NOT NULL CHECK(ConfindSpaces in (0,1)),
+	Ramset		int NOT NULL CHECK(Ramset in (0,1)),
+	HILTI		int NOT NULL CHECK(HILTI in (0,1)),
+	LowScaff	int NOT NULL CHECK(LowScaff in (0,1)),
+	WTR			int NOT NULL CHECK(WTR in (0,1)),
+	EWP			int NOT NULL CHECK(EWP in (0,1)),
+	HIAB		int NOT NULL CHECK(HIAB in (0,1)),
+	HT123		int NOT NULL CHECK(HT123 in (0,1)),
+	Dog			int NOT NULL CHECK(Dog in (0,1)),
+	Crane		int NOT NULL CHECK(Crane in (0,1)),
+	Chainsaw	int NOT NULL CHECK(Chainsaw in (0,1))
+)
 go
 CREATE TABLE TOOL_LIST (
   EmployeeID      int NOT NULL, 
@@ -278,11 +290,17 @@ CREATE TABLE TIME_SHEET (
   Hours          float(10) DEFAULT 0.00 NOT NULL CHECK(Hours >= 0.00));
 go
 CREATE TABLE LOGTBL(
-	LogTime datetime,
-	ErrFile nvarchar(128),
-	ErrLine	int,
-	ErrMsg	nvarchar(4000)
+	LogTime datetime NOT NULL,
+	ErrFile nvarchar(128) NULL,
+	ErrLine	int NULL,
+	ErrMsg	nvarchar(4000) NULL
 	)
+go
+CREATE TABLE Sys_Parameters(
+	ID		varchar(20) PRIMARY KEY,
+	Value	varchar(60) NOT NULL,
+	Description	varchar(255) NULL
+)
 go
 ALTER TABLE UNIFORM ADD CONSTRAINT FK_UNIFORM_EMPLOYEE FOREIGN KEY (EmployeeID) REFERENCES EMPLOYEE (EmployeeID);
 ALTER TABLE WAGE ADD CONSTRAINT FK_WAGE_EMPLOYEE FOREIGN KEY (EmployeeID) REFERENCES EMPLOYEE (EmployeeID);
