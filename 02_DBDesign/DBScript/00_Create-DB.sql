@@ -296,7 +296,7 @@ CREATE TABLE LOGTBL(
 	ErrMsg	nvarchar(4000) NULL
 	)
 go
-CREATE TABLE Sys_Parameters(
+CREATE TABLE SYS_PARAMETERS(
 	ID		varchar(20) PRIMARY KEY,
 	Value	varchar(60) NOT NULL,
 	Description	varchar(255) NULL
