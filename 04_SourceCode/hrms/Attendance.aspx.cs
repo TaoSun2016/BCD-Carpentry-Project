@@ -18,22 +18,20 @@ public partial class Default2 : System.Web.UI.Page
     }
 
 
-   
-
     protected void Export_Click(object sender, EventArgs e)
     {
-        //this.EmployeeGridView.AllowPaging = false;
-        this.AttendanceGridView.AllowSorting = false;
-        AttendanceGridView.Columns[0].Visible = false;
-        AttendanceGridView.Columns[1].Visible = false;
-        AttendanceGridView.DataBind();
+        //this.GridViewAttendance.AllowPaging = false;
+        this.GridViewAttendance.AllowSorting = false;
+        GridViewAttendance.Columns[0].Visible = false;
+        GridViewAttendance.Columns[1].Visible = false;
+        GridViewAttendance.DataBind();
 
 
-        toExcel(this.AttendanceGridView);
+        toExcel(this.GridViewAttendance);
 
-        //this.EmployeeGridView.AllowPaging = true;
-        this.AttendanceGridView.AllowSorting = true;
-        AttendanceGridView.DataBind();
+        //this.GridViewAttendance.AllowPaging = true;
+        this.GridViewAttendance.AllowSorting = true;
+        GridViewAttendance.DataBind();
     }
 
     private void toExcel(GridView gv)
@@ -43,7 +41,7 @@ public partial class Default2 : System.Web.UI.Page
             //make the column invisible if don't want export them
             //gridview1.Columns[9].Visible = false;
 
-            string fileName = "Employee" + DateTime.Now.ToString("_yyyyMMdd") + ".xls";
+            string fileName = "Attendance" + DateTime.Now.ToString("_yyyyMMdd") + ".xls";
             string style = @"<style> .text { mso-number-format:\@; } </script> ";
             Response.ClearContent();
             Response.AddHeader("content-disposition", "attachment; filename=" + fileName);
@@ -52,7 +50,7 @@ public partial class Default2 : System.Web.UI.Page
 
             StringWriter sw = new StringWriter();
             HtmlTextWriter htw = new HtmlTextWriter(sw);
-            this.AttendanceGridView.RenderControl(htw);
+            this.GridViewAttendance.RenderControl(htw);
             Response.Write(style);
             Response.Write(sw.ToString());
             Response.Flush();
