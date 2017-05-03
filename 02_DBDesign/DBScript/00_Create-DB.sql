@@ -205,7 +205,7 @@ CREATE TABLE VEHICLE (
   FuelCardNumber   varchar(30) NULL, 
   GPSInstalled     int DEFAULT 0 NOT NULL CHECK(GPSInstalled in (0,1)), 
   GPSSerialNumber  varchar(60) NULL, 
-  SimCardNumber    varchar(60) NULL, 
+  SIMCardNumber    varchar(60) NULL, 
   PRIMARY KEY (RegisterNumber));
 go
 CREATE TABLE EMPLOYEE_HISTORY (

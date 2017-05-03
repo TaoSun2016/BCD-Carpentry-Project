@@ -23,7 +23,7 @@ begin
 end
 else
 begin
-    select @orig_password = password, @log_status = LogStatus from Employee where Email=ltrim(RTRIM(@UserName));
+    select @orig_password = password, @log_status = LogStatus from Employee where Email=ltrim(RTRIM(@UserName))  and EmployeeStatus='Y';
 	if('Y'= @log_status)
 	begin
 		set @ErrCode=-1;

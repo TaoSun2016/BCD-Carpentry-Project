@@ -23,26 +23,32 @@ public partial class Default2 : System.Web.UI.Page
         if (Email.Text.Trim()=="" )
         {
             ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Please input User Name!')</script>");
+            return;
         }
         if (OldPassword.Text.Trim() == "" )
         {
             ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Please input Old Password!')</script>");
+            return;
         }
         if (NewPassword.Text.Trim() == "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Please input New Password!')</script>");
+            return;
         }
         if (ConfirmPassword.Text.Trim() == "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Please input Confirm Password!')</script>");
+            return;
         }
         if (OldPassword.Text.Trim() == NewPassword.Text.Trim())
         {
             ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Old password and new password can not be same!')</script>");
+            return;
         }
-        if (ConfirmPassword.Text.Trim() == NewPassword.Text.Trim())
+        if (ConfirmPassword.Text.Trim() != NewPassword.Text.Trim())
         {
             ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Confirm password is not same as new password!')</script>");
+            return;
         }
 
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
@@ -51,7 +57,7 @@ public partial class Default2 : System.Web.UI.Page
         SqlCommand myCommand = new SqlCommand("sp_changePassword", conn);
         myCommand.CommandType = CommandType.StoredProcedure;
 
-        SqlParameter cmdParameter = new SqlParameter("@Email", SqlDbType.VarChar, 100);
+        SqlParameter cmdParameter = new SqlParameter("@UserName", SqlDbType.VarChar, 100);
         cmdParameter.Direction = ParameterDirection.Input;
         cmdParameter.Value = Email.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);
