@@ -7,28 +7,31 @@
             <siteMapNode url="~/QueryEmployee.aspx" title="Query"  description="" />
         </siteMapNode>
 
-        <siteMapNode url="StaffSize.aspx" title="StaffSize"  description="" />
-        <siteMapNode url="StaffCourse.aspx" title="StaffCourse"  description="" />
-        <siteMapNode url="Certification.aspx" title="Certification"  description="" />
-        <siteMapNode url="" title="Attendance"  description="" >
-          <siteMapNode url="CreateAttendance.aspx" title="New"  description="" />
-          <siteMapNode url="QueryAttendance.aspx" title="Query"  description="" />
+        <siteMapNode url="~/StaffSize.aspx" title="StaffSize"  description="" />
+        <siteMapNode url="~/StaffCourse.aspx" title="StaffCourse"  description="" />
+        <siteMapNode url="~/Certification.aspx" title="Certification"  description="" />
+        <siteMapNode url="" title="~/Attendance"  description="" >
+          <siteMapNode url="~/CreateAttendance.aspx" title="New"  description="" />
+          <siteMapNode url="~/QueryAttendance.aspx" title="Query"  description="" />
         </siteMapNode>
-        <siteMapNode url="TimeSheet.aspx" title="TimeSheet"  description="" />
-        <siteMapNode url="Wage.aspx" title="Wage"  description="" />
-        <siteMapNode url="Tax.aspx" title="Tax"  description="" />
-        <siteMapNode url="IndividualDebt.aspx" title="IndividualDebt"  description="" />
-        <siteMapNode url="Competency.aspx" title="Competency"  description="" />
+        <siteMapNode url="~/TimeSheet.aspx" title="TimeSheet"  description="" />
+        <siteMapNode url="~/Wage.aspx" title="Wage"  description="" />
+        <siteMapNode url="~/Tax.aspx" title="Tax"  description="" />
+        <siteMapNode url="~/IndividualDebt.aspx" title="IndividualDebt"  description="" />
+        <siteMapNode url="~/Competency.aspx" title="Competency"  description="" />
         
         <siteMapNode url="" title="Tool"  description="" >
             <siteMapNode url="~/ToolUse.aspx" title="ToolUse"  description="" />
             <siteMapNode url="~/ToolList.aspx.aspx" title="ToolList"  description="" />
-            <siteMapNode url="~/ToolTraining.aspx" title="ToolTraining"  description="" />
+            <siteMapNode url="" title="ToolTraining"  description="" >
+              <siteMapNode url="~/CreateToolTraining.aspx" title="New"  description="" />
+              <siteMapNode url="~/QueryToolTraining.aspx" title="Query"  description="" />
+            </siteMapNode>
         </siteMapNode>
 
         <siteMapNode url="" title="Vehicle"  description="" >
-            <siteMapNode url="CreateVehicle.aspx" title="New"  description="" />
-            <siteMapNode url="QueryVehicle.aspx" title="Query"  description="" />
+            <siteMapNode url="~/CreateVehicle.aspx" title="New"  description="" />
+            <siteMapNode url="~/QueryVehicle.aspx" title="Query"  description="" />
         </siteMapNode>
       
         <siteMapNode url="" title="System"  description="" >
