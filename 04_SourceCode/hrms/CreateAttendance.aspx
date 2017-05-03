@@ -7,6 +7,7 @@
         <div style="text-align:center">
              <h2><strong>Attendance Information</strong></h2>
         </div>
+        <br/>
         <div style="width:100%">
             <div style="float:left;width:25%;text-align:right">
                 Forename:&nbsp;&nbsp;
@@ -19,8 +20,8 @@
                 <asp:TextBox ID="Surname" runat="server"></asp:TextBox>
             </div>           
         </div>
-
-        <div style="width:100%">
+        <br/>
+        <div style="width:100%;margin-top:20px">
             <div style="float:left;width:25%;text-align:right">
                 Email:&nbsp;&nbsp;
             </div>
@@ -30,8 +31,8 @@
             <div style="float:left;width:10%;text-align:right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
             <div style="float:left;width:40%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>           
         </div>
-
-        <div style="width:100%;float:left">
+        <br/>
+        <div style="width:100%;float:left;margin-top:20px">
             <div style="float:left;width:25%;text-align:right">
                 Year:&nbsp;&nbsp;
             </div>
@@ -63,6 +64,7 @@
                     <asp:ListItem>12</asp:ListItem>
                 </asp:DropDownList>
             </div>
+        <br />
         <br />
         <hr />
         </div>

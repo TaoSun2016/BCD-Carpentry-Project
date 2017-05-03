@@ -20,6 +20,14 @@ public partial class Default2 : System.Web.UI.Page
         int ErrCode;
         string ErrMsg;
 
+        if ((Forname.Text.Trim() != "" || Surname.Text.Trim() != "")&&Email.Text.Trim() != "")
+        {
+            ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not have value at the same time!')</script>");
+        }
+        if (Forname.Text.Trim() == "" && Surname.Text.Trim() == "" && Email.Text.Trim() == "")
+        {
+            ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not be null at the same time!')</script>");
+        }
 
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
         SqlConnection conn = new SqlConnection(connectionString);
@@ -39,7 +47,7 @@ public partial class Default2 : System.Web.UI.Page
 
         cmdParameter = new SqlParameter("@Email", SqlDbType.VarChar, 100);
         cmdParameter.Direction = ParameterDirection.Input;
-        cmdParameter.Value = Email.Text;
+        cmdParameter.Value = Email.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);
 
         cmdParameter = new SqlParameter("@Year", SqlDbType.Int);
@@ -230,11 +238,12 @@ public partial class Default2 : System.Web.UI.Page
 
         if (ErrCode != 0)
         {
-            Response.Write("<script language='JavaScript'>alert('Add atendance error!')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Add Error!')</script>");
+
         }
         else
         {
-            Response.Write("<script language='JavaScript'>alert('Add atendance successfully!')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('Add successfully!')</script>");
         }
     }
 }

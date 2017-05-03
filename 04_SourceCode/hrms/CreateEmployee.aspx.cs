@@ -44,7 +44,7 @@ public partial class Default2 : System.Web.UI.Page
 
         cmdParameter = new SqlParameter("@Position", SqlDbType.VarChar,10);
         cmdParameter.Direction = ParameterDirection.Input;
-        cmdParameter.Value = Position.Text;
+        cmdParameter.Value = Position.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);
 
         cmdParameter = new SqlParameter("@HireDate", SqlDbType.VarChar,8);
@@ -79,7 +79,7 @@ public partial class Default2 : System.Web.UI.Page
 
         cmdParameter = new SqlParameter("@DriverLicenseExpiryDate", SqlDbType.VarChar, 10);
         cmdParameter.Direction = ParameterDirection.Input;
-        cmdParameter.Value = DriverLicenseClass.Text;
+        cmdParameter.Value = DriverLicenseExpiryDate.Text;
         myCommand.Parameters.Add(cmdParameter);
 
         cmdParameter = new SqlParameter("@DriverLicensePhoto", SqlDbType.VarChar, 255);
@@ -104,7 +104,7 @@ public partial class Default2 : System.Web.UI.Page
 
         cmdParameter = new SqlParameter("@Email", SqlDbType.VarChar, 100);
         cmdParameter.Direction = ParameterDirection.Input;
-        cmdParameter.Value = Email.Text;
+        cmdParameter.Value = Email.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);
 
         cmdParameter = new SqlParameter("@KinName", SqlDbType.VarChar, 100);
