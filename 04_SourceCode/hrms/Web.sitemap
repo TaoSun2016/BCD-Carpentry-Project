@@ -12,7 +12,7 @@
         <siteMapNode url="Certification.aspx" title="Certification"  description="" />
         <siteMapNode url="" title="Attendance"  description="" >
           <siteMapNode url="CreateAttendance.aspx" title="New"  description="" />
-          <siteMapNode url="Attendance.aspx" title="Query"  description="" />
+          <siteMapNode url="QueryAttendance.aspx" title="Query"  description="" />
         </siteMapNode>
         <siteMapNode url="TimeSheet.aspx" title="TimeSheet"  description="" />
         <siteMapNode url="Wage.aspx" title="Wage"  description="" />
@@ -26,8 +26,11 @@
             <siteMapNode url="~/ToolTraining.aspx" title="ToolTraining"  description="" />
         </siteMapNode>
 
-        <siteMapNode url="" title="Vehicle"  description="" />
-
+        <siteMapNode url="" title="Vehicle"  description="" >
+            <siteMapNode url="CreateVehicle.aspx" title="New"  description="" />
+            <siteMapNode url="QueryVehicle.aspx" title="Query"  description="" />
+        </siteMapNode>
+      
         <siteMapNode url="" title="System"  description="" >
             <siteMapNode url="~/ResetPassword.aspx" title="ResetPassword"  description="" />
         </siteMapNode>
