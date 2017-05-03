@@ -35,7 +35,7 @@
         </siteMapNode>
       
         <siteMapNode url="" title="System"  description="" >
-            <siteMapNode url="~/ResetPassword.aspx" title="ResetPassword"  description="" />
+            <siteMapNode url="~/ChangePassword.aspx" title="ChangePassword"  description="" />
         </siteMapNode>
     </siteMapNode>
 
