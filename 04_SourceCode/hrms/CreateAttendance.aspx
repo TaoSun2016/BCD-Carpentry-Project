@@ -13,7 +13,7 @@
                 Forename:&nbsp;&nbsp;
             </div>
             <div style="float:left;width:25%">
-                <asp:TextBox ID="Forname" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Forename" runat="server"></asp:TextBox>
             </div>
             <div style="float:left;width:10%;text-align:right">Surname:&nbsp;&nbsp;</div>
             <div style="float:left;width:40%">

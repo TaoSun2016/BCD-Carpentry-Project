@@ -20,11 +20,11 @@ public partial class Default2 : System.Web.UI.Page
         int ErrCode;
         string ErrMsg;
 
-        if ((Forname.Text.Trim() != "" || Surname.Text.Trim() != "")&&Email.Text.Trim() != "")
+        if ((Forename.Text.Trim() != "" || Surname.Text.Trim() != "")&&Email.Text.Trim() != "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not have value at the same time!')</script>");
         }
-        if (Forname.Text.Trim() == "" && Surname.Text.Trim() == "" && Email.Text.Trim() == "")
+        if (Forename.Text.Trim() == "" && Surname.Text.Trim() == "" && Email.Text.Trim() == "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not be null at the same time!')</script>");
         }
@@ -35,9 +35,9 @@ public partial class Default2 : System.Web.UI.Page
         SqlCommand myCommand = new SqlCommand("sp_addAttendance", conn);
         myCommand.CommandType = CommandType.StoredProcedure;
 
-        SqlParameter cmdParameter = new SqlParameter("@Forname", SqlDbType.VarChar, 50);
+        SqlParameter cmdParameter = new SqlParameter("@Forename", SqlDbType.VarChar, 50);
         cmdParameter.Direction = ParameterDirection.Input;
-        cmdParameter.Value = Forname.Text.Trim();
+        cmdParameter.Value = Forename.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);
 
         cmdParameter = new SqlParameter("@Surname", SqlDbType.VarChar, 50);

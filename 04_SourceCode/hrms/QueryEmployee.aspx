@@ -12,14 +12,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <h2 class="auto-style6"><strong>Employee Information</strong></h2>
-    <div style="overflow-y: scroll" class="auto-style7" id="Forname">     
+    <div style="overflow-y: scroll" class="auto-style7" >     
         <asp:GridView ID="EmployeeGridView" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="EmployeeID" DataSourceID="SqlDataSource1" GridLines="None" ForeColor="#333333" AllowSorting="True">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:CommandField HeaderText="Edit" ShowEditButton="true" />
                 <asp:CommandField HeaderText="Delete" ShowDeleteButton="true" />
                 <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" Visible="false"/>
-                <asp:BoundField DataField="Forname" HeaderText="Forname" SortExpression="Forname" />
+                <asp:BoundField DataField="Forename" HeaderText="Forename" SortExpression="Forename" />
                 <asp:BoundField DataField="Surname" HeaderText="Surname" SortExpression="Surname" />
                 <asp:BoundField DataField="Position" HeaderText="Position" SortExpression="Position" />
                 <asp:BoundField DataField="HomeNumber" HeaderText="HomeNumber" SortExpression="HomeNumber" />
@@ -65,7 +65,7 @@
             ConnectionString="<%$ ConnectionStrings:HRMSDBConnectionString %>"
             SelectCommand="SELECT * FROM [EMPLOYEE] WHERE EmployeeStatus='Y'"
             DeleteCommand="UPDATE [EMPLOYEE] SET EmployeeStatus='N' WHERE EmployeeID = @EmployeeID"
-            UpdateCommand="UPDATE [EMPLOYEE] SET Forname = @Forname, Surname = @Surname, DOB = @DOB, Position = @Position, HireDate = @HireDate, ResignDate = @ResignDate, YearsInBCD = @YearsInBCD, YearsInIndustry = @YearsInIndustry, DriverLicenseNumber = @DriverLicenseNumber, DriverLicenseClass = @DriverLicenseClass, DriverLicenseExpiryDate = @DriverLicenseExpiryDate, DriverLicensePhoto = @DriverLicensePhoto, SiteSafePhoto = @SiteSafePhoto, MobileNumber = @MobileNumber, HomeNumber = @HomeNumber, Email = @Email, KinName = @KinName, KinNumber = @KinNumber, BankName = @BankName, AccountNumber = @AccountNumber, PayRate = @PayRate, TaxRate = @TaxRate, IRDNumber = @IRDNumber, Country = @Country, City = @City, Suburb = @Suburb, Street = @Street, PostCode = @PostCode, Note = @Note WHERE EmployeeID = @EmployeeID"></asp:SqlDataSource>
+            UpdateCommand="UPDATE [EMPLOYEE] SET Forename = @Forename, Surname = @Surname, DOB = @DOB, Position = @Position, HireDate = @HireDate, ResignDate = @ResignDate, YearsInBCD = @YearsInBCD, YearsInIndustry = @YearsInIndustry, DriverLicenseNumber = @DriverLicenseNumber, DriverLicenseClass = @DriverLicenseClass, DriverLicenseExpiryDate = @DriverLicenseExpiryDate, DriverLicensePhoto = @DriverLicensePhoto, SiteSafePhoto = @SiteSafePhoto, MobileNumber = @MobileNumber, HomeNumber = @HomeNumber, Email = @Email, KinName = @KinName, KinNumber = @KinNumber, BankName = @BankName, AccountNumber = @AccountNumber, PayRate = @PayRate, TaxRate = @TaxRate, IRDNumber = @IRDNumber, Country = @Country, City = @City, Suburb = @Suburb, Street = @Street, PostCode = @PostCode, Note = @Note WHERE EmployeeID = @EmployeeID"></asp:SqlDataSource>
     </div>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
     <br />

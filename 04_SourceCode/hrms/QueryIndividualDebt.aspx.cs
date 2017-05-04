@@ -17,20 +17,21 @@ public partial class Default2 : System.Web.UI.Page
 
     }
 
+
     protected void Export_Click(object sender, EventArgs e)
     {
-        //this.EmployeeGridView.AllowPaging = false;
-        this.EmployeeGridView.AllowSorting = false;
-        EmployeeGridView.Columns[0].Visible = false;
-        EmployeeGridView.Columns[1].Visible = false;
-        EmployeeGridView.DataBind();
+        //this.GridViewIndividualDebt.AllowPaging = false;
+        this.GridViewIndividualDebt.AllowSorting = false;
+        GridViewIndividualDebt.Columns[0].Visible = false;
+        GridViewIndividualDebt.Columns[1].Visible = false;
+        GridViewIndividualDebt.DataBind();
 
 
-        toExcel(this.EmployeeGridView);
+        toExcel(this.GridViewIndividualDebt);
 
-        //this.EmployeeGridView.AllowPaging = true;
-        this.EmployeeGridView.AllowSorting = true;
-        EmployeeGridView.DataBind();
+        //this.GridViewIndividualDebt.AllowPaging = true;
+        this.GridViewIndividualDebt.AllowSorting = true;
+        GridViewIndividualDebt.DataBind();
     }
 
     private void toExcel(GridView gv)
@@ -40,7 +41,7 @@ public partial class Default2 : System.Web.UI.Page
             //make the column invisible if don't want export them
             //gridview1.Columns[9].Visible = false;
 
-            string fileName = "Employee" + DateTime.Now.ToString("_yyyyMMdd") + ".xls";
+            string fileName = "IndividualDebt" + DateTime.Now.ToString("_yyyyMMdd") + ".xls";
             string style = @"<style> .text { mso-number-format:\@; } </script> ";
             Response.ClearContent();
             Response.AddHeader("content-disposition", "attachment; filename=" + fileName);
@@ -49,7 +50,7 @@ public partial class Default2 : System.Web.UI.Page
 
             StringWriter sw = new StringWriter();
             HtmlTextWriter htw = new HtmlTextWriter(sw);
-            this.EmployeeGridView.RenderControl(htw);
+            this.GridViewIndividualDebt.RenderControl(htw);
             Response.Write(style);
             Response.Write(sw.ToString());
             Response.Flush();

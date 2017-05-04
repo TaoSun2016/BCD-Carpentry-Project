@@ -11,12 +11,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div style="height:100%; overflow-y:scroll" class="auto-style7" id="Forname">
+    <div style="height:100%; overflow-y:scroll" class="auto-style7" id="Forename">
         <h2 class="auto-style6"><strong>Maintain Employee Information</strong></h2>
         <div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Forname:&nbsp;
-            <asp:TextBox ID="Q_Forname" runat="server" MaxLength="60"></asp:TextBox>
+            Forename:&nbsp;
+            <asp:TextBox ID="Q_Forename" runat="server" MaxLength="60"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Surname:&nbsp;
             <asp:TextBox ID="Q_Surname" runat="server" MaxLength="50"></asp:TextBox>
             &nbsp;<br />
@@ -37,8 +37,8 @@
             <strong>Basic Information</strong>
         </p>
         <div class="auto-style7">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Forname:&nbsp;
-            <asp:TextBox ID="Forname" runat="server" MaxLength="50"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Forename:&nbsp;
+            <asp:TextBox ID="Forename" runat="server" MaxLength="50"></asp:TextBox>
             *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Surname:&nbsp;
             <asp:TextBox ID="Surname" runat="server" MaxLength="50"></asp:TextBox>
             *<br />
@@ -171,7 +171,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="Delete" runat="server" Text="Delete" Width="68px" OnClick="Delete_Click" />
        <asp:HiddenField ID="EmployeeID" runat="server" />
-        <asp:HiddenField ID="oldForname" runat="server" />
+        <asp:HiddenField ID="oldForename" runat="server" />
         <asp:HiddenField ID="oldSurname" runat="server" />
         <asp:HiddenField ID="oldDOB" runat="server" />
         <asp:HiddenField ID="oldPosition" runat="server" />

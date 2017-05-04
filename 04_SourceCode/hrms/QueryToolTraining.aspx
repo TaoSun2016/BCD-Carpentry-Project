@@ -18,7 +18,7 @@
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:CommandField HeaderText="Delete" ShowDeleteButton="true" />
-                <asp:BoundField DataField="Forname" HeaderText="Forename" ReadOnly="True" SortExpression="Forname"/>
+                <asp:BoundField DataField="Forename" HeaderText="Forename" ReadOnly="True" SortExpression="Forename"/>
                 <asp:BoundField DataField="Surname" HeaderText="Surname" SortExpression="Surname" />
                 <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
                 <asp:BoundField DataField="TrainingType" HeaderText="TrainingType" SortExpression="TrainingType" />
@@ -37,7 +37,7 @@
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSourceToolTraining" runat="server"
             ConnectionString="<%$ ConnectionStrings:HRMSDBConnectionString %>"
-            SelectCommand="SELECT e.Forname, e.Surname,t.* FROM [EMPLOYEE] e,[TOOL_TRAINING] t WHERE e.EmployeeID = t.EmployeeID order by Date desc, Forname"
+            SelectCommand="SELECT e.Forename, e.Surname,t.* FROM [EMPLOYEE] e,[TOOL_TRAINING] t WHERE e.EmployeeID = t.EmployeeID order by Date desc, Forename"
             DeleteCommand="DELETE FROM [TOOL_TRAINING] WHERE Date = @Date and TrainingType = @TrainingType and EmployeeID = @EmployeeID">
         </asp:SqlDataSource>     
     </div>

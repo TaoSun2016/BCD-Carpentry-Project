@@ -19,7 +19,7 @@ public partial class Default2 : System.Web.UI.Page
     private void Clear_Fields()
     {
         EmployeeID.Value = "";
-        oldForname.Value = "";
+        oldForename.Value = "";
         oldSurname.Value = "";
         oldDOB.Value = "";
         oldPosition.Value = "";
@@ -49,7 +49,7 @@ public partial class Default2 : System.Web.UI.Page
         oldPostCode.Value = "";
         oldNote.Value = "";
 
-        Forname.Text="";
+        Forename.Text="";
         Surname.Text="";
         DOB.Text = "";
         Position.Text = "";
@@ -85,7 +85,7 @@ public partial class Default2 : System.Web.UI.Page
         int resultCount;
 
         Clear_Fields();
-        if (Q_Forname.Text.Trim() == "" && Q_Surname.Text.Trim() == "" 
+        if (Q_Forename.Text.Trim() == "" && Q_Surname.Text.Trim() == "" 
          && Q_DOB.Text.Trim() == "" && Q_Email.Text.Trim() == "") {
             ClientScript.RegisterStartupScript(typeof(string), "print", "<script>alert('Must input at least one query condition!')</script>");
             return;
@@ -96,7 +96,7 @@ public partial class Default2 : System.Web.UI.Page
         SqlConnection conn = new SqlConnection(connectionString);
 
         sqlState = "select count(*) as Count from EMPLOYEE where 1=1"
-                + (Q_Forname.Text.Trim() == "" ? "" : (" and Forname = '" + Q_Forname.Text.Trim() + "'"))
+                + (Q_Forename.Text.Trim() == "" ? "" : (" and Forename = '" + Q_Forename.Text.Trim() + "'"))
                 + (Q_Surname.Text.Trim() == "" ? "" : (" and Surname = '" + Q_Surname.Text.Trim() + "'"))
                 + (Q_DOB.Text.Trim() == "" ? "" : (" and DOB = '" + Q_DOB.Text.Trim() + "'"))
                 + (Q_Email.Text.Trim() == "" ? "" : (" and Email = '" + Q_Email.Text.Trim() + "'"));
@@ -119,7 +119,7 @@ public partial class Default2 : System.Web.UI.Page
                 break;
             case 1:
                 sqlState = "select * from EMPLOYEE where 1=1"
-                            + (Q_Forname.Text.Trim() == "" ? "" : (" and Forname = '" + Q_Forname.Text.Trim() + "'"))
+                            + (Q_Forename.Text.Trim() == "" ? "" : (" and Forename = '" + Q_Forename.Text.Trim() + "'"))
                             + (Q_Surname.Text.Trim() == "" ? "" : (" and Surname = '" + Q_Surname.Text.Trim() + "'"))
                             + (Q_DOB.Text.Trim() == "" ? "" : (" and DOB = '" + Q_DOB.Text.Trim() + "'"))
                             + (Q_Email.Text.Trim() == "" ? "" : (" and Email = '" + Q_Email.Text.Trim() + "'"));
@@ -145,7 +145,7 @@ public partial class Default2 : System.Web.UI.Page
         
         EmployeeID.Value = dr["EmployeeID"].ToString();
         
-        oldForname.Value = Forname.Text = dr["Forname"].ToString();
+        oldForename.Value = Forename.Text = dr["Forename"].ToString();
         oldSurname.Value = Surname.Text = dr["Surname"].ToString();
         oldDOB.Value = DOB.Text = ((DateTime)dr["DOB"]).ToString("yyyymmdd");
         oldPosition.Value = Position.Text = dr["Position"].ToString();
@@ -189,7 +189,7 @@ public partial class Default2 : System.Web.UI.Page
             string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
             SqlConnection conn = new SqlConnection(connectionString);
 
-            sqlState = "update EMPLOYEE set Forname = '" + Forname.Text.Trim()
+            sqlState = "update EMPLOYEE set Forename = '" + Forename.Text.Trim()
                     + "', Surname = '" + Surname.Text.Trim()
                     //+ "', DOB = '" + DOB.Text.Trim()
                     + "', Position = '" + Position.Text.Trim()
@@ -247,7 +247,7 @@ public partial class Default2 : System.Web.UI.Page
     private bool isChanged()
     {
 
-        if (oldForname.Value != Forname.Text.Trim()
+        if (oldForename.Value != Forename.Text.Trim()
         || oldSurname.Value != Surname.Text.Trim()
         || oldDOB.Value != DOB.Text.Trim()
         || oldPosition.Value != Position.Text.Trim()

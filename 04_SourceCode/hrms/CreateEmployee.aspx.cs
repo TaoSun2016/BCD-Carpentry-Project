@@ -27,9 +27,9 @@ public partial class Default2 : System.Web.UI.Page
         SqlCommand myCommand = new SqlCommand("sp_addEmployee", conn);
         myCommand.CommandType = CommandType.StoredProcedure;
 
-        SqlParameter cmdParameter = new SqlParameter("@Forname", SqlDbType.VarChar, 50);
+        SqlParameter cmdParameter = new SqlParameter("@Forename", SqlDbType.VarChar, 50);
         cmdParameter.Direction = ParameterDirection.Input;
-        cmdParameter.Value = Forname.Text.Trim();
+        cmdParameter.Value = Forename.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);
 
         cmdParameter = new SqlParameter("@Surname", SqlDbType.VarChar, 50);
@@ -209,7 +209,7 @@ public partial class Default2 : System.Web.UI.Page
 
     private void Clear_Fields()
     {
-        Forname.Text="";
+        Forename.Text="";
         Surname.Text="";
         DOB.Text = "";
         Position.Text = "";
