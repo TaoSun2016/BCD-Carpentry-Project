@@ -3,7 +3,7 @@ go
 drop procedure sp_addEmployee
 go
 create procedure sp_addEmployee(
-	@Forname varchar(50),
+	@Forename varchar(50),
 	@Surname varchar(50),
 	@DOB date,
 	@Position varchar(10),
@@ -38,7 +38,7 @@ create procedure sp_addEmployee(
 as
 begin
 	begin try
-		insert into EMPLOYEE  values (@Position,@Forname,@Surname,@HomeNumber,@MobileNumber,@Email,@DOB,@KinName,@KinNumber,
+		insert into EMPLOYEE  values (@Position,@Forename,@Surname,@HomeNumber,@MobileNumber,@Email,@DOB,@KinName,@KinNumber,
 									@BankName,@AccountNumber,@IRDNumber,@PayRate,@TaxRate,@DriverLicenseNumber,@DriverLicenseClass,
 									@DriverLicenseExpiryDate,@DriverLicensePhoto,@SiteSafePhoto,@HireDate,@ResignDate,@YearsInBCD,@YearsInIndustry,@Country,
 									@City,@Suburb,@Street,@PostCode,@Note,null,null,'N','Y');

@@ -1,7 +1,9 @@
 use HRMSDB
 go
+drop procedure sp_addAttendance
+go
 create procedure sp_addAttendance(
-	@Forname	varchar(50),
+	@Forename	varchar(50),
 	@Surname	varchar(50),
 	@Email		varchar(100),
 	@Year		int,
@@ -49,7 +51,7 @@ begin
 
 	if @Email is not null
 	begin
-		select @EmployeeID = EmployeeID from EMPLOYEE where Email = @Email;
+		select @EmployeeID = EmployeeID from EMPLOYEE where Email = @Email  and EmployeeStatus = 'Y'
 		if @EmployeeID = 0
 		begin
 			set @ErrCode = -1
@@ -59,9 +61,9 @@ begin
 	end
 	else
 	begin
-		if @Forname is not null or @Surname is not null
+		if @Forename is not null or @Surname is not null
 		begin
-			set @Count = (select count(*) from EMPLOYEE where Forname = @Forname and Surname = @Surname)
+			set @Count = (select count(*) from EMPLOYEE where Forename = @Forename and Surname = @Surname  and EmployeeStatus = 'Y')
 			if @Count = 0
 			begin
 				set @ErrCode = -1
@@ -74,7 +76,7 @@ begin
 				set @ErrMsg = 'Find more than one employees!'
 				return				
 			end
-			select @EmployeeID = EmployeeID from EMPLOYEE where Forname = @Forname and Surname = @Surname
+			select @EmployeeID = EmployeeID from EMPLOYEE where Forename = @Forename and Surname = @Surname  and EmployeeStatus = 'Y'
 		end
 		else
 		begin
