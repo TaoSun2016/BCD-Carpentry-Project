@@ -22,12 +22,13 @@
     
 </head>
 <body style="background-position: center; background-image: url('/hrms/Images/Bankground.jpg'); background-repeat: repeat;">
-    <form id="form1" runat="server">
     <div style ="height:20%">
         BCD Carpentry Ltd<br />
         LogName:<asp:Label ID="UserName" runat="server"></asp:Label>
         LogTime:<asp:Label ID="LogTime" runat="server"></asp:Label>
     </div>
+    <div style ="height:70%">
+    <form id="form1" runat="server">
     <hr />
     <div class="auto-style2">
         <div style="float:left;width:20%;height:100%;overflow-y:scroll;overflow-x:scroll">
@@ -55,8 +56,8 @@
         </div>      
     </div>
     </form>
-
-    <div style="clear:left;text-align:center">
+    </div>
+    <div style="clear:left;text-align:center;height:15px">
         <hr />
         © 2017 Whitireia New Zealand &amp; BCD Carpentry Ltd</div>
      <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
