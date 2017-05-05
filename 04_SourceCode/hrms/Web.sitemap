@@ -18,7 +18,10 @@
           <siteMapNode url="~/CreateTimeSheet.aspx" title="New"  description="" />
           <siteMapNode url="~/QueryTimeSheet.aspx" title="Query"  description="" />
         </siteMapNode>
-        <siteMapNode url="~/Wage.aspx" title="Wage"  description="" />
+        <siteMapNode url="" title="Wage"  description="" >
+          <siteMapNode url="~/CreateWage.aspx" title="New"  description="" />
+          <siteMapNode url="~/QueryWage.aspx" title="Query"  description="" />
+        </siteMapNode>
         <siteMapNode url="~/Tax.aspx" title="Tax"  description="" />
         <siteMapNode url="" title="IndividualDebt"  description="" >
           <siteMapNode url="~/CreateIndividualDebt.aspx" title="New"  description="" />
