@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="QueryWage.aspx.cs" Inherits="Default2"  EnableEventValidation="false"%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MaintainTax.aspx.cs" Inherits="Default2"  EnableEventValidation="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
@@ -12,7 +12,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div style="height: 100%;overflow-y: scroll;">
-        <h2 class="auto-style6"><strong>Time Sheet Information</strong></h2>
+        <h2 class="auto-style6"><strong>Maintan Tax Information</strong></h2>
         <div style="width: 100%">
             <div style="float: left; width: 25%; text-align: right">
                 Forename:&nbsp;&nbsp;
@@ -48,7 +48,7 @@
 
         <div style=" width: 100%; text-align: center">
 
-            <asp:GridView ID="GridViewWage" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="EmployeeID,WeekEndingDate" DataSourceID="SqlDataSourceWage" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridViewTax" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="EmployeeID,WeekEndingDate,Category" DataSourceID="SqlDataSourceTax" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:CommandField HeaderText="Update" ShowEditButton="true" />
@@ -56,16 +56,12 @@
                     <asp:BoundField DataField="WeekEndingDate" ReadOnly="True" HeaderText="Week Ending"/>
                     <asp:BoundField DataField="Forename" HeaderText="Forename" ReadOnly="True" SortExpression="Forename" />
                     <asp:BoundField DataField="Surname" HeaderText="Surname" ReadOnly="true" SortExpression="Surname" />
-                    <asp:BoundField DataField="PayRate" HeaderText="Rate" ReadOnly="true" SortExpression="Date" />
-                    
-                    <asp:BoundField DataField="TaxRate" HeaderText="Tax(%)" ReadOnly="true" SortExpression="TaxRate"/>
-                    <asp:BoundField DataField="Position" HeaderText="Type" ReadOnly="true" SortExpression="Position" />
-                    <asp:BoundField DataField="Amount" HeaderText="Paid Amount" SortExpression="Amount" />
-                    <asp:BoundField DataField="Travel" HeaderText="Travel" SortExpression="Travel" />
-                    <asp:BoundField DataField="Deduction" HeaderText="Deduction" SortExpression="Deduction" />
-                    <asp:BoundField DataField="GST" HeaderText="GST" SortExpression="GST" />
-                    <asp:BoundField DataField="WINZ" HeaderText="WINZ" SortExpression="WINZ" />
-                    <asp:BoundField DataField="IRD" HeaderText="IRD" SortExpression="IRD" />                   
+                    <asp:BoundField DataField="IRDNumber" HeaderText="IRD Number" ReadOnly="true" SortExpression="DIRDNumberate" />                   
+                    <asp:BoundField DataField="TaxRate" HeaderText="Tax Rate(%)" ReadOnly="true" SortExpression="TaxRate"/>
+                    <asp:BoundField DataField="WeekEndingDate" HeaderText="Week Ending" ReadOnly="true" SortExpression="WeekEndingDate" />
+                    <asp:BoundField DataField="Category" HeaderText="Category" ReadOnly="true" SortExpression="Category" />
+                    <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
+                    <asp:BoundField DataField="Note" HeaderText="Deduction Note" SortExpression="Note" />                
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -78,11 +74,11 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSourceWage" runat="server"
+            <asp:SqlDataSource ID="SqlDataSourceTax" runat="server"
                 ConnectionString="<%$ ConnectionStrings:HRMSDBConnectionString %>"
-                SelectCommand="SELECT e.Forename, e.Surname, e.PayRate, e.TaxRate, e.Position, w.* FROM [EMPLOYEE] e,[WAGE] w WHERE e.EmployeeID = w.EmployeeID and e.EmployeeStatus = 'Y' order by e.Forename, e.Surname, w.WeekEndingDate"
-                DeleteCommand="DELETE FROM [WAGE] WHERE EmployeeID = @EmployeeID AND WeekEndingDate = @WeekEndingDate"
-                UpdateCommand="UPDATE [WAGE] SET Amount = @Amount, Travel = @Travel, Decduction = @Deduction, GST = @GST, WINZ = @WINZ, IRD = @IRD WHERE EmployeeID = @EmployeeID AND WeekEndingDate = @WeekEndingDate"></asp:SqlDataSource>
+                SelectCommand="SELECT e.Forename, e.Surname, e.IRDNumber, e.TaxRate,  t.* FROM [EMPLOYEE] e,[TAX] t WHERE e.EmployeeID = t.EmployeeID and e.EmployeeStatus = 'Y' order by e.Forename, e.Surname, t.WeekEndingDate, t.Category"
+                DeleteCommand="DELETE FROM [TAX] WHERE EmployeeID = @EmployeeID AND WeekEndingDate = @WeekEndingDate AND Category = @Category"
+                UpdateCommand="UPDATE [Tax] SET Amount = @Amount, Note = @Note WHERE EmployeeID = @EmployeeID AND WeekEndingDate = @WeekEndingDate  AND Category = @Category"></asp:SqlDataSource>
         </div>
         <br />
         <br />
