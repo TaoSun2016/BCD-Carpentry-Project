@@ -144,6 +144,29 @@ CREATE TABLE WAGE (
   PRIMARY KEY (EmployeeID, 
   WeekEndingDate));
 go
+CREATE TABLE TAX(
+	EmployeeID int FOREIGN KEY REFERENCES EMPLOYEE (EmployeeID),
+	WeekEndingDate date,
+	Category	int CHECK(Category in (1,2,3,4)),--1.gross wage 2.tax 3.GST 4.deduction
+	Amount		money,
+	Note		varchar(256),
+	PRIMARY KEY (EmployeeID,WeekEndingDate,Category)
+	)
+go
+CREATE TABLE TAX_REPORT(
+	SeqNumber	int NOT NULL,
+	Forename	varchar(50) NULL,
+	Surname		varchar(50) NULL,
+	IRDNumber	varchar(20) NULL,
+	TaxRate		int NULL,
+	WeekEndingDate	varchar(12)  NULL,
+	Wage		money  NULL,
+	Tax			money  NULL,
+	GST			money  NULL,
+	Deduction	money  NULL,
+	Note		varchar(256) Null
+)
+go
 CREATE TABLE COMPETENCY (
   EmployeeID        int NOT NULL, 
   [Date]            date NOT NULL, 
@@ -212,7 +235,7 @@ go
 CREATE TABLE EMPLOYEE_HISTORY (
   EmployeeID              int NOT NULL, 
   Position                varchar(10) NOT NULL, 
-  Forname                 varchar(50) NOT NULL, 
+  Forename                 varchar(50) NOT NULL, 
   Surname                 varchar(50) NOT NULL, 
   HomeNumber              varchar(20) NULL, 
   MobileNumber            varchar(20) NOT NULL, 
