@@ -11,25 +11,40 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div style="height:100%; overflow-y:scroll" class="auto-style7" id="Forename">
+    <div style="height:100%; overflow-y:scroll" class="auto-style7">
         <h2 class="auto-style6"><strong>Maintain Employee Information</strong></h2>
         <div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Forename:&nbsp;
-            <asp:TextBox ID="Q_Forename" runat="server" MaxLength="60"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Surname:&nbsp;
-            <asp:TextBox ID="Q_Surname" runat="server" MaxLength="50"></asp:TextBox>
-            &nbsp;<br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Forename:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="Q_Forename" runat="server" MaxLength="60"></asp:TextBox>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Surname:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">
+                    <asp:TextBox ID="Q_Surname" runat="server" MaxLength="50"></asp:TextBox>
+                </div>
+            </div>
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-            DOB:&nbsp;
-            <asp:TextBox ID="Q_DOB" runat="server" MaxLength="8"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email:&nbsp;
-            <asp:TextBox ID="Q_Email" runat="server" MaxLength="100"></asp:TextBox>
+            <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Email:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="Q_Email" runat="server" MaxLength="100"></asp:TextBox>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">
+                   &nbsp;&nbsp;
+                </div>
+            </div>
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Query" runat="server" Text="Query" Width="83px" OnClick="Query_Click" />
+            <div style="width:100%;text-align:center">
+                <asp:Button ID="Query" runat="server" Text="Query" Width="83px" OnClick="Query_Click" />
+            </div>
             <br />
             <hr />
         </div>
@@ -37,43 +52,109 @@
             <strong>Basic Information</strong>
         </p>
         <div class="auto-style7">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Forename:&nbsp;
-            <asp:TextBox ID="Forename" runat="server" MaxLength="50"></asp:TextBox>
-            *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Surname:&nbsp;
-            <asp:TextBox ID="Surname" runat="server" MaxLength="50"></asp:TextBox>
-            *<br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOB:&nbsp;
-            <asp:TextBox ID="DOB" runat="server" MaxLength="8"></asp:TextBox>
-            *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Position:&nbsp;
-            <asp:TextBox ID="Position" runat="server" MaxLength="10"></asp:TextBox>*<br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HireDate:&nbsp;
-            <asp:TextBox ID="HireDate" runat="server" MaxLength="8"></asp:TextBox>
-            *&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResignDate:&nbsp;
-            <asp:TextBox ID="ResignDate" runat="server" MaxLength="8"></asp:TextBox><br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; YearsInBCD:&nbsp;
-            <asp:TextBox ID="YearsInBCD" runat="server" TextMode="Number"></asp:TextBox>
-            *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; YearsInIndustry:&nbsp;
-            <asp:TextBox ID="YearsInIndustry" runat="server" TextMode="Number"></asp:TextBox>*<br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            DriverLicenseNumber:&nbsp;
-            <asp:TextBox ID="DriverLicenseNumber" runat="server" MaxLength="30"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DriverLicenseClass:&nbsp;
-            <asp:TextBox ID="DriverLicenseClass" runat="server" MaxLength="10"></asp:TextBox><br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DriverLicenseExpiryDate:&nbsp;&nbsp;<asp:TextBox ID="DriverLicenseExpiryDate" runat="server" MaxLength="8"></asp:TextBox>
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Forename:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="Forename" runat="server" MaxLength="50"></asp:TextBox>*
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Surname:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">
+                    <asp:TextBox ID="Surname" runat="server" MaxLength="50"></asp:TextBox>*
+                </div>
+            </div>
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            DriverLicensePhoto:&nbsp;
-            <asp:TextBox ID="DriverLicensePhoto" runat="server"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SiteSafePhoto:&nbsp;
-            <asp:TextBox ID="SiteSafePhoto" runat="server"></asp:TextBox>
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    DOB:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="DOB" runat="server" MaxLength="8"></asp:TextBox>*
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Position:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">
+                    <asp:TextBox ID="Position" runat="server" MaxLength="10"></asp:TextBox>*
+                </div>
+            </div>
+            <br />
+            <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Hire Date:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="HireDate" runat="server" MaxLength="8"></asp:TextBox>*
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Resign Date:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">
+                    <asp:TextBox ID="ResignDate" runat="server" MaxLength="8"></asp:TextBox>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Years In BCD:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="YearsInBCD" runat="server" TextMode="Number"></asp:TextBox>*
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Years In Industry:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">
+                    <asp:TextBox ID="YearsInIndustry" runat="server" TextMode="Number"></asp:TextBox>*
+                </div>
+            </div>
+            <br />
+            <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Driver License Number:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="DriverLicenseNumber" runat="server" MaxLength="30"></asp:TextBox>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Driver License Class:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">
+                    <asp:TextBox ID="DriverLicenseClass" runat="server" MaxLength="10"></asp:TextBox>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Driver License ExpiryDate:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="DriverLicenseExpiryDate" runat="server" MaxLength="8"></asp:TextBox>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">&nbsp;&nbsp;</div>
+            </div>
+            <br />
+            <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Driver License Photo:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">       
+                    <asp:FileUpload ID="DriverLicensePhoto" runat="server" />
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Site Safe Photo:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">&nbsp;&nbsp;<asp:FileUpload ID="SiteSafePhoto" runat="server" /></div>
+            </div>
+            <br />
+            <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 50%; text-align: center">
+                    <asp:Image ID="DriverLicense" runat="server" AlternateText="Driver License Photo"  width="300px" Height="200px" BorderStyle="Dotted"/>
+                </div>
+                <div style="float: left; width: 50%; text-align: center">       
+                    <asp:Image ID="SiteSafe" runat="server" AlternateText ="Site Safe Photo" width="300px" Height="200px" BorderStyle="Dotted" />
+                </div>
+               
+            </div>
             <br />
             <br />
         </div>
@@ -83,25 +164,43 @@
             <strong>Contact Information</strong>
         </p>
         <div class="auto-style7">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            MobileNumber:&nbsp;
-            <asp:TextBox ID="MobileNumber" runat="server" MaxLength="20"></asp:TextBox>
-            *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HomeNumber:&nbsp;
-            <asp:TextBox ID="HomeNumber" runat="server" MaxLength="20"></asp:TextBox>
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Mobile Number:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="MobileNumber" runat="server" MaxLength="20"></asp:TextBox>*
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Home Number:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%"><asp:TextBox ID="HomeNumber" runat="server" MaxLength="20"></asp:TextBox></div>
+            </div>
             <br />
+            <br />            
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Email:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="Email" runat="server"></asp:TextBox>*
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">&nbsp;&nbsp;</div>
+            </div>
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Email:&nbsp;
-            <asp:TextBox ID="Email" runat="server"></asp:TextBox>
-            *<br />
+            <br />   
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Kin Name:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="KinName" runat="server" MaxLength="100"></asp:TextBox>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Kin Number:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%"><asp:TextBox ID="KinNumber" runat="server" MaxLength="20"></asp:TextBox></div>
+            </div>
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            KinName:&nbsp;
-            <asp:TextBox ID="KinName" runat="server" MaxLength="100"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KinNumber:&nbsp;
-            <asp:TextBox ID="KinNumber" runat="server" MaxLength="20"></asp:TextBox>
-            <br />
+            <br />   
+            
         </div>
         <hr />
         <br />
@@ -109,24 +208,43 @@
             <strong>Account Information</strong>
         </p>
         <div class="auto-style7">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        BankName:&nbsp;
-            <asp:TextBox ID="BankName" runat="server" MaxLength="30"></asp:TextBox>
-            *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AccountNumber:&nbsp;
-            <asp:TextBox ID="AccountNumber" runat="server" MaxLength="30"></asp:TextBox>
-            *<br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Bank Name:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="BankName" runat="server" MaxLength="30"></asp:TextBox>*
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Account Number:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%"> <asp:TextBox ID="AccountNumber" runat="server" MaxLength="30"></asp:TextBox>*</div>
+            </div>
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        PayRate:&nbsp;
-            <asp:TextBox ID="PayRate" runat="server" TextMode="Number"></asp:TextBox>
-            *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TaxRate:&nbsp;
-            <asp:TextBox ID="TaxRate" runat="server" TextMode="Number"></asp:TextBox>
-            *<br />
+            <br />  
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Pay Rate:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="PayRate" runat="server" TextMode="Number"></asp:TextBox>*
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Tax Rate:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%"> <asp:TextBox ID="TaxRate" runat="server" TextMode="Number"></asp:TextBox>*</div>
+            </div>
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        IRDNumber:&nbsp;
-            <asp:TextBox ID="IRDNumber" runat="server" MaxLength="20"></asp:TextBox>
             <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    IRD Number:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="IRDNumber" runat="server" MaxLength="20"></asp:TextBox>*
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%"> &nbsp;&nbsp;</div>
+            </div>
+            <br />
+            <br />        
+
         </div>
         <hr />
         <br />
@@ -134,24 +252,43 @@
             <strong>Address Information</strong>
         </p>
         <div class="auto-style7">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Country:&nbsp;           
-            <asp:TextBox ID="Country" runat="server" MaxLength="30"></asp:TextBox>
-            *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; City:&nbsp;
-            <asp:TextBox ID="City" runat="server" MaxLength="30"></asp:TextBox>
-            *<br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Country:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="Country" runat="server" MaxLength="30"></asp:TextBox>*
+                </div>
+                <div style="float: left; width: 15%; text-align: right">City:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%"> <asp:TextBox ID="City" runat="server" MaxLength="30"></asp:TextBox>*</div>
+            </div>
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Suburb:&nbsp;
-            <asp:TextBox ID="Suburb" runat="server" MaxLength="30"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Street:&nbsp;
-            <asp:TextBox ID="Street" runat="server" MaxLength="100"></asp:TextBox>
-            *<br />
+            <br />            
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Suburb:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="Suburb" runat="server" MaxLength="30"></asp:TextBox>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Street:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%"> <asp:TextBox ID="Street" runat="server" MaxLength="100"></asp:TextBox>*</div>
+            </div>
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            PostCode:&nbsp;
-            <asp:TextBox ID="PostCode" runat="server" MaxLength="10"></asp:TextBox>
             <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Post Code:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:TextBox ID="PostCode" runat="server" MaxLength="10"></asp:TextBox>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%"> &nbsp;&nbsp;</div>
+            </div>
+            <br />
+            <br />
+            
             <hr />
             <br />
         </div>
@@ -159,10 +296,18 @@
             <strong>Note</strong>
         </p>
         <div class="auto-style7">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Note:&nbsp;
-            <asp:TextBox ID="Note" runat="server" MaxLength="255" Width="525px"></asp:TextBox>
-        </div>
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Note:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 75%">
+                    <asp:TextBox ID="Note" runat="server" MaxLength="255" Width="525px"></asp:TextBox>
+                </div>
+
+            </div>
+            <br />
+            <br />                     
+        </div>      
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -182,8 +327,6 @@
         <asp:HiddenField ID="oldDriverLicenseNumber" runat="server" />
         <asp:HiddenField ID="oldDriverLicenseClass" runat="server" />
         <asp:HiddenField ID="oldDriverLicenseExpiryDate" runat="server" />
-        <asp:HiddenField ID="oldDriverLicensePhoto" runat="server" />
-        <asp:HiddenField ID="oldSiteSafePhoto" runat="server" />
         <asp:HiddenField ID="oldMobileNumber" runat="server" />
         <asp:HiddenField ID="oldHomeNumber" runat="server" />
         <asp:HiddenField ID="oldEmail" runat="server" />

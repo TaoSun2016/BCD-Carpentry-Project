@@ -62,4 +62,20 @@ public partial class Default2 : System.Web.UI.Page
     }
 
     public override void VerifyRenderingInServerForm(Control control) { }
+
+    protected void Basic_CheckedChanged(object sender, EventArgs e)
+    {
+        if (Basic.Checked)
+        {
+            Forename.Checked = true;
+            Surname.Checked = true;
+            Position.Checked = true;
+        }
+        else
+        {
+            Forename.Checked = false;
+            Surname.Checked = false;
+            Position.Checked = false;
+        }
+    }
 }

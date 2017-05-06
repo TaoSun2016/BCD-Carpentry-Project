@@ -19,8 +19,34 @@ public partial class Default2 : System.Web.UI.Page
     {
         int ErrCode;
         string ErrMsg;
- 
 
+        string DriverLicenseFileName;
+        string SiteSafeFileName;
+
+        string Path = HttpContext.Current.Request.MapPath("~/");
+        if (DriverLicensePhoto.HasFile)
+        {
+
+            DriverLicenseFileName = Path+"Images/DriverLicense/DriverLicense_"+Forename.Text.Trim() + "_" + Surname.Text.Trim() + "_" + Email.Text.Trim() + ".jpg";
+            DriverLicensePhoto.SaveAs(DriverLicenseFileName);
+            DriverLicenseFileName = "~/Images/DriverLicense/DriverLicense_" + Forename.Text.Trim() + "_" + Surname.Text.Trim() + "_" + Email.Text.Trim() + ".jpg";
+        }
+        else
+        {
+            DriverLicenseFileName = "";
+        }
+
+        if (SiteSafePhoto.HasFile)
+        {
+            SiteSafeFileName = Path + "Images/SiteSafe/SiteSafe_" + Forename.Text.Trim() + "_" + Surname.Text.Trim() + "_" + Email.Text.Trim() + ".jpg";
+            SiteSafePhoto.SaveAs(SiteSafeFileName);
+            SiteSafeFileName = "~/Images/SiteSafe/SiteSafe_" + Forename.Text.Trim() + "_" + Surname.Text.Trim() + "_" + Email.Text.Trim() + ".jpg"; 
+
+        }
+        else
+        {
+            SiteSafeFileName = "";
+        }
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
         SqlConnection conn = new SqlConnection(connectionString);
 
@@ -84,12 +110,12 @@ public partial class Default2 : System.Web.UI.Page
 
         cmdParameter = new SqlParameter("@DriverLicensePhoto", SqlDbType.VarChar, 255);
         cmdParameter.Direction = ParameterDirection.Input;
-        cmdParameter.Value = DriverLicensePhoto.Text;
+        cmdParameter.Value = DriverLicenseFileName;
         myCommand.Parameters.Add(cmdParameter);
 
         cmdParameter = new SqlParameter("@SiteSafePhoto", SqlDbType.VarChar, 255);
         cmdParameter.Direction = ParameterDirection.Input;
-        cmdParameter.Value = SiteSafePhoto.Text;
+        cmdParameter.Value = SiteSafeFileName;
         myCommand.Parameters.Add(cmdParameter);
 
         cmdParameter = new SqlParameter("@MobileNumber", SqlDbType.VarChar, 20);
@@ -220,8 +246,6 @@ public partial class Default2 : System.Web.UI.Page
         DriverLicenseNumber.Text = "";
         DriverLicenseClass.Text = "";
         DriverLicenseClass.Text = "";
-        DriverLicensePhoto.Text = "";
-        SiteSafePhoto.Text = "";
         MobileNumber.Text = "";
         HomeNumber.Text = "";
         Email.Text = "";
