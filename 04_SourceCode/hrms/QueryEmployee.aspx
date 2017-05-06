@@ -28,9 +28,11 @@
             <div style="float: left; width: 20%; text-align: left">
                 <asp:CheckBox ID="DOB" runat="server" Text="DOB" /></div>
             <div style="float: left; width: 20%; text-align: left">
-                <asp:CheckBox ID="Hiredate" runat="server" Text="Hire date" /></div>
+                <asp:CheckBox ID="HireDate" runat="server" Text="Hire Date" /></div>
         </div>
         <div style="float: left; width: 100%">
+            <div style="float: left; width: 20%; text-align: left">
+                <asp:CheckBox ID="ResignDate" runat="server" Text="Resign Date" /></div>
             <div style="float: left; width: 20%; text-align: left">
                 <asp:CheckBox ID="YearsInBCD" runat="server" Text="Years In BCD" /></div>
             <div style="float: left; width: 20%; text-align: left">
@@ -39,17 +41,20 @@
                 <asp:CheckBox ID="DriverLicenseNumber" runat="server" Text="Driver License Number" /></div>
             <div style="float: left; width: 20%; text-align: left">
                 <asp:CheckBox ID="DriverLicenseClass" runat="server" Text="Driver License Class" /></div>
-            <div style="float: left; width: 20%; text-align: left">
-                <asp:CheckBox ID="DriverLicensePhoto" runat="server" Text="Driver License Photo" /></div>
+            
         </div>
         <div style="float: left; width: 100%">
             <div style="float: left; width: 20%; text-align: left">
+                <asp:CheckBox ID="DriverLicenseExpiryDate" runat="server" Text="Driver License Photo" /></div>
+            <div style="float: left; width: 20%; text-align: left">
+                <asp:CheckBox ID="DriverLicensePhoto" runat="server" Text="Driver License Photo" /></div>
+            <div style="float: left; width: 20%; text-align: left">
                 <asp:CheckBox ID="SiteSafePhoto" runat="server" Text="Site Safe Photo" /></div>
-            <div style="float: left; width: 80%; text-align: center">&nbsp;</div>
+            <div style="float: left; width: 40%; text-align: center">&nbsp;</div>
         </div>
         <hr />
         <div style="width: 100%; text-align: left">
-            <asp:CheckBox ID="Contact" runat="server" Text="Contact Information" />
+            <asp:CheckBox ID="Contact" runat="server" Text="Contact Information" AutoPostBack="True" OnCheckedChanged="Contact_CheckedChanged" />
         </div>
         <br />
         <div style="float: left; width: 100%">
@@ -66,7 +71,7 @@
         </div>
         <hr />
         <div style="width: 100%; text-align: left">
-            <asp:CheckBox ID="Account" runat="server" Text="Account Information" />
+            <asp:CheckBox ID="Account" runat="server" Text="Account Information" AutoPostBack="True" OnCheckedChanged="Account_CheckedChanged" />
         </div>
         <br />
         <div style="float: left; width: 100%">
@@ -83,7 +88,7 @@
         </div>
         <hr />
         <div style="width: 100%; text-align: left">
-            <asp:CheckBox ID="Address" runat="server" Text="Address Information" />
+            <asp:CheckBox ID="Address" runat="server" Text="Address Information" AutoPostBack="True" OnCheckedChanged="Address_CheckedChanged" />
         </div>
         <br />
         <div style="float: left; width: 100%">
@@ -103,8 +108,10 @@
             <asp:CheckBox ID="Note" runat="server" Text="Note" />
         </div>
         <div style="width: 100%; text-align: center">
-            <asp:Button ID="Query" runat="server" Text="Query" />
+            <asp:Button ID="Query" runat="server" Text="Query" OnClick="Query_Click" />
         </div>
+        <br />
+        <hr />
         <div>
             <asp:GridView ID="EmployeeGridView" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="EmployeeID" DataSourceID="SqlDataSource1" GridLines="None" ForeColor="#333333" AllowSorting="True" Visible="False">
                 <AlternatingRowStyle BackColor="White" />
