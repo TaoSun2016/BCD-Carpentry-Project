@@ -135,6 +135,8 @@
             </div>
             <br />
             <asp:HiddenField ID="EmployeeID" runat="server" />
+            <asp:HiddenField ID="Forename" runat="server" />
+            <asp:HiddenField ID="Surname" runat="server" />
             <br />
         </div>
         <br />
