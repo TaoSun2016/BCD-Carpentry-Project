@@ -31,11 +31,7 @@
           <siteMapNode url="~/CreateIndividualDebt.aspx" title="New"  description="" />
           <siteMapNode url="~/QueryIndividualDebt.aspx" title="Query"  description="" />
         </siteMapNode>
-        <siteMapNode url="" title="Competency"  description="" >
-          <siteMapNode url="~/CreateCompetency.aspx" title="New"  description="" />
-          <siteMapNode url="~/MaintainCompetency.aspx" title="Maintain"  description="" />
-        </siteMapNode>
-        
+        <siteMapNode url="~/Competency.aspx" title="Competency"  description="" />
         <siteMapNode url="" title="Tool"  description="" >
             <siteMapNode url="~/ToolUse.aspx" title="ToolUse"  description="" />
             <siteMapNode url="~/ToolList.aspx.aspx" title="ToolList"  description="" />
