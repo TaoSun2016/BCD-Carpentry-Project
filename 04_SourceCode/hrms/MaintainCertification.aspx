@@ -13,11 +13,11 @@
                 Forename:&nbsp;&nbsp;
             </div>
             <div style="float: left; width: 25%">
-                <asp:TextBox ID="Forename" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Q_Forename" runat="server"></asp:TextBox>
             </div>
             <div style="float: left; width: 10%; text-align: right">Surname:&nbsp;&nbsp;</div>
             <div style="float: left; width: 40%">
-                <asp:TextBox ID="Surname" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Q_Surname" runat="server"></asp:TextBox>
             </div>
         </div>
         <br />
@@ -26,7 +26,7 @@
                 Email:&nbsp;&nbsp;
             </div>
             <div style="float: left; width: 25%">
-                <asp:TextBox ID="Email" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Q_Email" runat="server"></asp:TextBox>
             </div>
             <div style="float: left; width: 10%; text-align: right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
             <div style="float: left; width: 40%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
@@ -74,7 +74,7 @@
                 <asp:CheckBox ID="FallArrest" runat="server" Text="Fall Arrest " />
             </div>
             <div style="float: left; width: 20%; text-align: left">
-                <asp:CheckBox ID="ConfinedSpaces" runat="server" Text="Confined Spaces" />
+                <asp:CheckBox ID="ConfindSpaces" runat="server" Text="Confined Spaces" />
             </div>
             <div style="float: left; width: 20%; text-align: left">
                 <asp:CheckBox ID="Ramset" runat="server" Text="Ramset" />
@@ -113,7 +113,8 @@
             <div style="float: left; width: 20%; text-align: left">
                 <asp:CheckBox ID="CopyFlag" runat="server" Text="Cert Copied" />
             </div>
-            <div style="float: left; width: 20%; text-align: left">&nbsp;&nbsp;</div>
+            <div style="float: left; width: 20%; text-align: left">&nbsp;<asp:HiddenField ID="EmployeeID" runat="server" />
+                &nbsp;</div>
         </div>
         <br />
         <br />
@@ -121,8 +122,15 @@
         <br />
         <br />
         <br />
-        <div style="float: left; width: 100%; text-align: center">
-            <asp:Button ID="Add" runat="server" Text="Add/Update" OnClick="Add_Click" />
+        <div style="float:left;width: 100%">
+            
+            <div style="float:left;width:50%;text-align:center">
+                <asp:Button ID="Add" runat="server" Text="Add/Update" OnClick="Add_Click" />
+            </div>
+            <div style="float:left;width:50%;text-align:center">
+                <asp:Button ID="Delete" runat="server" Text="Delete" OnClick="Delete_Click" />
+            </div> 
+           
         </div>
     </div>
 </asp:Content>
