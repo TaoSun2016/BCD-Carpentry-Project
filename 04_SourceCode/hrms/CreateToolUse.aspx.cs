@@ -23,13 +23,20 @@ public partial class Default2 : System.Web.UI.Page
         int ErrCode;
         string ErrMsg;
 
+        RequiredFieldValidator1.Enabled = true;
+        RequiredFieldValidator2.Enabled = true;
+
+
         if (Forename.Text.Trim() == "" && Surname.Text.Trim() == "" && Email.Text.Trim() == "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not be null at the same time!')</script>");
+            return;
         }
+
         if (Date.Text.Trim() == "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('Please input date!')</script>");
+            return;
         }
 
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
@@ -105,18 +112,37 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
+            ClearData();
             ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('Add successfully!')</script>");
+            
         }
-    }
-
-    protected void CalendarButton_Click(object sender, EventArgs e)
-    {
-        Calendar.Visible = true;
     }
 
     protected void Calendar_SelectionChanged(object sender, EventArgs e)
     {
         Date.Text = Calendar.SelectedDate.ToString("dd-MM-yyyy");
         Calendar.Visible = false;
+    }
+
+    protected void CalenderButton_Click(object sender, ImageClickEventArgs e)
+    {
+        if (Calendar.Visible == true)
+        {
+            Calendar.Visible = false;
+        }
+        else
+        {
+            Calendar.Visible = true;
+        }
+    }
+    private void ClearData()
+    {
+        Forename.Text = "";
+        Surname.Text = "";
+        Email.Text = "";
+        Date.Text = "";
+        ToolName.Text = "";
+        ToolNumber.Text = "";
+        Comment.Text = "";
     }
 }

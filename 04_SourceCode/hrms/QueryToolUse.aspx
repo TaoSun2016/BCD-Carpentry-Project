@@ -44,11 +44,11 @@
                 Begin Date:&nbsp;&nbsp;
             </div>
             <div style="float: left; width: 25%">
-                <asp:TextBox ID="BeginDate" runat="server"></asp:TextBox><asp:Button ID="CalendarButtonBeginDate" runat="server" Height="22px" Width="16px" OnClick="CalendarButtonBeginDate_Click" />
+                <asp:TextBox ID="BeginDate" runat="server"></asp:TextBox><asp:ImageButton ID="ImageBeginDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="ImageBeginDate_Click" />
             </div>
             <div style="float: left; width: 10%; text-align: right">End Date:&nbsp;&nbsp;</div>
             <div style="float: left; width: 40%">
-                <asp:TextBox ID="EndDate" runat="server"></asp:TextBox><asp:Button ID="CalendarButtonEndDate" runat="server" Height="22px" Width="16px" OnClick="CalendarButtonEndDate_Click" />
+                <asp:TextBox ID="EndDate" runat="server"></asp:TextBox><asp:ImageButton ID="ImageEndDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="ImageEndDate_Click" />
             </div>
         </div>
         <br />
@@ -82,21 +82,19 @@
 
         <div style=" width: 100%; text-align: center">
 
-            <asp:GridView ID="GridViewToolUse" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="RegisterID" DataSourceID="SqlDataSourceToolUse" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridViewToolUse" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="RegisterID" DataSourceID="SqlDataSourceToolUse" ForeColor="#333333" GridLines="None" Visible ="false">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:CommandField HeaderText="Update" ShowEditButton="true" />
                     <asp:CommandField HeaderText="Delete" ShowDeleteButton="true" />
                     <asp:BoundField DataField="RegisterID" HeaderText="RegisterID" Visible="false" />
-                    <asp:BoundField DataField="Date" HeaderText="DATE"  SortExpression="Date" />
+                    <asp:BoundField DataField="Date" HeaderText="DATE" DataFormatString="{0:dd-MM-yyyy}" SortExpression="Date" />
                     <asp:BoundField DataField="ToolName" HeaderText="TOOL NAME" SortExpression="ToolName"/>
                     <asp:BoundField DataField="ToolNumber" HeaderText="TOOL NUMBER" SortExpression="ToolNumber"/>
                     <asp:BoundField DataField="InOut" HeaderText="In/Out" SortExpression="InOut"/>
                     <asp:BoundField DataField="Forename" HeaderText="FORENAME" ReadOnly="True" SortExpression="Forename" />
                     <asp:BoundField DataField="Surname" HeaderText="SURNAME" ReadOnly="true" SortExpression="Surname" />
-                    <asp:BoundField DataField="Comment" HeaderText="COMMENT"  SortExpression="Comment" />
-                    
-                    
+                    <asp:BoundField DataField="Comment" HeaderText="COMMENT"  SortExpression="Comment" />         
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -113,7 +111,7 @@
                 ConnectionString="<%$ ConnectionStrings:HRMSDBConnectionString %>"
                 SelectCommand="SELECT e.Forename, e.Surname,t.* FROM [EMPLOYEE] e,[TOOL_USE_REGISTER] t WHERE e.EmployeeID = t.EmployeeID and e.EmployeeStatus = 'Y' order by e.Forename,e.Surname,t.[Date]"
                 DeleteCommand="DELETE FROM [TOOL_USE_REGISTER] WHERE RegisterID = @RegisterID"
-                UpdateCommand="UPDATE [INDIVIDUAL_DEBT] SET Date = @Date, ToolName = @ToolName, ToolNumber = @ToolNumber, InOut = @InOut, Comment = @Comment WHERE RegisterID = @RegisterID"></asp:SqlDataSource>
+                UpdateCommand="UPDATE [TOOL_USE_REGISTER] SET Date = @Date, ToolName = @ToolName, ToolNumber = @ToolNumber, InOut = @InOut, Comment = @Comment WHERE RegisterID = @RegisterID"></asp:SqlDataSource>
         </div>
         <br />
         <br />

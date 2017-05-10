@@ -12,7 +12,10 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["UserName"] == null)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 
     protected void Add_Click(object sender, EventArgs e)
@@ -27,7 +30,7 @@ public partial class Default2 : System.Web.UI.Page
         SqlCommand myCommand = new SqlCommand("sp_addToolTraining", conn);
         myCommand.CommandType = CommandType.StoredProcedure;
 
-        SqlParameter cmdParameter = new SqlParameter("@Forname", SqlDbType.VarChar, 50);
+        SqlParameter cmdParameter = new SqlParameter("@Forename", SqlDbType.VarChar, 50);
         cmdParameter.Direction = ParameterDirection.Input;
         cmdParameter.Value = Forename.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);

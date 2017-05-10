@@ -96,16 +96,32 @@ public partial class Default2 : System.Web.UI.Page
         }
         SqlDataSourceToolUse.SelectCommand = sql + " order by e.Forename,e.Surname,t.[Date]";
         GridViewToolUse.DataBind();
+        GridViewToolUse.Visible = true;
+        Export.Visible = true;
     }
 
-    protected void CalendarButtonBeginDate_Click(object sender, EventArgs e)
+    protected void ImageBeginDate_Click(object sender, EventArgs e)
     {
-        CalendarBeginDate.Visible = true;
+        if (CalendarBeginDate.Visible == true)
+        {
+            CalendarBeginDate.Visible = false;
+        }
+        else
+        {
+            CalendarBeginDate.Visible = true;
+        }
     }
 
-    protected void CalendarButtonEndDate_Click(object sender, EventArgs e)
+    protected void ImageEndDate_Click(object sender, EventArgs e)
     {
-        CalendarEndDate.Visible = true;
+        if (CalendarEndDate.Visible == true)
+        {
+            CalendarEndDate.Visible = false;
+        }
+        else
+        {
+            CalendarEndDate.Visible = true;
+        }
     }
 
     protected void CalendarBeginDate_SelectionChanged(object sender, EventArgs e)
@@ -118,5 +134,17 @@ public partial class Default2 : System.Web.UI.Page
     {
         EndDate.Text = CalendarEndDate.SelectedDate.ToString("dd-MM-yyyy");
         CalendarEndDate.Visible = false;
+    }
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarBeginDate.Visible == true)
+        {
+            CalendarBeginDate.Visible = false;
+        }
+        else
+        {
+            CalendarBeginDate.Visible = true;
+        }
     }
 }

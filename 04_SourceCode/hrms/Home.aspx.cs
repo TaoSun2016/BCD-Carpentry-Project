@@ -9,12 +9,15 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string UserName = (string)Session["UserName"];
-        if (UserName == "")
+        if (Session["UserName"] == null)
         {
            Response.Redirect("Default.aspx");
         }
-        Forename.Text = (string)Session["Forename"];
-        Surname.Text = (string)Session["Surname"];
+        else
+        {
+            Forename.Text = (string)Session["Forename"];
+            Surname.Text = (string)Session["Surname"];
+        }
+
     }
 }

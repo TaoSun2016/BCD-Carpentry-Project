@@ -67,7 +67,7 @@
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSourceAttendance" runat="server"
             ConnectionString="<%$ ConnectionStrings:HRMSDBConnectionString %>"
-            SelectCommand="SELECT e.Forname,e.Surname,a.* FROM [EMPLOYEE] e, [ATTENDANCE] a WHERE e.EmployeeID = a.EmployeeID and e.EmployeeStatus = 'Y' order by a.Year desc, a.Month desc, e.Forname"
+            SelectCommand="SELECT e.Forename,e.Surname,a.* FROM [EMPLOYEE] e, [ATTENDANCE] a WHERE e.EmployeeID = a.EmployeeID and e.EmployeeStatus = 'Y' order by a.Year desc, a.Month desc, e.Forename"
             DeleteCommand="DELETE FROM [ATTENDANCE] WHERE EmployeeID = @EmployeeID AND Year = @Year AND Month = @Month"
             UpdateCommand="UPDATE [ATTENDANCE] SET Day1 = @Day1, Day2 = @Day2, Day3 = @Day3
                                                   ,Day4 = @Day4, Day5 = @Day5, Day6 = @Day6
