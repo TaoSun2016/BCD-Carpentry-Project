@@ -36,7 +36,7 @@
         </siteMapNode>
         <siteMapNode url="~/Competency.aspx" title="Competency"  description="" />
         <siteMapNode url="" title="Tool"  description="" >
-            <siteMapNode url="~/ToolUse.aspx" title="ToolUse"  description="" >
+            <siteMapNode url="" title="ToolUse"  description="" >
               <siteMapNode url="~/CreateToolUse.aspx" title="New"  description="" />
               <siteMapNode url="~/QueryToolUse.aspx" title="Query"  description="" />
             </siteMapNode>
