@@ -7,7 +7,10 @@
             <siteMapNode url="~/QueryEmployee.aspx" title="Query"  description="" />
         </siteMapNode>
 
-        <siteMapNode url="~/StaffSize.aspx" title="StaffSize"  description="" />
+        <siteMapNode url="" title="StaffSize"  description="" >
+          <siteMapNode url="~/CreateStaffSize.aspx" title="New"  description="" />
+          <siteMapNode url="~/QueryStaffSize.aspx" title="Query"  description="" />          
+        </siteMapNode>
         <siteMapNode url="~/StaffCourse.aspx" title="StaffCourse"  description="" />
         <siteMapNode url="" title="Certification"  description="" >
           <siteMapNode url="~/MaintainCertification.aspx" title="Maintain"  description="" />
