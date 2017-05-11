@@ -48,6 +48,8 @@
                     <asp:ListItem Value="XL">XL</asp:ListItem>
                     <asp:ListItem Value="2XL">2XL</asp:ListItem>
                     <asp:ListItem Value="3XL">3XL</asp:ListItem>
+                    <asp:ListItem Value="4XL">4XL</asp:ListItem>
+                    <asp:ListItem Value="5XL">5XL</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div style="float: left; width: 15%; text-align: right">Jersey:&nbsp;&nbsp;</div>
@@ -59,6 +61,8 @@
                     <asp:ListItem Value="XL">XL</asp:ListItem>
                     <asp:ListItem Value="2XL">2XL</asp:ListItem>
                     <asp:ListItem Value="3XL">3XL</asp:ListItem>
+                    <asp:ListItem Value="4XL">4XL</asp:ListItem>
+                    <asp:ListItem Value="5XL">5XL</asp:ListItem>
                 </asp:DropDownList>
             </div>
         </div>
@@ -76,6 +80,8 @@
                     <asp:ListItem Value="XL">XL</asp:ListItem>
                     <asp:ListItem Value="2XL">2XL</asp:ListItem>
                     <asp:ListItem Value="3XL">3XL</asp:ListItem>
+                    <asp:ListItem Value="4XL">4XL</asp:ListItem>
+                    <asp:ListItem Value="5XL">5XL</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div style="float: left; width: 15%; text-align: right">WW Pants:&nbsp;&nbsp;</div>
@@ -87,6 +93,8 @@
                     <asp:ListItem Value="XL">XL</asp:ListItem>
                     <asp:ListItem Value="2XL">2XL</asp:ListItem>
                     <asp:ListItem Value="3XL">3XL</asp:ListItem>
+                    <asp:ListItem Value="4XL">4XL</asp:ListItem>
+                    <asp:ListItem Value="5XL">5XL</asp:ListItem>
                 </asp:DropDownList>
             </div>
         </div>
