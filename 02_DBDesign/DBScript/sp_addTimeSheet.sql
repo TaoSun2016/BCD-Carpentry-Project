@@ -24,7 +24,7 @@ begin
 	set @EmployeeID = 0
 	set @Count = 0
 
-	if @Email is not null
+	if @Email is not null and @Email != ''
 	begin
 		select @EmployeeID = EmployeeID from EMPLOYEE where Email = @Email and EmployeeStatus = 'Y'
 		if @EmployeeID = 0
@@ -37,7 +37,7 @@ begin
 	end
 	else
 	begin
-		if @Forename is not null or @Surname is not null
+		if @Forename is not null and @Forename != '' or @Surname is not null and @Surname != ''
 		begin
 			set @Count = (select count(*) from EMPLOYEE where Forename = @Forename and Surname = @Surname  and EmployeeStatus = 'Y')
 			if @Count = 0

@@ -1,5 +1,7 @@
 use HRMSDB
 go
+drop procedure sp_changePassword
+go
 create procedure sp_changePassword(
 	@UserName varchar(100),
 	@OldPassword varchar(16),

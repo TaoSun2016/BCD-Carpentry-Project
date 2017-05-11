@@ -1,6 +1,7 @@
 use HRMSDB
 go
-
+drop procedure sp_addVehicle
+go
 create procedure sp_addVehicle(
 	@RegisterNumber		varchar(10),
 	@WOFDueDate			date,

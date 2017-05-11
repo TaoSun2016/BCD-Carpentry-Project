@@ -1,18 +1,17 @@
 use HRMSDB
 go
-drop procedure sp_addWage
+drop procedure sp_addToolUse
 go
-create procedure sp_addWage(
+create procedure sp_addToolUse(
 	@Forename	varchar(50),
 	@Surname	varchar(50),
 	@Email		varchar(100),
-	@WeekEndingDate	date,
-	@Amount		real,
-	@Travel		real,
-	@Deduction	real,
-	@GST		real,
-	@WINZ		real,
-	@IRD		real,
+	@Date		date,
+	@ToolName	varchar(60),
+	@ToolNumber	varchar(20),
+	@InOut		char(1),
+	@Comment	varchar(120),
+	
 
 	@ErrCode int output,
 	@ErrMsg varchar(60)output)
@@ -25,12 +24,11 @@ begin
 
 	if @Email is not null and @Email != ''
 	begin
-		select @EmployeeID = EmployeeID from EMPLOYEE where Email = @Email and EmployeeStatus = 'Y'
+		select @EmployeeID = EmployeeID from EMPLOYEE where Email = @Email and EmployeeStatus = 'Y';
 		if @EmployeeID = 0
 		begin
 			set @ErrCode = -1
 			set @ErrMsg = 'Can not find the employee information!'
-			insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg)
 			return
 		end
 	end
@@ -38,19 +36,17 @@ begin
 	begin
 		if @Forename is not null and @Forename != '' or @Surname is not null and @Surname != ''
 		begin
-			set @Count = (select count(*) from EMPLOYEE where Forename = @Forename and Surname = @Surname  and EmployeeStatus = 'Y')
+			set @Count = (select count(*) from EMPLOYEE where Forename = @Forename and Surname = @Surname and EmployeeStatus = 'Y')
 			if @Count = 0
 			begin
 				set @ErrCode = -1
 				set @ErrMsg = 'Can not find the employee information!'
-				insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg)
 				return
 			end
 			if @Count > 1
 			begin
 				set @ErrCode = -1
 				set @ErrMsg = 'Find more than one employees!'
-				insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg)
 				return				
 			end
 			select @EmployeeID = EmployeeID from EMPLOYEE where Forename = @Forename and Surname = @Surname and EmployeeStatus = 'Y'
@@ -59,21 +55,20 @@ begin
 		begin
 			set @ErrCode = -1
 			set @ErrMsg = 'Please input employee''s information!'
-			insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg)
 			return
 		end
 	end
 	begin try
-		insert into WAGE  values (@EmployeeID, @WeekEndingDate, @Amount, @Travel, @Deduction, @GST, @WINZ, @IRD)
+		insert into TOOL_USE_REGISTER  values (@EmployeeID,@Date,@ToolName,@ToolNumber,@InOut,@Comment);
 	end try
 	begin catch
 		insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),ERROR_MESSAGE());
 		set @ErrCode = -1;
-		set @ErrMsg = 'Add new record error!';
+		set @ErrMsg = 'Add new tool use record error!';
 		return;
 	end catch
 	set @ErrCode = 0;
-	set @ErrMsg = 'Add new record successfully!';
+	set @ErrMsg = 'Add new tool use record successfully!';
 end
 
 go
