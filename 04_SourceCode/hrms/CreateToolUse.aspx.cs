@@ -23,10 +23,6 @@ public partial class Default2 : System.Web.UI.Page
         int ErrCode;
         string ErrMsg;
 
-        RequiredFieldValidator1.Enabled = true;
-        RequiredFieldValidator2.Enabled = true;
-
-
         if (Forename.Text.Trim() == "" && Surname.Text.Trim() == "" && Email.Text.Trim() == "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not be null at the same time!')</script>");

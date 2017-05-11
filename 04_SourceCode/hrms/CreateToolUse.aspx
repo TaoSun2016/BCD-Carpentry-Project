@@ -31,7 +31,7 @@
             </div>
             <div style="float: left; width: 15%; text-align: right">Date:&nbsp;&nbsp;</div>
             <div style="float: left; width: 35%">
-                <asp:TextBox ID="Date" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="CalenderButton" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="CalenderButton_Click" />*
+                <asp:TextBox ID="Date" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="CalenderButton" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="CalenderButton_Click" CausesValidation="False" />*
             </div>
         </div>
         <br />
@@ -69,11 +69,11 @@
                 &nbsp;&nbsp;
             </div>
             <div style="float: left; width: 25%">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ToolName" Display="Dynamic" ErrorMessage="Please input Tool Name!" ForeColor="Red" Enabled="False"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ToolName" Display="Dynamic" ErrorMessage="Please input Tool Name!" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
             <div style="float: right; width: 35%">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ToolNumber" Display="Dynamic" ErrorMessage="Please input Tool Number!" ForeColor="Red" Enabled="False"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ToolNumber" Display="Dynamic" ErrorMessage="Please input Tool Number!" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
         </div>
         <br />

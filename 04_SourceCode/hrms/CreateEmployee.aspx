@@ -51,7 +51,7 @@
                     DOB:&nbsp;&nbsp;
                 </div>
                 <div style="float: left; width: 25%">
-                    <asp:TextBox ID="DOB" runat="server" MaxLength="8"></asp:TextBox><asp:Button ID="CalendarButtonDOB" runat="server" Height="22px" Width="16px" OnClick="CalendarButtonDOB_Click" />*
+                    <asp:TextBox ID="DOB" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="ImageButtonDOB" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="ImageButtonDOB_Click" CausesValidation="False" />*
                 </div>
                 <div style="float: left; width: 15%; text-align: right">Position:&nbsp;&nbsp;</div>
                 <div style="float: left; width: 35%">
@@ -60,33 +60,40 @@
                     *
                 </div>
             </div>
+            <br />
             <div style="float: left; width: 100%">
                 <div style="float: left; width: 25%">
                     &nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
-                <div style="float: left; width: 75%">
+                 <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="Dynamic" ErrorMessage="Please input DOB!" ForeColor="Red" ControlToValidate="DOB"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 50%;text-align:left">
                     <asp:Calendar ID="CalendarDOB" runat="server" Visible="false" OnSelectionChanged="CalendarDOB_SelectionChanged"></asp:Calendar>
                 </div>
             </div>
-            <br />
             <br />
             <div style="float: left; width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Hire Date:&nbsp;&nbsp;
                 </div>
                 <div style="float: left; width: 25%">
-                    <asp:TextBox ID="HireDate" runat="server" MaxLength="8"></asp:TextBox><asp:Button ID="CalendarButtonHireDate" runat="server" Height="22px" Width="16px" OnClick="CalendarButtonHireDate_Click" />*
+                    <asp:TextBox ID="HireDate" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="ImageButtonHireDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" CausesValidation="False" OnClick="ImageButtonHireDate_Click" />*
                 </div>
                 <div style="float: left; width: 15%; text-align: right">Resign Date:&nbsp;&nbsp;</div>
                 <div style="float: left; width: 35%">
-                    <asp:TextBox ID="ResignDate" runat="server" MaxLength="8"></asp:TextBox><asp:Button ID="CalendarButtonResignDate" runat="server" Height="22px" Width="16px" OnClick="CalendarButtonResignDate_Click" />
+                    <asp:TextBox ID="ResignDate" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="ImageButtonResignDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" CausesValidation="False" OnClick="ImageButtonResignDate_Click" />
                 </div>
             </div>
-            <br />
             <br />
             <div style="float: left; width: 100%">
                 <div style="float: left; width: 25%">
                     &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Display="Dynamic" ErrorMessage="Please input hire date!" ForeColor="Red" ControlToValidate="HireDate"></asp:RequiredFieldValidator>
                 </div>
                 <div style="float: left; width: 30%">
                     <asp:Calendar ID="CalendarHireDate" runat="server" Visible="false" OnSelectionChanged="CalendarHireDate_SelectionChanged"></asp:Calendar>
@@ -334,7 +341,7 @@
         <div style="width: 100%; text-align: center">
             <asp:Button ID="Add" runat="server" Text="Add" OnClick="Add_Click" Width="69px" />
             &nbsp;&nbsp;       
-    <asp:Button ID="Reset" runat="server" Text="Reset" Width="68px" OnClick="Reset_Click" />
+    <asp:Button ID="Reset" runat="server" Text="Reset" Width="68px" OnClick="Reset_Click" CausesValidation="False" />
         </div>
     </div>
 </asp:Content>

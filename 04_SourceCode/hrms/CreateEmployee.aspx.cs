@@ -267,20 +267,35 @@ public partial class Default2 : System.Web.UI.Page
         Note.Text = "";
     }
 
-    protected void CalendarButtonDOB_Click(object sender, EventArgs e)
-    {
-        CalendarDOB.Visible = true;
-    }
 
+    protected void ImageButtonDOB_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarDOB.Visible == true)
+        {
+            CalendarDOB.Visible = false;
+        }
+        else
+        {
+            CalendarDOB.Visible = true;
+        }
+    }
     protected void CalendarDOB_SelectionChanged(object sender, EventArgs e)
     {
         DOB.Text = CalendarDOB.SelectedDate.ToString("dd-MM-yyyy");
         CalendarDOB.Visible = false;
     }
 
-    protected void CalendarButtonHireDate_Click(object sender, EventArgs e)
+
+    protected void ImageButtonHireDate_Click(object sender, ImageClickEventArgs e)
     {
-        CalendarHireDate.Visible = true;
+        if (CalendarHireDate.Visible == true)
+        {
+            CalendarHireDate.Visible = false;
+        }
+        else
+        {
+            CalendarHireDate.Visible = true;
+        }
     }
 
     protected void CalendarHireDate_SelectionChanged(object sender, EventArgs e)
@@ -288,9 +303,17 @@ public partial class Default2 : System.Web.UI.Page
         HireDate.Text = CalendarHireDate.SelectedDate.ToString("dd-MM-yyyy");
         CalendarHireDate.Visible = false;
     }
-    protected void CalendarButtonResignDate_Click(object sender, EventArgs e)
+
+    protected void ImageButtonResignDate_Click(object sender, ImageClickEventArgs e)
     {
-        CalendarResignDate.Visible = true;
+        if (CalendarResignDate.Visible == true)
+        {
+            CalendarResignDate.Visible = false;
+        }
+        else
+        {
+            CalendarResignDate.Visible = true;
+        }
     }
 
     protected void CalendarResignDate_SelectionChanged(object sender, EventArgs e)
@@ -298,4 +321,10 @@ public partial class Default2 : System.Web.UI.Page
         ResignDate.Text = CalendarResignDate.SelectedDate.ToString("dd-MM-yyyy");
         CalendarResignDate.Visible = false;
     }
+
+
+
+
+
+
 }
