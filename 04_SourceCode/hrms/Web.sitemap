@@ -40,7 +40,10 @@
               <siteMapNode url="~/CreateToolUse.aspx" title="New"  description="" />
               <siteMapNode url="~/QueryToolUse.aspx" title="Query"  description="" />
             </siteMapNode>
-            <siteMapNode url="~/ToolList.aspx.aspx" title="ToolList"  description="" />
+            <siteMapNode url="" title="ToolList"  description="" >
+              <siteMapNode url="~/CreateToolList.aspx" title="New"  description="" />
+              <siteMapNode url="~/QueryToolList.aspx" title="Query"  description="" />
+            </siteMapNode>
             <siteMapNode url="" title="ToolTraining"  description="" >
               <siteMapNode url="~/CreateToolTraining.aspx" title="New"  description="" />
               <siteMapNode url="~/QueryToolTraining.aspx" title="Query"  description="" />
