@@ -75,12 +75,15 @@ public partial class Default2 : System.Web.UI.Page
             Position.Checked = true;
             DOB.Checked = true;
             HireDate.Checked = true;
+            ResignDate.Checked = true;
             YearsInBCD.Checked = true;
             YearsInIndustry.Checked = true;
             DriverLicenseNumber.Checked = true;
             DriverLicenseClass.Checked = true;
             DriverLicenseExpiryDate.Checked = true;
             DriverLicensePhoto.Checked = true;
+            SiteSafeNumber.Checked = true;
+            SiteSafeExpiryDate.Checked = true;
             SiteSafePhoto.Checked = true;
 
         }
@@ -91,12 +94,15 @@ public partial class Default2 : System.Web.UI.Page
             Position.Checked = false;
             DOB.Checked = false;
             HireDate.Checked = false;
+            ResignDate.Checked = false;
             YearsInBCD.Checked = false;
             YearsInIndustry.Checked = false;
             DriverLicenseNumber.Checked = false;
             DriverLicenseClass.Checked = false;
             DriverLicenseExpiryDate.Checked = false;
             DriverLicensePhoto.Checked = false;
+            SiteSafeNumber.Checked = false;
+            SiteSafeExpiryDate.Checked = false;
             SiteSafePhoto.Checked = false;
         }
     }
@@ -357,7 +363,7 @@ public partial class Default2 : System.Web.UI.Page
                         Count++;
                     }
                     break;
-                case "DriverLicensePhoto":
+                case "DriverLicenseCopied":
                     if (DriverLicensePhoto.Checked == false)
                     {
                         Field.Visible = false;
@@ -368,7 +374,29 @@ public partial class Default2 : System.Web.UI.Page
                         Count++;
                     }
                     break;
-                case "SiteSafePhoto":
+                case "SiteSafeNumber":
+                    if (SiteSafeNumber.Checked == false)
+                    {
+                        Field.Visible = false;
+                    }
+                    else
+                    {
+                        Field.Visible = true;
+                        Count++;
+                    }
+                    break;
+                case "SiteSafeExpiryDate":
+                    if (SiteSafeExpiryDate.Checked == false)
+                    {
+                        Field.Visible = false;
+                    }
+                    else
+                    {
+                        Field.Visible = true;
+                        Count++;
+                    }
+                    break;
+                case "SiteSafeCopied":
                     if (SiteSafePhoto.Checked == false)
                     {
                         Field.Visible = false;

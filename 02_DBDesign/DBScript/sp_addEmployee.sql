@@ -41,9 +41,17 @@ create procedure sp_addEmployee(
 as
 begin
 	begin try
-		insert into EMPLOYEE  values (@Position,@OtherPositions,@Forename,@Surname,@HomeNumber,@MobileNumber,@Email,@DOB,@KinName,@KinNumber,
-									@BankName,@AccountNumber,@IRDNumber,@PayRate,@TaxRate,@DriverLicenseNumber,@DriverLicenseClass,
-									@DriverLicenseExpiryDate,@DriverLicensePhoto,@SiteSafeNumber,@SiteSafeExpiryDate,@SiteSafePhoto,@HireDate,@ResignDate,@YearsInBCD,@YearsInIndustry,@Country,
+		insert into EMPLOYEE  values (@Position,@OtherPositions,@Forename,@Surname,@HomeNumber,
+									@MobileNumber,@Email,@DOB,@KinName,@KinNumber,
+									@BankName,@AccountNumber,@IRDNumber,@PayRate,@TaxRate,
+									@DriverLicenseNumber,@DriverLicenseClass,
+									case @DriverLicenseExpiryDate when '' then null else @DriverLicenseExpiryDate end,
+									@DriverLicensePhoto,@SiteSafeNumber,
+									case @SiteSafeExpiryDate when '' then null else @SiteSafeExpiryDate end,
+									@SiteSafePhoto,
+									case @HireDate when '' then null else @HireDate end,
+									case @ResignDate when '' then null else @ResignDate end,
+									@YearsInBCD,@YearsInIndustry,@Country,
 									@City,@Suburb,@Street,@PostCode,@Note,null,null,'N','Y');
 	end try
 	begin catch

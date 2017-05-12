@@ -45,12 +45,16 @@
         </div>
         <div style="float: left; width: 100%">
             <div style="float: left; width: 20%; text-align: left">
-                <asp:CheckBox ID="DriverLicenseExpiryDate" runat="server" Text="Driver License Photo" /></div>
+                <asp:CheckBox ID="DriverLicenseExpiryDate" runat="server" Text="Driver License ExpiryDate" /></div>
             <div style="float: left; width: 20%; text-align: left">
                 <asp:CheckBox ID="DriverLicensePhoto" runat="server" Text="Driver License Photo" /></div>
             <div style="float: left; width: 20%; text-align: left">
+                <asp:CheckBox ID="SiteSafeNumber" runat="server" Text="Site Safe Number" /></div>
+            <div style="float: left; width: 20%; text-align: left">
+                <asp:CheckBox ID="SiteSafeExpiryDate" runat="server" Text="Site Safe Expiry Date" /></div>
+            <div style="float: left; width: 20%; text-align: left">
                 <asp:CheckBox ID="SiteSafePhoto" runat="server" Text="Site Safe Photo" /></div>
-            <div style="float: left; width: 40%; text-align: center">&nbsp;</div>
+            
         </div>
         <hr />
         <div style="width: 100%; text-align: left">
@@ -116,7 +120,6 @@
             <asp:GridView ID="EmployeeGridView" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="EmployeeID" DataSourceID="SqlDataSource1" GridLines="None" ForeColor="#333333" AllowSorting="True" Visible="False">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:CommandField HeaderText="Edit" ShowEditButton="true" />
                     <asp:CommandField HeaderText="Delete" ShowDeleteButton="true" />
                     <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" Visible="false" />
                     <asp:BoundField DataField="Forename" HeaderText="Forename" SortExpression="Forename" />
@@ -125,7 +128,7 @@
                     <asp:BoundField DataField="HomeNumber" HeaderText="HomeNumber" SortExpression="HomeNumber" />
                     <asp:BoundField DataField="MobileNumber" HeaderText="MobileNumber" SortExpression="MobileNumber" />
                     <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                    <asp:BoundField DataField="DOB" HeaderText="DOB" SortExpression="DOB" />
+                    <asp:BoundField DataField="DOB" HeaderText="DOB" DataFormatString="{0:yyyyMMdd}" SortExpression="DOB" />
                     <asp:BoundField DataField="KinName" HeaderText="KinName" SortExpression="KinName" />
                     <asp:BoundField DataField="KinNumber" HeaderText="KinNumber" SortExpression="KinNumber" />
                     <asp:BoundField DataField="BankName" HeaderText="BankName" SortExpression="BankName" />
@@ -135,11 +138,13 @@
                     <asp:BoundField DataField="TaxRate" HeaderText="TaxRate" SortExpression="TaxRate" />
                     <asp:BoundField DataField="DriverLicenseNumber" HeaderText="DriverLicenseNumber" SortExpression="DriverLicenseNumber" />
                     <asp:BoundField DataField="DriverLicenseClass" HeaderText="DriverLicenseClass" SortExpression="DriverLicenseClass" />
-                    <asp:BoundField DataField="DriverLicenseExpiryDate" HeaderText="DriverLicenseExpiryDate" SortExpression="DriverLicenseExpiryDate" />
-                    <asp:BoundField DataField="DriverLicensePhoto" HeaderText="DriverLicensePhoto" SortExpression="DriverLicensePhoto" />
-                    <asp:BoundField DataField="SiteSafePhoto" HeaderText="SiteSafePhoto" SortExpression="SiteSafePhoto" />
-                    <asp:BoundField DataField="HireDate" HeaderText="HireDate" SortExpression="HireDate" />
-                    <asp:BoundField DataField="ResignDate" HeaderText="ResignDate" SortExpression="ResignDate" />
+                    <asp:BoundField DataField="DriverLicenseExpiryDate" HeaderText="DriverLicenseExpiryDate" DataFormatString="{0:yyyyMMdd}" SortExpression="DriverLicenseExpiryDate" />
+                    <asp:BoundField DataField="DriverLicenseCopied" HeaderText="DriverLicenseCopied" readonly="true" />               
+                    <asp:BoundField DataField="SiteSafeNumber" HeaderText="SiteSafeNumber" SortExpression="SiteSafeNumber" />
+                    <asp:BoundField DataField="SiteSafeExpiryDate" HeaderText="SiteSafeExpiryDate" DataFormatString="{0:yyyyMMdd}" SortExpression="SiteSafeExpiryDate" />     
+                    <asp:BoundField DataField="SiteSafeCopied" HeaderText="SiteSafeCopied" readonly="true" />
+                    <asp:BoundField DataField="HireDate" HeaderText="HireDate" DataFormatString="{0:yyyyMMdd}" SortExpression="HireDate" />
+                    <asp:BoundField DataField="ResignDate" HeaderText="ResignDate" DataFormatString="{0:yyyyMMdd}" SortExpression="ResignDate" />
                     <asp:BoundField DataField="YearsInBCD" HeaderText="YearsInBCD" SortExpression="YearsInBCD" />
                     <asp:BoundField DataField="YearsInIndustry" HeaderText="YearsInIndustry" SortExpression="YearsInIndustry" />
                     <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
@@ -162,9 +167,9 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server"
                 ConnectionString="<%$ ConnectionStrings:HRMSDBConnectionString %>"
-                SelectCommand="SELECT * FROM [EMPLOYEE] WHERE EmployeeStatus='Y'"
-                DeleteCommand="UPDATE [EMPLOYEE] SET EmployeeStatus='N' WHERE EmployeeID = @EmployeeID"
-                UpdateCommand="UPDATE [EMPLOYEE] SET Forename = @Forename, Surname = @Surname, DOB = @DOB, Position = @Position, HireDate = @HireDate, ResignDate = @ResignDate, YearsInBCD = @YearsInBCD, YearsInIndustry = @YearsInIndustry, DriverLicenseNumber = @DriverLicenseNumber, DriverLicenseClass = @DriverLicenseClass, DriverLicenseExpiryDate = @DriverLicenseExpiryDate, DriverLicensePhoto = @DriverLicensePhoto, SiteSafePhoto = @SiteSafePhoto, MobileNumber = @MobileNumber, HomeNumber = @HomeNumber, Email = @Email, KinName = @KinName, KinNumber = @KinNumber, BankName = @BankName, AccountNumber = @AccountNumber, PayRate = @PayRate, TaxRate = @TaxRate, IRDNumber = @IRDNumber, Country = @Country, City = @City, Suburb = @Suburb, Street = @Street, PostCode = @PostCode, Note = @Note WHERE EmployeeID = @EmployeeID"></asp:SqlDataSource>
+                SelectCommand="SELECT *,case driverlicensephoto when '' then 'N' else 'Y' end as DriverLicenseCopied,case SiteSafePhoto when '' then 'N' else 'Y' end as SiteSafeCopied FROM [EMPLOYEE] WHERE EmployeeStatus='Y'"
+                DeleteCommand="UPDATE [EMPLOYEE] SET EmployeeStatus='N' WHERE EmployeeID = @EmployeeID">
+                </asp:SqlDataSource>
 
             <br />
             <br />
