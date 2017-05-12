@@ -178,24 +178,24 @@ CREATE TABLE COMPETENCY (
 go
 CREATE TABLE CERTIFICATION(
 	EmployeeID	int	PRIMARY KEY,
-	CopyFlag	int NOT NULL CHECK (CopyFlag in (0,1)),
-	LBP			int	CHECK(LBP in (0,1)),
+	CopyFlag	char NOT NULL CHECK (CopyFlag in ('Y','N')),
+	LBP			char	CHECK(LBP in ('Y','N')),
 	Expiry		date,
 	BCITONumber	varchar(50),
 	NZQANumber	varchar(50),
-	FirstAid	int NOT NULL CHECK(FirstAid in (0,1)),
-	FallArrest	int NOT NULL CHECK(FallArrest in (0,1)),
-	ConfindSpaces int NOT NULL CHECK(ConfindSpaces in (0,1)),
-	Ramset		int NOT NULL CHECK(Ramset in (0,1)),
-	HILTI		int NOT NULL CHECK(HILTI in (0,1)),
-	LowScaff	int NOT NULL CHECK(LowScaff in (0,1)),
-	WTR			int NOT NULL CHECK(WTR in (0,1)),
-	EWP			int NOT NULL CHECK(EWP in (0,1)),
-	HIAB		int NOT NULL CHECK(HIAB in (0,1)),
-	HT123		int NOT NULL CHECK(HT123 in (0,1)),
-	Dog			int NOT NULL CHECK(Dog in (0,1)),
-	Crane		int NOT NULL CHECK(Crane in (0,1)),
-	Chainsaw	int NOT NULL CHECK(Chainsaw in (0,1))
+	FirstAid	char NOT NULL CHECK(FirstAid in ('Y','N')),
+	FallArrest	char NOT NULL CHECK(FallArrest in ('Y','N')),
+	ConfindSpaces char NOT NULL CHECK(ConfindSpaces in ('Y','N')),
+	Ramset		char NOT NULL CHECK(Ramset in ('Y','N')),
+	HILTI		char NOT NULL CHECK(HILTI in ('Y','N')),
+	LowScaff	char NOT NULL CHECK(LowScaff in ('Y','N')),
+	WTR			char NOT NULL CHECK(WTR in ('Y','N')),
+	EWP			char NOT NULL CHECK(EWP in ('Y','N')),
+	HIAB		char NOT NULL CHECK(HIAB in ('Y','N')),
+	HT123		char NOT NULL CHECK(HT123 in ('Y','N')),
+	Dog			char NOT NULL CHECK(Dog in ('Y','N')),
+	Crane		char NOT NULL CHECK(Crane in ('Y','N')),
+	Chainsaw	char NOT NULL CHECK(Chainsaw in ('Y','N'))
 )
 go
 CREATE TABLE TOOL_LIST (
@@ -244,7 +244,8 @@ CREATE TABLE VEHICLE (
 go
 CREATE TABLE EMPLOYEE_HISTORY (
   EmployeeID              int NOT NULL, 
-  Position                varchar(10) NOT NULL, 
+  Position                varchar(10) NOT NULL,
+  OtherPositions		  varchar(128) NULL,  
   Forename                 varchar(50) NOT NULL, 
   Surname                 varchar(50) NOT NULL, 
   HomeNumber              varchar(20) NULL, 
@@ -262,6 +263,8 @@ CREATE TABLE EMPLOYEE_HISTORY (
   DriverLicenseClass      varchar(10) NULL, 
   DriverLicenseExpiryDate date NULL, 
   DriverLicensePhoto      varchar(255) NULL,
+  SiteSafeNumber		  varchar(50) NULL,
+  SiteSafeExpiryDate	  date NULL, 
   SiteSafePhoto           varchar(255) NULL, 
   HireDate                date NOT NULL, 
   ResignDate              date NULL, 

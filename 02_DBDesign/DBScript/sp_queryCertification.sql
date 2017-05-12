@@ -9,24 +9,24 @@ create procedure sp_queryCertification(
 	
 
 	@EmployeeID	int output,
-	@CopyFlag	int output,
-	@LBP		int output,
+	@CopyFlag	char output,
+	@LBP		char output,
 	@Expiry		date output,
 	@BCITONumber	varchar(50) output,
 	@NZQANumber		varchar(50) output,
-	@FirstAid		int output,
-	@FallArrest		int output,
-	@ConfindSpaces	int output,
-	@Ramset			int output,
-	@HILTI			int output,
-	@LowScaff		int output,
-	@WTR			int output,
-	@EWP			int output,
-	@HIAB			int output,
-	@HT123			int output,
-	@Dog			int output,
-	@Crane			int output,
-	@Chainsaw		int output,
+	@FirstAid		char output,
+	@FallArrest		char output,
+	@ConfindSpaces	char output,
+	@Ramset			char output,
+	@HILTI			char output,
+	@LowScaff		char output,
+	@WTR			char output,
+	@EWP			char output,
+	@HIAB			char output,
+	@HT123			char output,
+	@Dog			char output,
+	@Crane			char output,
+	@Chainsaw		char output,
 	@ErrCode	int output,
 	@ErrMsg		varchar(60)output)
 as
@@ -41,7 +41,7 @@ begin
 		if @EmployeeID = 0
 		begin
 			set @ErrCode = -1
-			set @ErrMsg = 'Can not find the employee information!'
+			set @ErrMsg = 'Can not find the employee information by email!'
 			return
 		end
 	end
@@ -53,7 +53,7 @@ begin
 			if @Count = 0
 			begin
 				set @ErrCode = -1
-				set @ErrMsg = 'Can not find the employee information!'
+				set @ErrMsg = 'Can not find the employee information by name!'
 				return
 			end
 			if @Count > 1
@@ -71,26 +71,7 @@ begin
 			return
 		end
 	end
-	set	@CopyFlag=0
-	set @LBP = 0
-	set @Expiry =''
-	set @BCITONumber=''	
-	set @NZQANumber=''
-	set @FirstAid = 0
-	set @FallArrest = 0
-	set @ConfindSpaces = 0
-	set @Ramset = 0
-	set @HILTI = 0
-	set @LowScaff = 0
-	set @WTR = 0
-	set @EWP = 0
-	set @HIAB = 0
-	set @HT123 = 0
-	set @Dog = 0
-	set @Crane = 0
-	set @Chainsaw = 0
-
-	select @CopyFlag = CopyFlag,@LBP = LBP,@Expiry = Expiry, @BCITONumber = BCITONumber,@NZQANumber = NZQANumber,@FirstAid = FirstAid,@FallArrest = FallArrest,@ConfindSpaces = ConfindSpaces, @Ramset = Ramset,@HILTI = HILTI,@LowScaff = LowScaff, @WTR = WTR,@HIAB = HIAB,@HT123 = HT123,@Dog = Dog,@Crane = Crane,@Chainsaw = Chainsaw from CERTIFICATION where EmployeeID = @EmployeeID
+	select @CopyFlag = CopyFlag,@LBP = LBP,@Expiry = Expiry, @BCITONumber = BCITONumber,@NZQANumber = NZQANumber,@FirstAid = FirstAid,@FallArrest = FallArrest,@ConfindSpaces = ConfindSpaces, @Ramset = Ramset,@HILTI = HILTI,@LowScaff = LowScaff, @WTR = WTR,@EWP = EWP,@HIAB = HIAB,@HT123 = HT123,@Dog = Dog,@Crane = Crane,@Chainsaw = Chainsaw from CERTIFICATION where EmployeeID = @EmployeeID
 	
 	set @ErrCode = 0
 	set @ErrMsg = 'Query certification information successfully!'
