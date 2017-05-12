@@ -12,7 +12,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div style="height: 100%;overflow-y: scroll;">
-        <h2 class="auto-style6"><strong>Time Sheet Information</strong></h2>
+        <h2 class="auto-style6"><strong>Employee History Information</strong></h2>
         <div style="width: 100%">
             <div style="float: left; width: 25%; text-align: right">
                 Forename:&nbsp;&nbsp;
@@ -47,7 +47,7 @@
         <hr />
 
         <div style=" width: 100%; text-align: center">
-            <asp:GridView ID="GridViewEmployeeHistory" runat="server" AutoGenerateColumns="False" CellPadding="4"  DataSourceID="SqlDataSourceEmployeeHistory" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridViewEmployeeHistory" runat="server" AutoGenerateColumns="False" CellPadding="4"  DataSourceID="SqlDataSourceEmployeeHistory" ForeColor="#333333" GridLines="None" Visible="False">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="Forename" HeaderText="Forename" SortExpression="Forename" />
@@ -56,7 +56,7 @@
                     <asp:BoundField DataField="HomeNumber" HeaderText="HomeNumber" SortExpression="HomeNumber" />
                     <asp:BoundField DataField="MobileNumber" HeaderText="MobileNumber" SortExpression="MobileNumber" />
                     <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                    <asp:BoundField DataField="DOB" HeaderText="DOB" SortExpression="DOB" />
+                    <asp:BoundField DataField="DOB" HeaderText="DOB" DataFormatString="{0:yyyyMMdd}" SortExpression="DOB" />
                     <asp:BoundField DataField="KinName" HeaderText="KinName" SortExpression="KinName" />
                     <asp:BoundField DataField="KinNumber" HeaderText="KinNumber" SortExpression="KinNumber" />
                     <asp:BoundField DataField="BankName" HeaderText="BankName" SortExpression="BankName" />
@@ -67,10 +67,10 @@
                     <asp:BoundField DataField="DriverLicenseNumber" HeaderText="DriverLicenseNumber" SortExpression="DriverLicenseNumber" />
                     <asp:BoundField DataField="DriverLicenseClass" HeaderText="DriverLicenseClass" SortExpression="DriverLicenseClass" />
                     <asp:BoundField DataField="DriverLicenseExpiryDate" HeaderText="DriverLicenseExpiryDate" SortExpression="DriverLicenseExpiryDate" />
-                    <asp:BoundField DataField="DriverLicensePhoto" HeaderText="DriverLicensePhoto" SortExpression="DriverLicensePhoto" />
-                    <asp:BoundField DataField="SiteSafePhoto" HeaderText="SiteSafePhoto" SortExpression="SiteSafePhoto" />
-                    <asp:BoundField DataField="HireDate" HeaderText="HireDate" SortExpression="HireDate" />
-                    <asp:BoundField DataField="ResignDate" HeaderText="ResignDate" SortExpression="ResignDate" />
+                     <asp:BoundField DataField="SiteSafeNumber" HeaderText="SiteSafeNumber" SortExpression="SiteSafeNumber" />
+                    <asp:BoundField DataField="SiteSafeExpiryDate" HeaderText="SiteSafeExpiryDate" DataFormatString="{0:yyyyMMdd}" SortExpression="SiteSafeExpiryDate" />     
+                    <asp:BoundField DataField="HireDate" HeaderText="HireDate" DataFormatString="{0:yyyyMMdd}" SortExpression="HireDate" />
+                    <asp:BoundField DataField="ResignDate" HeaderText="ResignDate" DataFormatString="{0:yyyyMMdd}" SortExpression="ResignDate" />
                     <asp:BoundField DataField="YearsInBCD" HeaderText="YearsInBCD" SortExpression="YearsInBCD" />
                     <asp:BoundField DataField="YearsInIndustry" HeaderText="YearsInIndustry" SortExpression="YearsInIndustry" />
                     <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
@@ -98,7 +98,7 @@
         <br />
         <br />
         <div style="text-align: center">
-            <asp:Button ID="Export" runat="server" Text="Export to Excel" OnClick="Export_Click" />
+            <asp:Button ID="Export" runat="server" Text="EXPORT EXCEL" OnClick="Export_Click" Visible="False" />
         </div>
     </div>
 </asp:Content>

@@ -47,7 +47,7 @@
             </div>
             <div style="float: left; width: 10%; text-align: right">Expiry:&nbsp;&nbsp;</div>
             <div style="float: left; width: 40%">
-                <asp:TextBox ID="Expiry" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Expiry" runat="server" MaxLength="10"></asp:TextBox>
             </div>
         </div>
         <br />
@@ -125,13 +125,31 @@
         <div style="float:left;width: 100%">
             
             <div style="float:left;width:50%;text-align:center">
-                <asp:Button ID="Add" runat="server" Text="Add/Update" OnClick="Add_Click" />
+                <asp:Button ID="Add" runat="server" Text="Add/Update" OnClick="Add_Click" Visible="False" />
             </div>
             <div style="float:left;width:50%;text-align:center">
-                <asp:Button ID="Delete" runat="server" Text="Delete" OnClick="Delete_Click" />
+                <asp:Button ID="Delete" runat="server" Text="Delete" OnClick="Delete_Click" Visible="False" />
             </div> 
            
         </div>
+        <asp:HiddenField ID="oldCopyFlag" runat="server" />
+        <asp:HiddenField ID="oldLBP" runat="server" />
+        <asp:HiddenField ID="oldExpiry" runat="server" />
+        <asp:HiddenField ID="oldBCITONumber" runat="server" />
+        <asp:HiddenField ID="oldNZQANumber" runat="server" />
+        <asp:HiddenField ID="oldFirstAid" runat="server" />
+        <asp:HiddenField ID="oldFallArrest" runat="server" />
+        <asp:HiddenField ID="oldConfindSpaces" runat="server" />
+        <asp:HiddenField ID="oldRamset" runat="server" />
+        <asp:HiddenField ID="oldHILTI" runat="server" />
+        <asp:HiddenField ID="oldLowScaff" runat="server" />
+        <asp:HiddenField ID="oldWTR" runat="server" />
+        <asp:HiddenField ID="oldEWP" runat="server" />
+        <asp:HiddenField ID="oldHIAB" runat="server" />
+        <asp:HiddenField ID="oldHT123" runat="server" />
+        <asp:HiddenField ID="oldDog" runat="server" />
+        <asp:HiddenField ID="oldCrane" runat="server" />
+        <asp:HiddenField ID="oldChainsaw" runat="server" />
     </div>
 </asp:Content>
 

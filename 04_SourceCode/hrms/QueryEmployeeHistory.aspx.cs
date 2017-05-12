@@ -88,5 +88,17 @@ public partial class Default2 : System.Web.UI.Page
 
         SqlDataSourceEmployeeHistory.SelectCommand = sql + " order by EmployeeID, ModTime";
         GridViewEmployeeHistory.DataBind();
+        if(GridViewEmployeeHistory.Rows.Count > 0)
+        {
+            GridViewEmployeeHistory.Visible = true;
+            Export.Visible = true;
+        }
+        else
+        {
+            //ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('There no data returned!')</script>");
+
+            Response.Write("<script language='JavaScript'>alert('There no data returned!')</script>");
+        }
+
     }
 }

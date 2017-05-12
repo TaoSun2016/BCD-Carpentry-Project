@@ -81,12 +81,12 @@ public partial class Default2 : System.Web.UI.Page
         cmdParameter.Value = OtherPositions.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@HireDate", SqlDbType.VarChar,8);
+        cmdParameter = new SqlParameter("@HireDate", SqlDbType.VarChar,10);
         cmdParameter.Direction = ParameterDirection.Input;
         cmdParameter.Value = HireDate.Text;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@ResignDate", SqlDbType.VarChar,8);
+        cmdParameter = new SqlParameter("@ResignDate", SqlDbType.VarChar,10);
         cmdParameter.Direction = ParameterDirection.Input;
         cmdParameter.Value = ResignDate.Text;
         myCommand.Parameters.Add(cmdParameter);
