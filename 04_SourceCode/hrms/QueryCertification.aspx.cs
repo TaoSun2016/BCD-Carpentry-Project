@@ -71,7 +71,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Query_Click(object sender, EventArgs e)
     {
-        string sql = "SELECT e.Forename, e.Surname,e.Position,e.YearsInBCD,e.YearsInIndustry,e.SiteSafePhoto,c.* FROM [Employee] e, [Certification] c  where e.EmployeeID = c.EmployeeID ";
+        string sql = "SELECT e.Forename, e.Surname,e.Position,e.YearsInBCD,e.YearsInIndustry,case e.SiteSafePhoto when '' then 'N' else 'Y' end as SiteSafeFlag,e.SiteSafeNumber,e.SiteSafeExpiryDate,c.* FROM [Employee] e, [Certification] c  where e.EmployeeID = c.EmployeeID ";
         if (Email.Text.Trim()!="")
         {
             sql += " and e.Email = '" + Email.Text.Trim() + "'";

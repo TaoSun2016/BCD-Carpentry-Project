@@ -36,14 +36,14 @@ public partial class Default2 : System.Web.UI.Page
             cmdParameter.Value = EmployeeID.Value;
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@CopyFlag", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@CopyFlag", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = CopyFlag.Checked ? "1" : "0";
+            cmdParameter.Value = CopyFlag.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@LBP", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@LBP", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = LBP.Checked ? "1" : "0";
+            cmdParameter.Value = LBP.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
             cmdParameter = new SqlParameter("@Expiry", SqlDbType.VarChar, 10);
@@ -61,69 +61,69 @@ public partial class Default2 : System.Web.UI.Page
             cmdParameter.Value = NZQANumber.Text;
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@FirstAid", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@FirstAid", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = FirstAid.Checked ? "1" : "0";
+            cmdParameter.Value = FirstAid.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@FallArrest", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@FallArrest", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = FallArrest.Checked ? "1" : "0";
+            cmdParameter.Value = FallArrest.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@ConfindSpaces", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@ConfindSpaces", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = ConfindSpaces.Checked ? "1" : "0";
+            cmdParameter.Value = ConfindSpaces.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@Ramset", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@Ramset", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = Ramset.Checked ? "1" : "0";
+            cmdParameter.Value = Ramset.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@HILTI", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@HILTI", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = HILTI.Checked ? "1" : "0";
+            cmdParameter.Value = HILTI.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@LowScaff", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@LowScaff", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = LowScaff.Checked ? "1" : "0";
+            cmdParameter.Value = LowScaff.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@WTR", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@WTR", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = WTR.Checked ? "1" : "0";
+            cmdParameter.Value = WTR.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@EWP", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@EWP", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = EWP.Checked ? "1" : "0";
+            cmdParameter.Value = EWP.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@HIAB", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@HIAB", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = HIAB.Checked ? "1" : "0";
+            cmdParameter.Value = HIAB.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@HT123", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@HT123", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = HT123.Checked ? "1" : "0";
+            cmdParameter.Value = HT123.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@Dog", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@Dog", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = Dog.Checked ? "1" : "0";
+            cmdParameter.Value = Dog.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@Crane", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@Crane", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = Crane.Checked ? "1" : "0";
+            cmdParameter.Value = Crane.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
-            cmdParameter = new SqlParameter("@Chainsaw", SqlDbType.Int);
+            cmdParameter = new SqlParameter("@Chainsaw", SqlDbType.Char, 1);
             cmdParameter.Direction = ParameterDirection.Input;
-            cmdParameter.Value = Chainsaw.Checked ? "1" : "0";
+            cmdParameter.Value = Chainsaw.Checked ? "Y" : "N";
             myCommand.Parameters.Add(cmdParameter);
 
             //////////////////////////////////////////////////////////
@@ -205,11 +205,11 @@ public partial class Default2 : System.Web.UI.Page
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@CopyFlag", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@CopyFlag", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@LBP", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@LBP", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
@@ -225,55 +225,55 @@ public partial class Default2 : System.Web.UI.Page
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@FirstAid", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@FirstAid", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@FallArrest", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@FallArrest", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@ConfindSpaces", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@ConfindSpaces", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@Ramset", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@Ramset", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@HILTI", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@HILTI", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@LowScaff", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@LowScaff", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@WTR", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@WTR", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@EWP", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@EWP", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@HIAB", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@HIAB", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@HT123", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@HT123", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@Dog", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@Dog", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@Crane", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@Crane", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@Chainsaw", SqlDbType.Int);
+        cmdParameter = new SqlParameter("@Chainsaw", SqlDbType.Char, 1);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
@@ -304,11 +304,11 @@ public partial class Default2 : System.Web.UI.Page
         else
         {
             EmployeeID.Value = myCommand.Parameters["@EmployeeID"].Value.ToString();
-            oldExpiry.Value = Expiry.Text = myCommand.Parameters["@Expiry"].Value.ToString();
+            oldExpiry.Value = Expiry.Text = (myCommand.Parameters["@Expiry"].Value.ToString()=="")?"":((DateTime)myCommand.Parameters["@Expiry"].Value).ToString("yyyyMMdd");
             oldBCITONumber.Value = BCITONumber.Text = myCommand.Parameters["@BCITONumber"].Value.ToString();
             oldNZQANumber.Value = NZQANumber.Text = myCommand.Parameters["@NZQANumber"].Value.ToString();
 
-            if ((oldCopyFlag.Value = myCommand.Parameters["@CopyFlag"].Value.ToString()) == "1")
+            if ((oldCopyFlag.Value = myCommand.Parameters["@CopyFlag"].Value.ToString()) == "Y")
             {
                 CopyFlag.Checked = true;
             }
@@ -317,129 +317,129 @@ public partial class Default2 : System.Web.UI.Page
                 CopyFlag.Checked = false;
             }
 
-            if ((oldLBP.Value = myCommand.Parameters["@LBP"].Value.ToString()) == "1")
+            if ((oldLBP.Value = myCommand.Parameters["@LBP"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                LBP.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                LBP.Checked = false;
             }
 
-            if ((oldFirstAid.Value = myCommand.Parameters["@FirstAid"].Value.ToString()) == "1")
+            if ((oldFirstAid.Value = myCommand.Parameters["@FirstAid"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                FirstAid.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                FirstAid.Checked = false;
             }
 
-            if ((oldFallArrest.Value = myCommand.Parameters["@FallArrest"].Value.ToString()) == "1")
+            if ((oldFallArrest.Value = myCommand.Parameters["@FallArrest"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                FallArrest.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                FallArrest.Checked = false;
             }
 
-            if ((oldConfindSpaces.Value = myCommand.Parameters["@ConfindSpaces"].Value.ToString()) == "1")
+            if ((oldConfindSpaces.Value = myCommand.Parameters["@ConfindSpaces"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                ConfindSpaces.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                ConfindSpaces.Checked = false;
             }
 
-            if ((oldRamset.Value = myCommand.Parameters["@Ramset"].Value.ToString()) == "1")
+            if ((oldRamset.Value = myCommand.Parameters["@Ramset"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                Ramset.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                Ramset.Checked = false;
             }
 
-            if ((oldHILTI.Value = myCommand.Parameters["@HILTI"].Value.ToString()) == "1")
+            if ((oldHILTI.Value = myCommand.Parameters["@HILTI"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                HILTI.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                HILTI.Checked = false;
             }
 
-            if ((oldLowScaff.Value = myCommand.Parameters["@LowScaff"].Value.ToString()) == "1")
+            if ((oldLowScaff.Value = myCommand.Parameters["@LowScaff"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                LowScaff.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                LowScaff.Checked = false;
             }
 
-            if ((oldWTR.Value = myCommand.Parameters["@WTR"].Value.ToString()) == "1")
+            if ((oldWTR.Value = myCommand.Parameters["@WTR"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                WTR.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                WTR.Checked = false;
             }
 
-            if ((oldEWP.Value = myCommand.Parameters["@EWP"].Value.ToString()) == "1")
+            if ((oldEWP.Value = myCommand.Parameters["@EWP"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                EWP.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                EWP.Checked = false;
             }
 
-            if ((oldHIAB.Value = myCommand.Parameters["@HIAB"].Value.ToString()) == "1")
+            if ((oldHIAB.Value = myCommand.Parameters["@HIAB"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                HIAB.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                HIAB.Checked = false;
             }
 
-            if ((oldHT123.Value = myCommand.Parameters["@HT123"].Value.ToString()) == "1")
+            if ((oldHT123.Value = myCommand.Parameters["@HT123"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                HT123.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                HT123.Checked = false;
             }
-            if ((oldDog.Value = myCommand.Parameters["@Dog"].Value.ToString()) == "1")
+            if ((oldDog.Value = myCommand.Parameters["@Dog"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                Dog.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                Dog.Checked = false;
             }
 
-            if ((oldCrane.Value = myCommand.Parameters["@Crane"].Value.ToString()) == "1")
+            if ((oldCrane.Value = myCommand.Parameters["@Crane"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                Crane.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                Crane.Checked = false;
             }
 
-            if ((oldChainsaw.Value = myCommand.Parameters["@Chainsaw"].Value.ToString()) == "1")
+            if ((oldChainsaw.Value = myCommand.Parameters["@Chainsaw"].Value.ToString()) == "Y")
             {
-                CopyFlag.Checked = true;
+                Chainsaw.Checked = true;
             }
             else
             {
-                CopyFlag.Checked = false;
+                Chainsaw.Checked = false;
             }
             Add.Visible = true;
             Delete.Visible = true;
@@ -484,7 +484,8 @@ public partial class Default2 : System.Web.UI.Page
 
         if (ErrCode != 0)
         {
-            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Delete Error!')</script>");
+            //ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('"+ErrMsg+"')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('delete error!')</script>");
 
         }
         else
@@ -519,24 +520,24 @@ public partial class Default2 : System.Web.UI.Page
 
     private bool IsChanged()
     {
-        if (oldCopyFlag.Value != (CopyFlag.Checked ? "1" : "0")
+        if (oldCopyFlag.Value != (CopyFlag.Checked ? "Y":"N")
           || oldBCITONumber.Value != BCITONumber.Text.Trim()
-          || oldChainsaw.Value != (Chainsaw.Checked ? "1" : "0")
-          || oldConfindSpaces.Value != (ConfindSpaces.Checked ? "1" : "0")
-          || oldCrane.Value != (Crane.Checked ? "1" : "0")
-          || oldDog.Value != (Dog.Checked?"1":"0")
-          || oldEWP.Value != (EWP.Checked?"1":"0")
+          || oldChainsaw.Value != (Chainsaw.Checked ? "Y":"N")
+          || oldConfindSpaces.Value != (ConfindSpaces.Checked ? "Y":"N")
+          || oldCrane.Value != (Crane.Checked ? "Y":"N")
+          || oldDog.Value != (Dog.Checked?"Y":"N")
+          || oldEWP.Value != (EWP.Checked?"Y":"N")
           || oldExpiry.Value != Expiry.Text.Trim()
-          || oldFallArrest.Value != (FallArrest.Checked?"1":"0")
-          || oldFirstAid.Value != (FirstAid.Checked?"1":"0")
-          || oldHIAB.Value != (HIAB.Checked?"1":"0")
-          || oldHILTI.Value != (HILTI.Checked?"1":"0")
-          || oldHT123.Value != (HT123.Checked?"1":"0")
-          || oldLBP.Value != (LBP.Checked?"1":"0")
-          || oldLowScaff.Value != (LowScaff.Checked?"1":"0")
+          || oldFallArrest.Value != (FallArrest.Checked?"Y":"N")
+          || oldFirstAid.Value != (FirstAid.Checked?"Y":"N")
+          || oldHIAB.Value != (HIAB.Checked?"Y":"N")
+          || oldHILTI.Value != (HILTI.Checked?"Y":"N")
+          || oldHT123.Value != (HT123.Checked?"Y":"N")
+          || oldLBP.Value != (LBP.Checked?"Y":"N")
+          || oldLowScaff.Value != (LowScaff.Checked?"Y":"N")
           || oldNZQANumber.Value != NZQANumber.Text.Trim()
-          || oldRamset.Value != (Ramset.Checked?"1":"0")
-          || oldWTR.Value != (WTR.Checked?"1":"0"))
+          || oldRamset.Value != (Ramset.Checked?"Y":"N")
+          || oldWTR.Value != (WTR.Checked?"Y":"N"))
         {
             return true;
         }
@@ -544,5 +545,22 @@ public partial class Default2 : System.Web.UI.Page
         {
             return false;
         }
+    }
+    protected void ImageButtonExpiry_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarExpiry.Visible == true)
+        {
+            CalendarExpiry.Visible = false;
+        }
+        else
+        {
+            CalendarExpiry.Visible = true;
+        }
+    }
+
+    protected void CalendarExpiry_SelectionChanged(object sender, EventArgs e)
+    {
+        Expiry.Text = CalendarExpiry.SelectedDate.ToString("yyyyMMdd");
+        CalendarExpiry.Visible = false;
     }
 }

@@ -60,10 +60,12 @@
                     <asp:BoundField DataField="YearsInIndustry" HeaderText="YEARS IN INDUSTRY" ReadOnly="true" />
                     <asp:BoundField DataField="CopyFlag" HeaderText="COPY FLAG"/>
                     <asp:BoundField DataField="LBP" HeaderText="LBP" />
-                    <asp:BoundField DataField="Expiry" HeaderText="EXPIRY" />
+                    <asp:BoundField DataField="Expiry" DataFormatString="{0:yyyyMMdd}" HeaderText="EXPIRY" />
                     <asp:BoundField DataField="BCITONumber" HeaderText="BCITO#" />
                     <asp:BoundField DataField="NZQANumber" HeaderText="NZQA#" />
-                    <asp:BoundField DataField="SiteSafePhoto" HeaderText="SITE SAFE" ReadOnly="true" />
+                    <asp:BoundField DataField="SiteSafeFlag" HeaderText="SITE SAFE" ReadOnly="true" />
+                    <asp:BoundField DataField="SiteSafeNumber" HeaderText="ID NUMBER" ReadOnly="true" />
+                    <asp:BoundField DataField="SiteSafeExpiryDate" HeaderText="SITE SAFE EXPIRY" DataFormatString="{0:yyyyMMdd}" ReadOnly="true" />
                     <asp:BoundField DataField="FirstAid" HeaderText="FIRST AID" />
                     <asp:BoundField DataField="FallArrest" HeaderText="FALL ARREST" />
                     <asp:BoundField DataField="ConfindSpaces" HeaderText="CONFINED SPACES" />
@@ -92,8 +94,8 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSourceCertification" runat="server"
                 ConnectionString="<%$ ConnectionStrings:HRMSDBConnectionString %>"
-                SelectCommand="SELECT e.Forename, e.Surname,e.Position,e.YearsInBCD,e.YearsInIndustry,e.SiteSafePhoto,c.* FROM [Employee] e, [Certification] c  where e.EmployeeID = c.EmployeeID order by e.Forename, e.Surname"
-                UpdateCommand="update [CERTIFICATION]  set CopyFlag = @CopyFlag, LBP = @LBP, Expiry = @Expiry, BCITONumber = @BCITONumber, NZQANumber = @NZQANumber, FirstAid = @FirstAid, FallArrest = @FallArrest, ConfindSpaces = @ConfindSpaces, Ramset = @Ramset, HILTI = @HILTI, LowScaff = @LowScaff, WTR = @WTR, EWP = @EWP, HIAB = @HIAB, HT123 = @HT123, Dog = @Dog, Crane = @Crane, Chainsaw = @Chainsaw where EmployeeID = @EmployeeID"
+                SelectCommand="SELECT e.Forename, e.Surname,e.Position,e.YearsInBCD,e.YearsInIndustry,case e.SiteSafePhoto when '' then 'N' else 'Y' end as SiteSafeFlag,e.SiteSafeNumber,e.SiteSafeExpiryDate,c.* FROM [Employee] e, [Certification] c  where e.EmployeeID = c.EmployeeID order by e.Forename, e.Surname"
+                UpdateCommand="update [CERTIFICATION]  set CopyFlag = @CopyFlag, LBP = @LBP, Expiry = case @Expiry when '' then null else @Expiry end, BCITONumber = @BCITONumber, NZQANumber = @NZQANumber, FirstAid = @FirstAid, FallArrest = @FallArrest, ConfindSpaces = @ConfindSpaces, Ramset = @Ramset, HILTI = @HILTI, LowScaff = @LowScaff, WTR = @WTR, EWP = @EWP, HIAB = @HIAB, HT123 = @HT123, Dog = @Dog, Crane = @Crane, Chainsaw = @Chainsaw where EmployeeID = @EmployeeID"
                 DeleteCommand="DELETE FROM [CERTIFICATION] WHERE EmployeeID = @EmployeeID"
                 ></asp:SqlDataSource>
         </div>

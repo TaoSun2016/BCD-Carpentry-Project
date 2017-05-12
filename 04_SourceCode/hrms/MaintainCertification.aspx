@@ -47,10 +47,24 @@
             </div>
             <div style="float: left; width: 10%; text-align: right">Expiry:&nbsp;&nbsp;</div>
             <div style="float: left; width: 40%">
-                <asp:TextBox ID="Expiry" runat="server" MaxLength="10"></asp:TextBox>
+                <asp:TextBox ID="Expiry" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="ImageButtonExpiry" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" CausesValidation="False" OnClick="ImageButtonExpiry_Click" />
             </div>
         </div>
         <br />
+        <div style="float: left; width: 100%">
+                <div style="float: left; width: 25%">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 15%">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: right; width: 35%">
+                    <asp:Calendar ID="CalendarExpiry" runat="server" Visible="false" OnSelectionChanged="CalendarExpiry_SelectionChanged"></asp:Calendar>
+                </div>
+            </div>
         <br />
         <div style="width: 100%">
             <div style="float: left; width: 25%; text-align: right">
