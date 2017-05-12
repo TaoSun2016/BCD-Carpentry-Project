@@ -43,7 +43,7 @@
             <br />
             <br />
             <div style="width:100%;text-align:center">
-                <asp:Button ID="Query" runat="server" Text="Query" Width="83px" OnClick="Query_Click" />
+                <asp:Button ID="Query" runat="server" Text="Query" Width="83px" OnClick="Query_Click" CausesValidation="False" />
             </div>
             <br />
             <hr />
@@ -65,34 +65,79 @@
                 </div>
             </div>
             <br />
+                        <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Forename" Display="Dynamic" ErrorMessage="Please input Forename!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Surname" Display="Dynamic" ErrorMessage="Please input Surname!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
             <br />
-            <div style="width: 100%">
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     DOB:&nbsp;&nbsp;
                 </div>
                 <div style="float: left; width: 25%">
-                    <asp:TextBox ID="DOB" runat="server" MaxLength="8"></asp:TextBox>*
+                    <asp:TextBox ID="DOB" runat="server" MaxLength="8"></asp:TextBox><asp:ImageButton ID="ImageButtonDOB" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="ImageButtonDOB_Click" CausesValidation="False" />*
                 </div>
                 <div style="float: left; width: 15%; text-align: right">Position:&nbsp;&nbsp;</div>
                 <div style="float: left; width: 35%">
-                    <asp:TextBox ID="Position" runat="server" MaxLength="10"></asp:TextBox>*
+                    <asp:DropDownList ID="Position" runat="server" DataSourceID="SqlDataSourcePosition" DataTextField="PositionName" DataValueField="PositionName"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSourcePosition" runat="server" ConnectionString="<%$ ConnectionStrings:HRMSDBConnectionString %>" SelectCommand="SELECT * FROM [POSITION]"></asp:SqlDataSource>*
                 </div>
             </div>
             <br />
+            <div style="float: left; width: 100%">
+                <div style="float: left; width: 25%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                 <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="Dynamic" ErrorMessage="Please input DOB!" ForeColor="Red" ControlToValidate="DOB"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 50%;text-align:left">
+                    <asp:Calendar ID="CalendarDOB" runat="server" Visible="false" OnSelectionChanged="CalendarDOB_SelectionChanged"></asp:Calendar>
+                </div>
+            </div>
             <br />
             <div style="width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Hire Date:&nbsp;&nbsp;
                 </div>
                 <div style="float: left; width: 25%">
-                    <asp:TextBox ID="HireDate" runat="server" MaxLength="8"></asp:TextBox>*
+                    <asp:TextBox ID="HireDate" runat="server" MaxLength="8"></asp:TextBox><asp:ImageButton ID="ImageButtonHireDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" CausesValidation="False" OnClick="ImageButtonHireDate_Click" />*
                 </div>
                 <div style="float: left; width: 15%; text-align: right">Resign Date:&nbsp;&nbsp;</div>
                 <div style="float: left; width: 35%">
-                    <asp:TextBox ID="ResignDate" runat="server" MaxLength="8"></asp:TextBox>
+                    <asp:TextBox ID="ResignDate" runat="server" MaxLength="8"></asp:TextBox><asp:ImageButton ID="ImageButtonResignDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" CausesValidation="False" OnClick="ImageButtonResignDate_Click" />
                 </div>
             </div>
             <br />
+            <div style="float: left; width: 100%">
+                <div style="float: left; width: 25%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Display="Dynamic" ErrorMessage="Please input hire date!" ForeColor="Red" ControlToValidate="HireDate"></asp:RequiredFieldValidator>
+                </div>
+                <div style="float: left; width: 30%">
+                    <asp:Calendar ID="CalendarHireDate" runat="server" Visible="false" OnSelectionChanged="CalendarHireDate_SelectionChanged"></asp:Calendar>
+                </div>
+                <div style="float: left; width: 5%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float: right; width: 40%">
+                    <asp:Calendar ID="CalendarResignDate" runat="server" Visible="false" OnSelectionChanged="CalendarResignDate_SelectionChanged"></asp:Calendar>
+                </div>
+            </div>
             <br />
             <div style="width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
@@ -107,30 +152,84 @@
                 </div>
             </div>
             <br />
-            <br />
             <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="YearsInBCD" Display="Dynamic" ErrorMessage="Please input years in BCD!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="YearsInIndustry" Display="Dynamic" ErrorMessage="Please input years in industry!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
+            <br />
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Driver License Number:&nbsp;&nbsp;
                 </div>
                 <div style="float: left; width: 25%">
                     <asp:TextBox ID="DriverLicenseNumber" runat="server" MaxLength="30"></asp:TextBox>
                 </div>
-                <div style="float: left; width: 15%; text-align: right">Driver License Class:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 15%; text-align: right">Site Safe Number:&nbsp;&nbsp;</div>
                 <div style="float: left; width: 35%">
-                    <asp:TextBox ID="DriverLicenseClass" runat="server" MaxLength="10"></asp:TextBox>
+                    
+                    <asp:TextBox ID="SiteSafeNumber" runat="server" MaxLength="50"></asp:TextBox>
                 </div>
             </div>
             <br />
             <br />
-            <div style="width: 100%">
+            <br />
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Driver License ExpiryDate:&nbsp;&nbsp;
                 </div>
                 <div style="float: left; width: 25%">
-                    <asp:TextBox ID="DriverLicenseExpiryDate" runat="server" MaxLength="8"></asp:TextBox>
+                    <asp:TextBox ID="DriverLicenseExpiryDate" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="ImageButtonDriverLicense" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" CausesValidation="False" OnClick="ImageButtonDriverLicense_Click" />
                 </div>
-                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
-                <div style="float: left; width: 35%">&nbsp;&nbsp;</div>
+                <div style="float: left; width: 15%; text-align: right">Site Safe ExpiryDate:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">
+                       <asp:TextBox ID="SiteSafeExpiryDate" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="ImageButtonSiteSafe" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" CausesValidation="False" OnClick="ImageButtonSiteSafe_Click" />
+                </div>
+            </div>
+            <br />
+            <div style="float: left; width: 100%">
+                <div style="float: left; width: 25%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:Calendar ID="CalendarDriverLicense" runat="server" Visible="false" OnSelectionChanged="CalendarDriverLicense_SelectionChanged"></asp:Calendar>
+                </div>
+                <div style="float: left; width: 10%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float: right; width: 40%">
+                    <asp:Calendar ID="CalendarSiteSafe" runat="server" Visible="false" OnSelectionChanged="CalendarSiteSafe_SelectionChanged"></asp:Calendar>
+                </div>
+            </div>
+            <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Driver License Class:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:DropDownList ID="DriverLicenseClass" runat="server">
+                        <asp:ListItem></asp:ListItem>
+                        <asp:ListItem>Class1</asp:ListItem>
+                        <asp:ListItem>Class2</asp:ListItem>
+                        <asp:ListItem>Class3</asp:ListItem>
+                        <asp:ListItem>Class4</asp:ListItem>
+                        <asp:ListItem>Class5</asp:ListItem>
+                        <asp:ListItem>Class6</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Other Positions:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">
+                    <asp:TextBox ID="OtherPositions" runat="server" MaxLength="128"></asp:TextBox>
+                </div>
             </div>
             <br />
             <br />
@@ -175,8 +274,20 @@
                 <div style="float: left; width: 35%"><asp:TextBox ID="HomeNumber" runat="server" MaxLength="20"></asp:TextBox></div>
             </div>
             <br />
-            <br />            
             <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="MobileNumber" Display="Dynamic" ErrorMessage="Please input mobile number!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    &nbsp;&nbsp;                   
+                </div>
+            </div>
+            <br />            
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Email:&nbsp;&nbsp;
                 </div>
@@ -187,8 +298,20 @@
                 <div style="float: left; width: 35%">&nbsp;&nbsp;</div>
             </div>
             <br />
-            <br />   
             <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="Email" Display="Dynamic" ErrorMessage="Please input email address!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    &nbsp;&nbsp;                   
+                </div>
+            </div>
+            <br />   
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Kin Name:&nbsp;&nbsp;
                 </div>
@@ -219,6 +342,20 @@
                 <div style="float: left; width: 35%"> <asp:TextBox ID="AccountNumber" runat="server" MaxLength="30"></asp:TextBox>*</div>
             </div>
             <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="BankName" Display="Dynamic" ErrorMessage="Please input bank name!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="AccountNumber" Display="Dynamic" ErrorMessage="Please input account number!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
             <br />  
             <div style="width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
@@ -231,6 +368,20 @@
                 <div style="float: left; width: 35%"> <asp:TextBox ID="TaxRate" runat="server" TextMode="Number"></asp:TextBox>*</div>
             </div>
             <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="PayRate" Display="Dynamic" ErrorMessage="Please input pay rate!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="TaxRate" Display="Dynamic" ErrorMessage="Please input tax rate!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
             <br />
             <div style="width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
@@ -243,6 +394,20 @@
                 <div style="float: left; width: 35%"> &nbsp;&nbsp;</div>
             </div>
             <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="IRDNumber" Display="Dynamic" ErrorMessage="Please input IRD number!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    &nbsp;&nbsp;
+                </div>
+            </div>
             <br />        
 
         </div>
@@ -263,6 +428,20 @@
                 <div style="float: left; width: 35%"> <asp:TextBox ID="City" runat="server" MaxLength="30"></asp:TextBox>*</div>
             </div>
             <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="Country" Display="Dynamic" ErrorMessage="Please input country name!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="City" Display="Dynamic" ErrorMessage="Please input city name!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
             <br />            
             <div style="width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
@@ -275,6 +454,20 @@
                 <div style="float: left; width: 35%"> <asp:TextBox ID="Street" runat="server" MaxLength="100"></asp:TextBox>*</div>
             </div>
             <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    &nbsp;&nbsp;
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="Street" Display="Dynamic" ErrorMessage="Please input street name!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
             <br />
             <div style="width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
@@ -310,23 +503,31 @@
         </div>      
         <br />
         <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Update" runat="server" Text="Update" OnClick="Update_Click" Width="69px" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Delete" runat="server" Text="Delete" Width="68px" OnClick="Delete_Click" />
+        <div style="float:left;width:100%">
+                <div style="float: left; width: 25%; text-align: right">
+                   &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:Button ID="Update" runat="server" Text="Update" OnClick="Update_Click" Width="69px" />
+                </div>
+                <div style="float: left; width: 15%; text-align: right"><asp:Button ID="Delete" runat="server" Text="Delete" Width="68px" OnClick="Delete_Click" /></div>
+                <div style="float: left; width: 35%"> &nbsp;&nbsp;</div>
+        </div>  
        <asp:HiddenField ID="EmployeeID" runat="server" />
         <asp:HiddenField ID="oldForename" runat="server" />
         <asp:HiddenField ID="oldSurname" runat="server" />
         <asp:HiddenField ID="oldDOB" runat="server" />
         <asp:HiddenField ID="oldPosition" runat="server" />
+        <asp:HiddenField ID="oldOtherPositions" runat="server" />
         <asp:HiddenField ID="oldHireDate" runat="server" />
         <asp:HiddenField ID="oldResignDate" runat="server" />
         <asp:HiddenField ID="oldYearsInBCD" runat="server" />
         <asp:HiddenField ID="oldYearsInIndustry" runat="server" />
         <asp:HiddenField ID="oldDriverLicenseNumber" runat="server" />
+        <asp:HiddenField ID="oldSiteSafeNumber" runat="server" />
         <asp:HiddenField ID="oldDriverLicenseClass" runat="server" />
         <asp:HiddenField ID="oldDriverLicenseExpiryDate" runat="server" />
+        <asp:HiddenField ID="oldSiteSafeExpiryDate" runat="server" />
         <asp:HiddenField ID="oldMobileNumber" runat="server" />
         <asp:HiddenField ID="oldHomeNumber" runat="server" />
         <asp:HiddenField ID="oldEmail" runat="server" />

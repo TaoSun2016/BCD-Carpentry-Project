@@ -73,7 +73,12 @@ public partial class Default2 : System.Web.UI.Page
 
         cmdParameter = new SqlParameter("@Position", SqlDbType.VarChar,10);
         cmdParameter.Direction = ParameterDirection.Input;
-        cmdParameter.Value = Position.Text.Trim();
+        cmdParameter.Value = Position.SelectedValue;
+        myCommand.Parameters.Add(cmdParameter);
+
+        cmdParameter = new SqlParameter("@OtherPositions", SqlDbType.VarChar, 10);
+        cmdParameter.Direction = ParameterDirection.Input;
+        cmdParameter.Value = OtherPositions.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);
 
         cmdParameter = new SqlParameter("@HireDate", SqlDbType.VarChar,8);
@@ -101,6 +106,11 @@ public partial class Default2 : System.Web.UI.Page
         cmdParameter.Value = DriverLicenseNumber.Text;
         myCommand.Parameters.Add(cmdParameter);
 
+        cmdParameter = new SqlParameter("@SiteSafeNumber", SqlDbType.VarChar, 50);
+        cmdParameter.Direction = ParameterDirection.Input;
+        cmdParameter.Value = SiteSafeNumber.Text;
+        myCommand.Parameters.Add(cmdParameter);
+
         cmdParameter = new SqlParameter("@DriverLicenseClass", SqlDbType.VarChar, 10);
         cmdParameter.Direction = ParameterDirection.Input;
         cmdParameter.Value = DriverLicenseClass.Text;
@@ -109,6 +119,11 @@ public partial class Default2 : System.Web.UI.Page
         cmdParameter = new SqlParameter("@DriverLicenseExpiryDate", SqlDbType.VarChar, 10);
         cmdParameter.Direction = ParameterDirection.Input;
         cmdParameter.Value = DriverLicenseExpiryDate.Text;
+        myCommand.Parameters.Add(cmdParameter);
+
+        cmdParameter = new SqlParameter("@SiteSafeExpiryDate", SqlDbType.VarChar, 10);
+        cmdParameter.Direction = ParameterDirection.Input;
+        cmdParameter.Value = SiteSafeExpiryDate.Text;
         myCommand.Parameters.Add(cmdParameter);
 
         cmdParameter = new SqlParameter("@DriverLicensePhoto", SqlDbType.VarChar, 255);
@@ -241,14 +256,15 @@ public partial class Default2 : System.Web.UI.Page
         Forename.Text="";
         Surname.Text="";
         DOB.Text = "";
-        Position.Text = "";
         HireDate.Text = "";
         ResignDate.Text = "";
         YearsInBCD.Text = "";
         YearsInIndustry.Text = "";
         DriverLicenseNumber.Text = "";
+        SiteSafeNumber.Text = "";
         DriverLicenseClass.Text = "";
-        DriverLicenseClass.Text = "";
+        DriverLicenseExpiryDate.Text = "";
+        SiteSafeExpiryDate.Text = "";
         MobileNumber.Text = "";
         HomeNumber.Text = "";
         Email.Text = "";
@@ -265,6 +281,7 @@ public partial class Default2 : System.Web.UI.Page
         Street.Text = "";
         PostCode.Text = "";
         Note.Text = "";
+        OtherPositions.Text = "";
     }
 
 
@@ -281,7 +298,7 @@ public partial class Default2 : System.Web.UI.Page
     }
     protected void CalendarDOB_SelectionChanged(object sender, EventArgs e)
     {
-        DOB.Text = CalendarDOB.SelectedDate.ToString("dd-MM-yyyy");
+        DOB.Text = CalendarDOB.SelectedDate.ToString("yyyyMMdd");
         CalendarDOB.Visible = false;
     }
 
@@ -300,7 +317,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void CalendarHireDate_SelectionChanged(object sender, EventArgs e)
     {
-        HireDate.Text = CalendarHireDate.SelectedDate.ToString("dd-MM-yyyy");
+        HireDate.Text = CalendarHireDate.SelectedDate.ToString("yyyyMMdd");
         CalendarHireDate.Visible = false;
     }
 
@@ -318,8 +335,44 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void CalendarResignDate_SelectionChanged(object sender, EventArgs e)
     {
-        ResignDate.Text = CalendarResignDate.SelectedDate.ToString("dd-MM-yyyy");
+        ResignDate.Text = CalendarResignDate.SelectedDate.ToString("yyyyMMdd");
         CalendarResignDate.Visible = false;
+    }
+
+    protected void ImageButtonDriverLicense_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarDriverLicense.Visible == true)
+        {
+            CalendarDriverLicense.Visible = false;
+        }
+        else
+        {
+            CalendarDriverLicense.Visible = true;
+        }
+    }
+
+    protected void CalendarDriverLicense_SelectionChanged(object sender, EventArgs e)
+    {
+        DriverLicenseExpiryDate.Text = CalendarDriverLicense.SelectedDate.ToString("yyyyMMdd");
+        CalendarDriverLicense.Visible = false;
+    }
+
+    protected void ImageButtonSiteSafe_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarSiteSafe.Visible == true)
+        {
+            CalendarSiteSafe.Visible = false;
+        }
+        else
+        {
+            CalendarSiteSafe.Visible = true;
+        }
+    }
+
+    protected void CalendarSiteSafe_SelectionChanged(object sender, EventArgs e)
+    {
+        SiteSafeExpiryDate.Text = CalendarSiteSafe.SelectedDate.ToString("yyyyMMdd");
+        CalendarSiteSafe.Visible = false;
     }
 
 

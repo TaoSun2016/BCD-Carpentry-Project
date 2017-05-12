@@ -106,7 +106,6 @@
                 </div>
             </div>
             <br />
-            <br />
             <div style="width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Years In BCD:&nbsp;&nbsp;
@@ -120,41 +119,79 @@
                 </div>
             </div>
             <br />
-            <br />
             <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="YearsInBCD" Display="Dynamic" ErrorMessage="Please input years in BCD!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="YearsInIndustry" Display="Dynamic" ErrorMessage="Please input years in industry!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
+            <br />
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Driver License Number:&nbsp;&nbsp;
                 </div>
                 <div style="float: left; width: 25%">
                     <asp:TextBox ID="DriverLicenseNumber" runat="server" MaxLength="30"></asp:TextBox>
                 </div>
-                <div style="float: left; width: 15%; text-align: right">Driver License Class:&nbsp;&nbsp;</div>
-                <div style="float: left; width: 35%">
-                    <asp:TextBox ID="DriverLicenseClass" runat="server" MaxLength="10"></asp:TextBox>
-                </div>
-            </div>
-            <br />
-            <br />
-            <div style="width: 100%">
-                <div style="float: left; width: 25%; text-align: right">
-                    Driver License ExpiryDate:&nbsp;&nbsp;
-                </div>
-                <div style="float: left; width: 25%">
-                    <asp:TextBox ID="DriverLicenseExpiryDate" runat="server" MaxLength="8"></asp:TextBox>
-                </div>
                 <div style="float: left; width: 15%; text-align: right">Site Safe Number:&nbsp;&nbsp;</div>
                 <div style="float: left; width: 35%">
+                    
                     <asp:TextBox ID="SiteSafeNumber" runat="server" MaxLength="50"></asp:TextBox>
                 </div>
             </div>
             <br />
             <br />
-            <div style="width: 100%">
+            <br />
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
-                    Site Safe ExpiryDate:&nbsp;&nbsp;
+                    Driver License ExpiryDate:&nbsp;&nbsp;
                 </div>
                 <div style="float: left; width: 25%">
-                    <asp:TextBox ID="SiteSafeExpiryDate" runat="server" MaxLength="8"></asp:TextBox>
+                    <asp:TextBox ID="DriverLicenseExpiryDate" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="ImageButtonDriverLicense" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" CausesValidation="False" OnClick="ImageButtonDriverLicense_Click" />
+                </div>
+                <div style="float: left; width: 15%; text-align: right">Site Safe ExpiryDate:&nbsp;&nbsp;</div>
+                <div style="float: left; width: 35%">
+                       <asp:TextBox ID="SiteSafeExpiryDate" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="ImageButtonSiteSafe" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" CausesValidation="False" OnClick="ImageButtonSiteSafe_Click" />
+                </div>
+            </div>
+            <br />
+            <div style="float: left; width: 100%">
+                <div style="float: left; width: 25%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:Calendar ID="CalendarDriverLicense" runat="server" Visible="false" OnSelectionChanged="CalendarDriverLicense_SelectionChanged"></asp:Calendar>
+                </div>
+                <div style="float: left; width: 10%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float: right; width: 40%">
+                    <asp:Calendar ID="CalendarSiteSafe" runat="server" Visible="false" OnSelectionChanged="CalendarSiteSafe_SelectionChanged"></asp:Calendar>
+                </div>
+            </div>
+            <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    Driver License Class:&nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:DropDownList ID="DriverLicenseClass" runat="server">
+                        <asp:ListItem></asp:ListItem>
+                        <asp:ListItem>Class1</asp:ListItem>
+                        <asp:ListItem>Class2</asp:ListItem>
+                        <asp:ListItem>Class3</asp:ListItem>
+                        <asp:ListItem>Class4</asp:ListItem>
+                        <asp:ListItem>Class5</asp:ListItem>
+                        <asp:ListItem>Class6</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
                 <div style="float: left; width: 15%; text-align: right">Other Positions:&nbsp;&nbsp;</div>
                 <div style="float: left; width: 35%">
@@ -163,7 +200,7 @@
             </div>
             <br />
             <br />
-            <div style="width: 100%">
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Driver License Photo:&nbsp;&nbsp;
                 </div>
@@ -197,8 +234,20 @@
                 </div>
             </div>
             <br />
-            <br />
             <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="MobileNumber" Display="Dynamic" ErrorMessage="Please input mobile number!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    &nbsp;&nbsp;                   
+                </div>
+            </div>
+            <br />
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Email:&nbsp;&nbsp;
                 </div>
@@ -209,8 +258,20 @@
                 <div style="float: left; width: 35%">&nbsp;&nbsp;</div>
             </div>
             <br />
-            <br />
             <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="Email" Display="Dynamic" ErrorMessage="Please input email address!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    &nbsp;&nbsp;                   
+                </div>
+            </div>
+            <br />
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Kin Name:&nbsp;&nbsp;
                 </div>
@@ -231,7 +292,7 @@
             <strong>Account Information</strong>
         </p>
         <div class="auto-style7">
-            <div style="width: 100%">
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Bank Name:&nbsp;&nbsp;
                 </div>
@@ -244,8 +305,22 @@
                 </div>
             </div>
             <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="BankName" Display="Dynamic" ErrorMessage="Please input bank name!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="AccountNumber" Display="Dynamic" ErrorMessage="Please input account number!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
             <br />
-            <div style="width: 100%">
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Pay Rate:&nbsp;&nbsp;
                 </div>
@@ -258,8 +333,22 @@
                 </div>
             </div>
             <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="PayRate" Display="Dynamic" ErrorMessage="Please input pay rate!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="TaxRate" Display="Dynamic" ErrorMessage="Please input tax rate!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
             <br />
-            <div style="width: 100%">
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     IRD Number:&nbsp;&nbsp;
                 </div>
@@ -270,6 +359,20 @@
                 <div style="float: left; width: 35%">&nbsp;&nbsp;</div>
             </div>
             <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="IRDNumber" Display="Dynamic" ErrorMessage="Please input IRD number!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    &nbsp;&nbsp;
+                </div>
+            </div>
             <br />
         </div>
         <hr />
@@ -278,7 +381,7 @@
             <strong>Address Information</strong>
         </p>
         <div class="auto-style7">
-            <div style="width: 100%">
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Country:&nbsp;&nbsp;
                 </div>
@@ -291,8 +394,22 @@
                 </div>
             </div>
             <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="Country" Display="Dynamic" ErrorMessage="Please input country name!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="City" Display="Dynamic" ErrorMessage="Please input city name!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
             <br />
-            <div style="width: 100%">
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Suburb:&nbsp;&nbsp;
                 </div>
@@ -305,8 +422,22 @@
                 </div>
             </div>
             <br />
+            <div style="float:left;width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    &nbsp;&nbsp;
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="Street" Display="Dynamic" ErrorMessage="Please input street name!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
             <br />
-            <div style="width: 100%">
+            <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     Post Code:&nbsp;&nbsp;
                 </div>

@@ -26,13 +26,16 @@ public partial class Default2 : System.Web.UI.Page
         oldSurname.Value = "";
         oldDOB.Value = "";
         oldPosition.Value = "";
+        oldOtherPositions.Value = "";
         oldHireDate.Value = "";
         oldResignDate.Value = "";
         oldYearsInBCD.Value = "";
         oldYearsInIndustry.Value = "";
         oldDriverLicenseNumber.Value = "";
+        oldSiteSafeNumber.Value = "";
         oldDriverLicenseClass.Value = "";
         oldDriverLicenseExpiryDate.Value = "";
+        oldSiteSafeExpiryDate.Value = "";
         oldMobileNumber.Value = "";
         oldHomeNumber.Value = "";
         oldEmail.Value = "";
@@ -53,14 +56,17 @@ public partial class Default2 : System.Web.UI.Page
         Forename.Text="";
         Surname.Text="";
         DOB.Text = "";
-        Position.Text = "";
+        Position.SelectedIndex = 0;
+        OtherPositions.Text = "";
         HireDate.Text = "";
         ResignDate.Text = "";
         YearsInBCD.Text = "";
         YearsInIndustry.Text = "";
         DriverLicenseNumber.Text = "";
+        SiteSafeNumber.Text = "";
         DriverLicenseClass.Text = "";
         DriverLicenseExpiryDate.Text = "";
+        SiteSafeExpiryDate.Text = "";
         DriverLicense.ImageUrl = "";
         SiteSafe.ImageUrl = "";
         MobileNumber.Text = "";
@@ -116,6 +122,8 @@ public partial class Default2 : System.Web.UI.Page
         {
             case 0:
                 ClientScript.RegisterStartupScript(typeof(string), "noEmployee", "<script>alert('Can not find the employee's information!')</script>");
+                //Response.Write("<script language='JavaScript'>alert(''Can not find the employee's information!')</script>");
+
                 break;
             case 1:
                 sqlState = "select * from EMPLOYEE where EmployeeStatus = 'Y'"
@@ -146,15 +154,18 @@ public partial class Default2 : System.Web.UI.Page
         
         oldForename.Value = Forename.Text = dr["Forename"].ToString();
         oldSurname.Value = Surname.Text = dr["Surname"].ToString();
-        oldDOB.Value = DOB.Text = ((DateTime)dr["DOB"]).ToString("yyyymmdd");
-        oldPosition.Value = Position.Text = dr["Position"].ToString();
-        oldHireDate.Value = HireDate.Text = ((DateTime)dr["HireDate"]).ToString("yyyymmdd");
-        oldResignDate.Value = ResignDate.Text = (dr["ResignDate"].ToString()=="")?"":((DateTime)dr["ResignDate"]).ToString("yyyymmdd");
+        oldDOB.Value = DOB.Text = ((DateTime)dr["DOB"]).ToString("yyyyMMdd");
+        oldPosition.Value = Position.SelectedValue = dr["Position"].ToString();
+        oldOtherPositions.Value = OtherPositions.Text = dr["OtherPositions"].ToString();
+        oldHireDate.Value = HireDate.Text = ((DateTime)dr["HireDate"]).ToString("yyyyMMdd");
+        oldResignDate.Value = ResignDate.Text = (dr["ResignDate"].ToString()=="")?"":((DateTime)dr["ResignDate"]).ToString("yyyyMMdd");
         oldYearsInBCD.Value = YearsInBCD.Text = dr["YearsInBCD"].ToString();
         oldYearsInIndustry.Value = YearsInIndustry.Text = dr["YearsInIndustry"].ToString();
         oldDriverLicenseNumber.Value = DriverLicenseNumber.Text = dr["DriverLicenseNumber"].ToString();
+        oldSiteSafeNumber.Value = SiteSafeNumber.Text = dr["SiteSafeNumber"].ToString();
         oldDriverLicenseClass.Value = DriverLicenseClass.Text = dr["DriverLicenseClass"].ToString();
-        oldDriverLicenseExpiryDate.Value = DriverLicenseExpiryDate.Text = (dr["DriverLicenseExpiryDate"].ToString()=="")?"": ((DateTime)dr["DriverLicenseExpiryDate"]).ToString("yyyymmdd");
+        oldDriverLicenseExpiryDate.Value = DriverLicenseExpiryDate.Text = (dr["DriverLicenseExpiryDate"].ToString()=="")?"": ((DateTime)dr["DriverLicenseExpiryDate"]).ToString("yyyyMMdd");
+        oldSiteSafeExpiryDate.Value = SiteSafeExpiryDate.Text = (dr["SiteSafeExpiryDate"].ToString() == "") ? "" : ((DateTime)dr["SiteSafeExpiryDate"]).ToString("yyyyMMdd");
         DriverLicense.ImageUrl = dr["DriverLicensePhoto"].ToString();
         SiteSafe.ImageUrl = dr["SiteSafePhoto"].ToString();
         oldMobileNumber.Value = MobileNumber.Text = dr["MobileNumber"].ToString();
@@ -182,8 +193,8 @@ public partial class Default2 : System.Web.UI.Page
     {
         if (isChanged())
         {
-            String sqlState;
-            int result = 0;
+            int ErrCode;
+            string ErrMsg;
 
             string DriverLicenseFileName;
             string SiteSafeFileName;
@@ -215,58 +226,198 @@ public partial class Default2 : System.Web.UI.Page
             string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
             SqlConnection conn = new SqlConnection(connectionString);
 
-            sqlState = "update EMPLOYEE set Forename = '" + Forename.Text.Trim()
-                    + "', Surname = '" + Surname.Text.Trim()
-                    //+ "', DOB = '" + DOB.Text.Trim()
-                    + "', Position = '" + Position.Text.Trim()
-                    //+ "', HireDate = '" + HireDate.Text.Trim()
-                    //+ "', ResignDate = '" + ResignDate.Text.Trim()
-                    + "', YearsInBCD = '" + YearsInBCD.Text.Trim()
-                    + "', YearsInIndustry = '" + YearsInIndustry.Text.Trim()
-                    + "', DriverLicenseNumber = '" + DriverLicenseNumber.Text.Trim()
-                    + "', DriverLicenseClass = '" + DriverLicenseClass.Text.Trim()
-                    //+ "', DriverLicenseExpiryDate = '" + DriverLicenseExpiryDate.Text.Trim()
-                    + "', DriverLicensePhoto = '" + DriverLicenseFileName
-                    + "', SiteSafePhoto = '" + SiteSafeFileName
-                    + "', MobileNumber = '" + MobileNumber.Text.Trim()
-                    + "', HomeNumber = '" + HomeNumber.Text.Trim()
-                    + "', Email = '" + Email.Text.Trim()
-                    + "', KinName = '" + KinName.Text.Trim()
-                    + "', KinNumber = '" + KinNumber.Text.Trim()
-                    + "', BankName = '" + BankName.Text.Trim()
-                    + "', AccountNumber = '" + AccountNumber.Text.Trim()
-                    + "', PayRate = '" + PayRate.Text.Trim()
-                    + "', TaxRate = '" + TaxRate.Text.Trim()
-                    + "', IRDNumber = '" + IRDNumber.Text.Trim()
-                    + "', Country = '" + Country.Text.Trim()
-                    + "', City = '" + City.Text.Trim()
-                    + "', Suburb = '" + Suburb.Text.Trim()
-                    + "', Street = '" + Street.Text.Trim()
-                    + "', PostCode = '" + PostCode.Text.Trim()
-                    + "', Note = '" + Note.Text.Trim()
-                    + "' where EmployeeID = " + EmployeeID.Value;
+            SqlCommand myCommand = new SqlCommand("sp_updateEmployee", conn);
+            myCommand.CommandType = CommandType.StoredProcedure;
 
+            SqlParameter cmdParameter = new SqlParameter("@EmployeeID", SqlDbType.VarChar, 50);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = EmployeeID.Value;
+            myCommand.Parameters.Add(cmdParameter);
 
-            SqlCommand myCommand = new SqlCommand(sqlState, conn);
-            myCommand.CommandType = CommandType.Text;
+            cmdParameter = new SqlParameter("@Forename", SqlDbType.VarChar, 50);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = Forename.Text.Trim();
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@Surname", SqlDbType.VarChar, 50);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = Surname.Text.Trim();
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@DOB", SqlDbType.VarChar, 8);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = DOB.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@Position", SqlDbType.VarChar, 10);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = Position.SelectedValue;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@OtherPositions", SqlDbType.VarChar, 10);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = OtherPositions.Text.Trim();
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@HireDate", SqlDbType.VarChar, 8);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = HireDate.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@ResignDate", SqlDbType.VarChar, 8);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = ResignDate.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@YearsInBCD", SqlDbType.Int);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = YearsInBCD.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@YearsInIndustry", SqlDbType.Int);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = YearsInIndustry.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@DriverLicenseNumber", SqlDbType.VarChar, 30);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = DriverLicenseNumber.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@SiteSafeNumber", SqlDbType.VarChar, 50);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = SiteSafeNumber.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@DriverLicenseClass", SqlDbType.VarChar, 10);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = DriverLicenseClass.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@DriverLicenseExpiryDate", SqlDbType.VarChar, 10);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = DriverLicenseExpiryDate.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@SiteSafeExpiryDate", SqlDbType.VarChar, 10);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = SiteSafeExpiryDate.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@DriverLicensePhoto", SqlDbType.VarChar, 255);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = DriverLicenseFileName;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@SiteSafePhoto", SqlDbType.VarChar, 255);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = SiteSafeFileName;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@MobileNumber", SqlDbType.VarChar, 20);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = MobileNumber.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@HomeNumber", SqlDbType.VarChar, 20);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = HomeNumber.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@Email", SqlDbType.VarChar, 100);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = Email.Text.Trim();
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@KinName", SqlDbType.VarChar, 100);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = KinName.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@KinNumber", SqlDbType.VarChar, 20);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = KinNumber.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@BankName", SqlDbType.VarChar, 30);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = BankName.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@AccountNumber", SqlDbType.VarChar, 30);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = AccountNumber.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@PayRate", SqlDbType.Int);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = PayRate.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@TaxRate", SqlDbType.Int);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = TaxRate.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@IRDNumber", SqlDbType.VarChar, 20);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = IRDNumber.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@Country", SqlDbType.VarChar, 30);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = Country.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@City", SqlDbType.VarChar, 30);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = City.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@Suburb", SqlDbType.VarChar, 30);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = Suburb.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@Street", SqlDbType.VarChar, 100);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = Street.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@PostCode", SqlDbType.VarChar, 10);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = PostCode.Text;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@Note", SqlDbType.VarChar, 255);
+            cmdParameter.Direction = ParameterDirection.Input;
+            cmdParameter.Value = Note.Text;
+            myCommand.Parameters.Add(cmdParameter);
+            //////////////////////////////////////////////////////////
+            cmdParameter = new SqlParameter("@ErrCode", SqlDbType.Int);
+            cmdParameter.Direction = ParameterDirection.Output;
+            myCommand.Parameters.Add(cmdParameter);
+
+            cmdParameter = new SqlParameter("@ErrMsg", SqlDbType.VarChar, 60);
+            cmdParameter.Direction = ParameterDirection.Output;
+            myCommand.Parameters.Add(cmdParameter);
 
             conn.Open();
 
-            result = myCommand.ExecuteNonQuery();
-            conn.Close();
-            if (result == 2)
-            {
-                ClientScript.RegisterStartupScript(typeof(string), "updateError", "<script>alert('Update Successfully!')</script>");
+            myCommand.ExecuteNonQuery();
 
-            }
-            else
-            {
-                ClientScript.RegisterStartupScript(typeof(string), "updateError", "<script>alert('Update Error!"+result+"')</script>");
-            }
+
+            ErrCode = (int)myCommand.Parameters["@ErrCode"].Value;
+            ErrMsg = (string)myCommand.Parameters["@ErrMsg"].Value;
+
+            conn.Close();
+
+            Response.Write("<script language='JavaScript'>alert('"+ErrMsg+"')</script>");
+            Clear_Fields();
         }
         else
         {
-            ClientScript.RegisterStartupScript(typeof(string), "nothingChanged", "<script>alert('Nothing Changed')</script>");
+            Response.Write("<script language='JavaScript'>alert('Nothing changed')</script>");
         }
     }
 
@@ -276,14 +427,17 @@ public partial class Default2 : System.Web.UI.Page
         if (oldForename.Value != Forename.Text.Trim()
         || oldSurname.Value != Surname.Text.Trim()
         || oldDOB.Value != DOB.Text.Trim()
-        || oldPosition.Value != Position.Text.Trim()
+        || oldPosition.Value != Position.SelectedValue.Trim()
+        || oldOtherPositions.Value != OtherPositions.Text.Trim()
         || oldHireDate.Value != HireDate.Text.Trim()
         || oldResignDate.Value != ResignDate.Text.Trim()
         || oldYearsInBCD.Value != YearsInBCD.Text.Trim()
         || oldYearsInIndustry.Value != YearsInIndustry.Text.Trim()
         || oldDriverLicenseNumber.Value != DriverLicenseNumber.Text.Trim()
+        || oldSiteSafeNumber.Value != SiteSafeNumber.Text.Trim()
         || oldDriverLicenseClass.Value != DriverLicenseClass.Text.Trim()
         || oldDriverLicenseExpiryDate.Value != DriverLicenseExpiryDate.Text.Trim()
+        || oldSiteSafeExpiryDate.Value != SiteSafeExpiryDate.Text.Trim()
         || oldMobileNumber.Value != MobileNumber.Text.Trim()
         || oldHomeNumber.Value != HomeNumber.Text.Trim()
         || oldEmail.Value != Email.Text.Trim()
@@ -325,4 +479,95 @@ public partial class Default2 : System.Web.UI.Page
         conn.Close();
         ClientScript.RegisterStartupScript(typeof(string), "delete", "<script>alert('Delete successfully!')</script>");
     }
+
+    protected void ImageButtonDOB_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarDOB.Visible == true)
+        {
+            CalendarDOB.Visible = false;
+        }
+        else
+        {
+            CalendarDOB.Visible = true;
+        }
+    }
+    protected void CalendarDOB_SelectionChanged(object sender, EventArgs e)
+    {
+        DOB.Text = CalendarDOB.SelectedDate.ToString("yyyyMMdd");
+        CalendarDOB.Visible = false;
+    }
+
+
+    protected void ImageButtonHireDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarHireDate.Visible == true)
+        {
+            CalendarHireDate.Visible = false;
+        }
+        else
+        {
+            CalendarHireDate.Visible = true;
+        }
+    }
+
+    protected void CalendarHireDate_SelectionChanged(object sender, EventArgs e)
+    {
+        HireDate.Text = CalendarHireDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarHireDate.Visible = false;
+    }
+
+    protected void ImageButtonResignDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarResignDate.Visible == true)
+        {
+            CalendarResignDate.Visible = false;
+        }
+        else
+        {
+            CalendarResignDate.Visible = true;
+        }
+    }
+
+    protected void CalendarResignDate_SelectionChanged(object sender, EventArgs e)
+    {
+        ResignDate.Text = CalendarResignDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarResignDate.Visible = false;
+    }
+
+    protected void ImageButtonDriverLicense_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarDriverLicense.Visible == true)
+        {
+            CalendarDriverLicense.Visible = false;
+        }
+        else
+        {
+            CalendarDriverLicense.Visible = true;
+        }
+    }
+
+    protected void CalendarDriverLicense_SelectionChanged(object sender, EventArgs e)
+    {
+        DriverLicenseExpiryDate.Text = CalendarDriverLicense.SelectedDate.ToString("yyyyMMdd");
+        CalendarDriverLicense.Visible = false;
+    }
+
+    protected void ImageButtonSiteSafe_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarSiteSafe.Visible == true)
+        {
+            CalendarSiteSafe.Visible = false;
+        }
+        else
+        {
+            CalendarSiteSafe.Visible = true;
+        }
+    }
+
+    protected void CalendarSiteSafe_SelectionChanged(object sender, EventArgs e)
+    {
+        SiteSafeExpiryDate.Text = CalendarSiteSafe.SelectedDate.ToString("yyyyMMdd");
+        CalendarSiteSafe.Visible = false;
+    }
+
 }
