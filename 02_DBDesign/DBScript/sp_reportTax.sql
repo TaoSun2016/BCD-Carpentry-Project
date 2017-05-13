@@ -74,7 +74,7 @@ begin
 			set @SeqNumber = @SeqNumber + 1
 			insert into TAX_REPORT values (@SeqNumber,@Forename,@Surname,@IRDNumber,@TaxRate,@OldWeekEndingDate, @WageAmount,@TaxAmount,@GSTAmount,@DeductionAmount,@DeductionNote)
 			set @SeqNumber = @SeqNumber + 1
-			insert into TAX_REPORT values (@SeqNumber,'Subtotal:',null,null,null,null,@SubWage, @SubTax, @SubGST, @SubDeduction,null)
+			insert into TAX_REPORT values (@SeqNumber,null,null,null,null,'Subtotal:',@SubWage, @SubTax, @SubGST, @SubDeduction,null)
 			set @OldEmployeeID = @EmployeeID
 			select @Forename = Forename, @Surname = Surname, @IRDNumber = IRDNumber, @TaxRate = TaxRate from EMPLOYEE where EmployeeID = @EmployeeID
 			set @SubWage = 0.00
@@ -133,10 +133,10 @@ begin
 	insert into TAX_REPORT values (@SeqNumber,@Forename,@Surname,@IRDNumber,@TaxRate,@OldWeekEndingDate,@WageAmount,@TaxAmount,@GSTAmount,@DeductionAmount,@DeductionNote)
 
 	set @SeqNumber = @SeqNumber + 1
-	insert into TAX_REPORT values (@SeqNumber,'Subtotal:',null,null,null,null,@SubWage, @SubTax, @SubGST, @SubDeduction,null)
+	insert into TAX_REPORT values (@SeqNumber,null,null,null,null,'Subtotal:',@SubWage, @SubTax, @SubGST, @SubDeduction,null)
 
 	set @SeqNumber = @SeqNumber + 1
-	insert into TAX_REPORT values (@SeqNumber,'Grand Total:',null,null,null,null,@GrandWage, @GrandTax, @GrandGST, @GrandDeduction,null)
+	insert into TAX_REPORT values (@SeqNumber,null,null,null,null,'Grand Total:',@GrandWage, @GrandTax, @GrandGST, @GrandDeduction,null)
 	set @ErrCode = 0
 	set @ErrMsg = 'Success'
 end

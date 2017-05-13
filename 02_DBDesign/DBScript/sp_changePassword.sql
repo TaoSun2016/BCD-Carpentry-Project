@@ -19,6 +19,7 @@ if (@count < 1)
 begin
 	set @ErrCode=-1
 	set @ErrMsg = 'There''s no this user name!'
+	return
 end
 else
 begin
@@ -38,11 +39,13 @@ begin
 		end catch
 		set @ErrCode=0;
 		set @ErrMsg = 'Login successfully!'
+		return
 	end
 	else
 	begin
 		set @ErrCode=-1;
 		set @ErrMsg = 'Failed to verify the old password!'
+		return
 	end
 
 end

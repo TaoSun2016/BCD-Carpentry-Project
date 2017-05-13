@@ -27,7 +27,7 @@ begin
 		if @EmployeeID = 0
 		begin
 			set @ErrCode = -1
-			set @ErrMsg = 'Can not find the employee information!'
+			set @ErrMsg = 'Can not find the employee information by email!'
 			insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg)
 			return
 		end
@@ -40,7 +40,7 @@ begin
 			if @Count = 0
 			begin
 				set @ErrCode = -1
-				set @ErrMsg = 'Can not find the employee information!'
+				set @ErrMsg = 'Can not find the employee information by name!'
 				insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg)
 				return
 			end
@@ -67,11 +67,11 @@ begin
 	begin catch
 		insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),ERROR_MESSAGE());
 		set @ErrCode = -1;
-		set @ErrMsg = 'Add new record error!';
+		set @ErrMsg = 'Add new tax record error!';
 		return;
 	end catch
 	set @ErrCode = 0;
-	set @ErrMsg = 'Add new record successfully!';
+	set @ErrMsg = 'Add new tax record successfully!';
 end
 
 go

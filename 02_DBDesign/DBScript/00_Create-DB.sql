@@ -137,15 +137,16 @@ go
 CREATE TABLE WAGE (
   EmployeeID     int NOT NULL, 
   WeekEndingDate date NOT NULL, 
-  Amount         float(16) DEFAULT 0.00 NOT NULL CHECK(Amount >= 0.00), 
-  Travel         float(16) DEFAULT 0.00 NOT NULL CHECK(Travel >= 0.00), 
-  Deduction      float(16) DEFAULT 0.00 NOT NULL CHECK(Deduction >= 0.00), 
-  GST            float(16) DEFAULT 0.00 NOT NULL CHECK(GST >= 0.00), 
-  WINZ           float(16) DEFAULT 0.00 NOT NULL CHECK(WINZ >= 0.00), 
-  IRD            float(16) DEFAULT 0.00 NOT NULL CHECK(IRD >= 0.00), 
+  Amount         money DEFAULT 0.00 NOT NULL CHECK(Amount >= 0.00), 
+  Travel         money DEFAULT 0.00 NOT NULL CHECK(Travel >= 0.00), 
+  Deduction      money DEFAULT 0.00 NOT NULL CHECK(Deduction >= 0.00), 
+  GST            money DEFAULT 0.00 NOT NULL CHECK(GST >= 0.00), 
+  WINZ           money DEFAULT 0.00 NOT NULL CHECK(WINZ >= 0.00), 
+  IRD            money DEFAULT 0.00 NOT NULL CHECK(IRD >= 0.00), 
   PRIMARY KEY (EmployeeID, 
   WeekEndingDate));
 go
+
 CREATE TABLE TAX(
 	EmployeeID int FOREIGN KEY REFERENCES EMPLOYEE (EmployeeID),
 	WeekEndingDate date,
