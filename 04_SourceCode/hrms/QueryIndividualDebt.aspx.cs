@@ -97,4 +97,41 @@ public partial class Default2 : System.Web.UI.Page
         SqlDataSourceIndividualDebt.SelectCommand = sql + " order by e.Forename,i.[Date]";
         GridViewIndividualDebt.DataBind();
     }
+    protected void ImageButtonBeginDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarBeginDate.Visible == true)
+        {
+            CalendarBeginDate.Visible = false;
+        }
+        else
+        {
+            CalendarBeginDate.Visible = true;
+        }
+    }
+
+    protected void CalendarBeginDate_SelectionChanged(object sender, EventArgs e)
+    {
+        BeginDate.Text = CalendarBeginDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarBeginDate.Visible = false;
+    }
+
+    protected void ImageButtonEndDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarEndDate.Visible == true)
+        {
+            CalendarEndDate.Visible = false;
+        }
+        else
+        {
+            CalendarEndDate.Visible = true;
+        }
+    }
+
+    protected void CalendarEndDate_SelectionChanged(object sender, EventArgs e)
+    {
+        EndDate.Text = CalendarEndDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarEndDate.Visible = false;
+    }
+
+
 }

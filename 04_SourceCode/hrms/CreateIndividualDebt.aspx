@@ -32,10 +32,26 @@
             </div>
             <div style="float:left;width:10%;text-align:right">Date:&nbsp;&nbsp;</div>
             <div style="float:left;width:40%">
-                <asp:TextBox ID="Date" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Date" runat="server"></asp:TextBox><asp:ImageButton ID="ImageButtonDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="ImageButtonDate_Click" CausesValidation="False" />*
             </div>           
         </div>
         <br/>
+        <div style="float: left; width: 100%">
+            <div style="float: left; width: 25%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: left; width: 25%">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalide email address!" ControlToValidate="Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            </div>
+            <div style="float: left; width: 10%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: right; width: 40%; text-align: left">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ErrorMessage="Please input week ending date!" ForeColor="Red" ControlToValidate="Date"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalide date!YYYYMMDD" ControlToValidate="Date" Display="Dynamic" ForeColor="Red" ValidationExpression="^\d{4}\d{1,2}\d{1,2}$"></asp:RegularExpressionValidator>
+                <asp:Calendar ID="CalendarDate" runat="server" Visible="false" OnSelectionChanged="CalendarDate_SelectionChanged"></asp:Calendar>
+            </div>
+        </div>
         <br/>
         <div style="width:100%">
             <div style="float:left;width:25%;text-align:right">

@@ -38,20 +38,47 @@
             <div style="float: left; width: 40%">&nbsp;&nbsp</div>
         </div>
         <br />
+        <div style="float: left; width: 100%">
+            <div style="float: left; width: 25%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: left; width: 25%">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalide email address!" ControlToValidate="Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            </div>
+            <div style="float: left; width: 50%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
         <br />
         <div style="width: 100%">
             <div style="float: left; width: 25%; text-align: right">
                 Begin Date:&nbsp;&nbsp;
             </div>
             <div style="float: left; width: 25%">
-                <asp:TextBox ID="BeginDate" runat="server"></asp:TextBox>
+                <asp:TextBox ID="BeginDate" runat="server"></asp:TextBox><asp:ImageButton ID="ImageButtonBeginDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="ImageButtonBeginDate_Click" CausesValidation="False" />
             </div>
             <div style="float: left; width: 10%; text-align: right">End Date:&nbsp;&nbsp;</div>
             <div style="float: left; width: 40%">
-                <asp:TextBox ID="EndDate" runat="server"></asp:TextBox>
+                <asp:TextBox ID="EndDate" runat="server"></asp:TextBox><asp:ImageButton ID="ImageButtonEndDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="ImageButtonEndDate_Click" CausesValidation="False" />
             </div>
         </div>
         <br />
+        <div style="float: left; width: 100%">
+            <div style="float: left; width: 25%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: left; width: 25%">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalide date!YYYYMMDD" ControlToValidate="BeginDate" Display="Dynamic" ForeColor="Red" ValidationExpression="^\d{4}\d{1,2}\d{1,2}$"></asp:RegularExpressionValidator>
+                <asp:Calendar ID="CalendarBeginDate" runat="server" Visible="false" OnSelectionChanged="CalendarBeginDate_SelectionChanged"></asp:Calendar>
+            </div>
+            <div style="float: left; width: 10%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: right; width: 40%; text-align: left">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalide date!YYYYMMDD" ControlToValidate="EndDate" Display="Dynamic" ForeColor="Red" ValidationExpression="^\d{4}\d{1,2}\d{1,2}$"></asp:RegularExpressionValidator>
+                <asp:Calendar ID="CalendarEndDate" runat="server" Visible="false" OnSelectionChanged="CalendarEndDate_SelectionChanged"></asp:Calendar>
+            </div>
+        </div>
         <br />
 
         <div style="text-align: center">
@@ -71,17 +98,17 @@
                     <asp:BoundField DataField="Surname" HeaderText="Surname" ReadOnly="true" SortExpression="Surname" />
                     <asp:BoundField DataField="DebtID" HeaderText="DebtID" Visible="false" />
                     <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" Visible="false" />
-                    <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
+                    <asp:BoundField DataField="Date" HeaderText="Date" DataFormatString="{0:yyyyMMdd}" SortExpression="Date" />
                     <asp:BoundField DataField="INV#" HeaderText="INV#" SortExpression="INV#" />
                     <asp:BoundField DataField="Company" HeaderText="Company" SortExpression="Company" />
                     <asp:BoundField DataField="Item" HeaderText="Item" SortExpression="Item" />
-                    <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
-                    <asp:BoundField DataField="DeductionAmount" HeaderText="Deduction" SortExpression="DeductionAmount" />
+                    <asp:BoundField DataField="Amount" HeaderText="Amount" DataFormatString="{0:N2}" SortExpression="Amount" />
+                    <asp:BoundField DataField="DeductionAmount" HeaderText="Deduction" DataFormatString="{0:N2}" SortExpression="DeductionAmount" />
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                     <asp:BoundField DataField="InvoiceFlag" HeaderText="Invoice Flag" SortExpression="InvoiceFlag" />
                     <asp:BoundField DataField="ATPAFlag" HeaderText="ATPA Flag" SortExpression="ATPAFlag" />
-                    <asp:BoundField DataField="WINZ" HeaderText="WINZ" SortExpression="WINZ" />
-                    <asp:BoundField DataField="IRD" HeaderText="IRD" SortExpression="IRD" />
+                    <asp:BoundField DataField="WINZ" HeaderText="WINZ" DataFormatString="{0:N2}" SortExpression="WINZ" />
+                    <asp:BoundField DataField="IRD" HeaderText="IRD" DataFormatString="{0:N2}" SortExpression="IRD" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
