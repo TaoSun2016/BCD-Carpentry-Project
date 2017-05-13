@@ -80,10 +80,6 @@ public partial class Default2 : System.Web.UI.Page
         {
             sql += " and e.Forename = '" + Forename.Text.Trim() + "' and e.Surname = '" + Surname.Text.Trim() + "'";
         }
-        else
-        {
-            ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('Please input employee''s name or Email address!')</script>");
-        }
 
         if (WeekEndingDate.Text.Trim()!="")
         {
@@ -92,7 +88,7 @@ public partial class Default2 : System.Web.UI.Page
 
         if (MainContractor.Text.Trim()!="")
         {
-            sql = sql + " and t.WeekEndingDate ='" + WeekEndingDate.Text.Trim() + "'";
+            sql = sql + " and t.MainContractor ='" + MainContractor.Text.Trim() + "'";
         }
         if (JobName.Text.Trim() != "")
         {
@@ -100,5 +96,23 @@ public partial class Default2 : System.Web.UI.Page
         }
         SqlDataSourceTimeSheet.SelectCommand = sql + " order by e.Forename,e.Surname,t.WeekEndingDate,t.[Date]";
         GridViewTimeSheet.DataBind();
+    }
+
+    protected void ImageButtonWeekEndingDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarWeekEndingDate.Visible == true)
+        {
+            CalendarWeekEndingDate.Visible = false;
+        }
+        else
+        {
+            CalendarWeekEndingDate.Visible = true;
+        }
+    }
+
+    protected void CalendarWeekEndingDate_SelectionChanged(object sender, EventArgs e)
+    {
+        WeekEndingDate.Text = CalendarWeekEndingDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarWeekEndingDate.Visible = false;
     }
 }

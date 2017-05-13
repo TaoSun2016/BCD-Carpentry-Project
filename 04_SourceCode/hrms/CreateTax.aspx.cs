@@ -94,7 +94,7 @@ public partial class Default2 : System.Web.UI.Page
 
         if (ErrCode != 0)
         {
-            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Add Error!')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('"+ErrMsg+"')</script>");
 
         }
         else
@@ -110,7 +110,7 @@ public partial class Default2 : System.Web.UI.Page
         Email.Text = "";
         WeekEndingDate.Text = "";
         Category.SelectedValue = "1";
-        Amount.Text = "";
+        Amount.Text = "0.00";
         Note.Text = "";
 
     }
@@ -121,5 +121,22 @@ public partial class Default2 : System.Web.UI.Page
         {
             Note.ReadOnly = false;
         }
+    }
+    protected void ImageButtonWeekEndingDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarWeekEndingDate.Visible == true)
+        {
+            CalendarWeekEndingDate.Visible = false;
+        }
+        else
+        {
+            CalendarWeekEndingDate.Visible = true;
+        }
+    }
+
+    protected void CalendarWeekEndingDate_SelectionChanged(object sender, EventArgs e)
+    {
+        WeekEndingDate.Text = CalendarWeekEndingDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarWeekEndingDate.Visible = false;
     }
 }

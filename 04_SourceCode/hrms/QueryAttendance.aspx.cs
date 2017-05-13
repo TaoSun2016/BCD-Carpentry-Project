@@ -66,4 +66,30 @@ public partial class Default2 : System.Web.UI.Page
     }
 
     public override void VerifyRenderingInServerForm(Control control) { }
+
+    protected void Query_Click(object sender, EventArgs e)
+    {
+        string sql = "SELECT e.Forename,e.Surname,a.* FROM [EMPLOYEE] e, [ATTENDANCE] a WHERE e.EmployeeID = a.EmployeeID and e.EmployeeStatus = 'Y' ";
+        if (Email.Text.Trim() != "")
+        {
+            sql += " and e.Email = '" + Email.Text.Trim() + "'";
+        }
+        else if (Forename.Text.Trim() != "" && Surname.Text.Trim() != "")
+        {
+            sql += " and e.Forename = '" + Forename.Text.Trim() + "' and e.Surname = '" + Surname.Text.Trim() + "'";
+        }
+
+        if (DropDownListYear.SelectedValue != "")
+        {
+            sql += " and a.Year = " + DropDownListYear.SelectedValue;
+        }
+
+        if (DropDownListMonth.SelectedValue != "")
+        {
+            sql += " and a.Month = " + DropDownListMonth.SelectedValue;
+        }
+
+        SqlDataSourceAttendance.SelectCommand = sql + "  order by a.Year desc, a.Month desc, e.Forename,e.Surname";
+        GridViewAttendance.DataBind();
+    }
 }

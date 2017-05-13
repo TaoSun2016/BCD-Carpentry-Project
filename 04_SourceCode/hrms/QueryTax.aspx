@@ -12,7 +12,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div style="height: 100%;overflow-y: scroll;">
-        <h2 class="auto-style6"><strong>Time Sheet Information</strong></h2>
+        <h2 class="auto-style6"><strong>Tax Information</strong></h2>
         <br />
         <br />
         <div style="width: 100%">
@@ -20,12 +20,29 @@
                 Begin Week Ending:&nbsp;&nbsp;
             </div>
             <div style="float: left; width: 25%">
-                <asp:TextBox ID="BeginWeekEnding" runat="server"></asp:TextBox>
+                <asp:TextBox ID="BeginWeekEnding" runat="server"></asp:TextBox><asp:ImageButton ID="ImageButtonBeginDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="ImageButtonBeginDate_Click" CausesValidation="False" />*
             </div>
             <div style="float: left; width: 20%; text-align: right">End Week Ending:&nbsp;&nbsp;</div>
-            <div style="float: left; width: 30%"><asp:TextBox ID="EndWeekEnding" runat="server"></asp:TextBox></div>
+            <div style="float: left; width: 30%"><asp:TextBox ID="EndWeekEnding" runat="server"></asp:TextBox><asp:ImageButton ID="ImageButtonEndDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="ImageButtonEndDate_Click" CausesValidation="False" />*</div>
         </div>
         <br />
+
+        <div style="float: left; width: 100%">
+                <div style="float: left; width: 25%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                 <div style="float: left; width: 25%">
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ErrorMessage="Please input begin week ending date!" ForeColor="Red" ControlToValidate="BeginWeekEnding"></asp:RequiredFieldValidator>
+                     <asp:Calendar ID="CalendarBeginDate" runat="server" Visible="false" OnSelectionChanged="CalendarBeginDate_SelectionChanged"></asp:Calendar>
+                </div>
+                <div style="float: left; width: 15%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float: right; width: 35%;text-align:left">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="Dynamic" ErrorMessage="Please input end week ending date!" ForeColor="Red" ControlToValidate="EndWeekEnding"></asp:RequiredFieldValidator>
+                    <asp:Calendar ID="CalendarEndDate" runat="server" Visible="false" OnSelectionChanged="CalendarEndDate_SelectionChanged"></asp:Calendar>
+                </div>
+            </div>
         <br />
         
         <div style="text-align: center">
@@ -41,16 +58,16 @@
                 <Columns>
 
                     
-                    <asp:BoundField DataField="Forename" HeaderText="Forename" ReadOnly="True" />
-                    <asp:BoundField DataField="Surname" HeaderText="Surname" ReadOnly="true" />
-                    <asp:BoundField DataField="IRDNumber" ReadOnly="True" HeaderText="IRD Number"/>
-                    <asp:BoundField DataField="TaxRate" ReadOnly="True" HeaderText="Tax Rate(%)"/>
-                    <asp:BoundField DataField="WeekEndingDate" ReadOnly="True" HeaderText="Week Ending"/>
-                    <asp:BoundField DataField="Wage" HeaderText="Wage" ReadOnly="true" />
-                    <asp:BoundField DataField="Tax" HeaderText="Tax" ReadOnly="true" />
-                    <asp:BoundField DataField="GST" HeaderText="Wage" ReadOnly="true" />
-                    <asp:BoundField DataField="Deduction" HeaderText="Deduction" ReadOnly="true" />
-                    <asp:BoundField DataField="Note" HeaderText="Deduction Note" ReadOnly="true" />
+                    <asp:BoundField DataField="Forename" HeaderText="FORENAME" ReadOnly="True" />
+                    <asp:BoundField DataField="Surname" HeaderText="SURNAME" ReadOnly="true" />
+                    <asp:BoundField DataField="IRDNumber" HeaderText="IRD NUMBER" ReadOnly="True"/>
+                    <asp:BoundField DataField="TaxRate" HeaderText="TAX RATE(%)" ReadOnly="True"/>
+                    <asp:BoundField DataField="WeekEndingDate" HeaderText="WEEK ENDING"  ReadOnly="True"/>
+                    <asp:BoundField DataField="Wage" HeaderText="WAGE" ReadOnly="true" />
+                    <asp:BoundField DataField="Tax" HeaderText="TAX" ReadOnly="true" />
+                    <asp:BoundField DataField="GST" HeaderText="WAGE" ReadOnly="true" />
+                    <asp:BoundField DataField="Deduction" HeaderText="DEDUCTION" ReadOnly="true" />
+                    <asp:BoundField DataField="Note" HeaderText="DEDUCTION NOTE" ReadOnly="true" />
                   
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />

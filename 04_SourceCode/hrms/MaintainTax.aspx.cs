@@ -93,4 +93,21 @@ public partial class Default2 : System.Web.UI.Page
         SqlDataSourceTax.SelectCommand = sql + " order by e.Forename, e.Surname, t.WeekEndingDate, t.Category";
         GridViewTax.DataBind();
     }
+    protected void ImageButtonWeekEndingDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarWeekEndingDate.Visible == true)
+        {
+            CalendarWeekEndingDate.Visible = false;
+        }
+        else
+        {
+            CalendarWeekEndingDate.Visible = true;
+        }
+    }
+
+    protected void CalendarWeekEndingDate_SelectionChanged(object sender, EventArgs e)
+    {
+        WeekEndingDate.Text = CalendarWeekEndingDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarWeekEndingDate.Visible = false;
+    }
 }

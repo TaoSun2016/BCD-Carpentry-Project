@@ -23,16 +23,11 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Export_Click(object sender, EventArgs e)
     {
-        //this.GridViewTax.AllowPaging = false;
         this.GridViewTax.AllowSorting = false;
-        GridViewTax.Columns[0].Visible = false;
-        GridViewTax.Columns[1].Visible = false;
         GridViewTax.DataBind();
-
 
         toExcel(this.GridViewTax);
 
-        //this.GridViewTax.AllowPaging = true;
         this.GridViewTax.AllowSorting = true;
         GridViewTax.DataBind();
     }
@@ -41,9 +36,6 @@ public partial class Default2 : System.Web.UI.Page
     {
         if (gv.Rows.Count > 0)
         {
-            //make the column invisible if don't want export them
-            //gridview1.Columns[9].Visible = false;
-
             string fileName = "TaxReport" + DateTime.Now.ToString("_yyyyMMdd") + ".xls";
             string style = @"<style> .text { mso-number-format:\@; } </script> ";
             Response.ClearContent();
@@ -66,8 +58,6 @@ public partial class Default2 : System.Web.UI.Page
     }
 
     public override void VerifyRenderingInServerForm(Control control) { }
-
-
 
     protected void Query_Click(object sender, EventArgs e)
     {
@@ -117,9 +107,44 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            //ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('Add successfully!')</script>");
             GridViewTax.DataBind();
         }
         
+    }
+
+    protected void ImageButtonBeginDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarBeginDate.Visible == true)
+        {
+            CalendarBeginDate.Visible = false;
+        }
+        else
+        {
+            CalendarBeginDate.Visible = true;
+        }
+    }
+
+    protected void CalendarBeginDate_SelectionChanged(object sender, EventArgs e)
+    {
+        BeginWeekEnding.Text = CalendarBeginDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarBeginDate.Visible = false;
+    }
+
+    protected void ImageButtonEndDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarEndDate.Visible == true)
+        {
+            CalendarEndDate.Visible = false;
+        }
+        else
+        {
+            CalendarEndDate.Visible = true;
+        }
+    }
+
+    protected void CalendarEndDate_SelectionChanged(object sender, EventArgs e)
+    {
+        EndWeekEnding.Text = CalendarEndDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarEndDate.Visible = false;
     }
 }

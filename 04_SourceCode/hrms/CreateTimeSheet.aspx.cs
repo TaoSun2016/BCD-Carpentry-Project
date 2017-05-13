@@ -26,10 +26,12 @@ public partial class Default2 : System.Web.UI.Page
         if ((Forename.Text.Trim() != "" || Surname.Text.Trim() != "")&&Email.Text.Trim() != "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not have value at the same time!')</script>");
+            return;
         }
         if (Forename.Text.Trim() == "" && Surname.Text.Trim() == "" && Email.Text.Trim() == "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not be null at the same time!')</script>");
+            return;
         }
 
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
@@ -150,5 +152,41 @@ public partial class Default2 : System.Web.UI.Page
         Start.Text = "";
         Finish.Text = "";
         Hours.Text = "";
+    }
+
+    protected void ImageButtonDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarDate.Visible == true)
+        {
+            CalendarDate.Visible = false;
+        }
+        else
+        {
+            CalendarDate.Visible = true;
+        }
+    }
+
+    protected void CalendarDate_SelectionChanged(object sender, EventArgs e)
+    {
+        Date.Text = CalendarDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarDate.Visible = false;
+    }
+
+    protected void ImageButtonWeekEndingDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarWeekEndingDate.Visible == true)
+        {
+            CalendarWeekEndingDate.Visible = false;
+        }
+        else
+        {
+            CalendarWeekEndingDate.Visible = true;
+        }
+    }
+
+    protected void CalendarWeekEndingDate_SelectionChanged(object sender, EventArgs e)
+    {
+        WeekEndingDate.Text = CalendarWeekEndingDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarWeekEndingDate.Visible = false;
     }
 }

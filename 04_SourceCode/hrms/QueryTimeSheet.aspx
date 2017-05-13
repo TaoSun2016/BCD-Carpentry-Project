@@ -35,9 +35,24 @@
                 <asp:TextBox ID="Email" runat="server"></asp:TextBox>
             </div>
             <div style="float: left; width: 20%; text-align: right">Week Ending:&nbsp;&nbsp;</div>
-            <div style="float: left; width: 30%"><asp:TextBox ID="WeekEndingDate" runat="server"></asp:TextBox></div>
+            <div style="float: left; width: 30%"><asp:TextBox ID="WeekEndingDate" runat="server"></asp:TextBox><asp:ImageButton ID="ImageButtonWeekEndingDate" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="ImageButtonWeekEndingDate_Click" CausesValidation="False" /></div>
         </div>
         <br />
+        <div style="float: left; width: 100%">
+                <div style="float: left; width: 25%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                 <div style="float: left; width: 25%">
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalide email address!" ControlToValidate="Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                </div>
+                <div style="float: left; width: 15%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float: right; width: 35%;text-align:left">
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Invalide date!YYYYMMDD" ControlToValidate="WeekEndingDate" Display="Dynamic" ForeColor="Red" ValidationExpression="^\d{4}\d{1,2}\d{1,2}$"></asp:RegularExpressionValidator>
+                    <asp:Calendar ID="CalendarWeekEndingDate" runat="server" Visible="false" OnSelectionChanged="CalendarWeekEndingDate_SelectionChanged"></asp:Calendar>
+                </div>
+            </div>
         <br />
         <div style="width: 100%">
             <div style="float: left; width: 25%; text-align: right">
@@ -70,10 +85,10 @@
                     <asp:BoundField DataField="Forename" HeaderText="Forename" ReadOnly="True" SortExpression="Forename" />
                     <asp:BoundField DataField="Surname" HeaderText="Surname" ReadOnly="true" SortExpression="Surname" />
                     <asp:BoundField DataField="DebtID" HeaderText="DebtID" Visible="false" />
-                    <asp:BoundField DataField="WeekEndingDate" HeaderText="Week Ending"/>
+                    <asp:BoundField DataField="WeekEndingDate" DataFormatString="{0:yyyyMMdd}" HeaderText="Week Ending"/>
                     <asp:BoundField DataField="MainContractor" HeaderText="Main Contractor" SortExpression="Date"/>
                     <asp:BoundField DataField="JobName" HeaderText="Job Name" SortExpression="JobName" />
-                    <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
+                    <asp:BoundField DataField="Date" HeaderText="Date"  DataFormatString="{0:yyyyMMdd}" SortExpression="Date" />
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                     <asp:BoundField DataField="StartTime" HeaderText="Start" SortExpression="StartTime" />
                     <asp:BoundField DataField="EndTime" HeaderText="Finish" SortExpression="EndTime" />
@@ -94,7 +109,7 @@
                 ConnectionString="<%$ ConnectionStrings:HRMSDBConnectionString %>"
                 SelectCommand="SELECT e.Forename, e.Surname,t.* FROM [EMPLOYEE] e,[TIME_SHEET] t WHERE e.EmployeeID = t.EmployeeID and e.EmployeeStatus = 'Y' order by e.Forename,e.Surname,t.WeekEndingDate,t.[Date]"
                 DeleteCommand="DELETE FROM [TIME_SHEET] WHERE SheetID = @SheetID"
-                UpdateCommand="UPDATE [TIME_SHEET] SET WeekEndingDate = @WeekEndingDate, MainContracotor = @MainContracotor, JobName = @JobName, Date = @Date, Description = @Description, StartTime = @StartTime, EndTime = @EndTime, Hours = @Hours WHERE SheetID = @SheetID"></asp:SqlDataSource>
+                UpdateCommand="UPDATE [TIME_SHEET] SET WeekEndingDate = @WeekEndingDate, MainContractor = @MainContractor, JobName = @JobName, Date = @Date, Description = @Description, StartTime = @StartTime, EndTime = @EndTime, Hours = @Hours WHERE SheetID = @SheetID"></asp:SqlDataSource>
         </div>
         <br />
         <br />

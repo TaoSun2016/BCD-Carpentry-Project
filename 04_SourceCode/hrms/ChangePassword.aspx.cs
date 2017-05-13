@@ -98,8 +98,7 @@ public partial class Default2 : System.Web.UI.Page
 
         if (ErrCode != 0)
         {
-            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('"+ErrMsg+"')</script>");
-
+            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Change errror!')</script>");
         }
         else
         {
@@ -107,7 +106,4 @@ public partial class Default2 : System.Web.UI.Page
         }
             
     }
-
-
-
 }

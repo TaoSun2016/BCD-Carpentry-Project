@@ -26,10 +26,12 @@ public partial class Default2 : System.Web.UI.Page
         if ((Forename.Text.Trim() != "" || Surname.Text.Trim() != "")&&Email.Text.Trim() != "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not have value at the same time!')</script>");
+            return;
         }
         if (Forename.Text.Trim() == "" && Surname.Text.Trim() == "" && Email.Text.Trim() == "")
         {
             ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not be null at the same time!')</script>");
+            return;
         }
 
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
