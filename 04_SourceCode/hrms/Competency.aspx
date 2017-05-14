@@ -41,9 +41,20 @@
                 </div>
             </div>
             <br />
+                    <div style="float: left; width: 100%">
+            <div style="float: left; width: 25%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: left; width: 25%">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalide email address!" ControlToValidate="Q_Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            </div>
+            <div style="float: left; width: 50%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
             <br />
             <div style="width: 100%; text-align: center">
-                <asp:Button ID="Query" runat="server" Text="Query" Width="83px" OnClick="Query_Click" />
+                <asp:Button ID="Query" runat="server" Text="Query" Width="83px" OnClick="Query_Click" CausesValidation="False" />
             </div>
             <br />
             <hr />
@@ -121,7 +132,7 @@
                         <asp:ListItem>AVERAGE</asp:ListItem>
                         <asp:ListItem>HIGH</asp:ListItem>
                         
-                    </asp:DropDownList>
+                    </asp:DropDownList>*
                 </div>
                 <div style="float: left; width: 15%; text-align: right">Tool Competency:&nbsp;&nbsp;</div>
                 <div style="float: left; width: 35%">
@@ -130,10 +141,24 @@
                         <asp:ListItem>LOW</asp:ListItem>
                         <asp:ListItem>AVERAGE</asp:ListItem>
                         <asp:ListItem>HIGH</asp:ListItem>
-                    </asp:DropDownList>
+                    </asp:DropDownList>*
                 </div>
             </div>
             <br />
+            <div style="width: 100%">
+                <div style="float: left; width: 25%; text-align: right">
+                    &nbsp;&nbsp;
+                </div>
+                <div style="float: left; width: 25%">
+
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="GeneralCompetency" Display="Dynamic" ErrorMessage="Please choose general competency!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                </div>
+                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
+                <div style="float: right; width: 35%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ToolCompetency" Display="Dynamic" ErrorMessage="Please choose tool competency!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+            </div>
             <asp:HiddenField ID="EmployeeID" runat="server" />
             <asp:HiddenField ID="Forename" runat="server" />
             <asp:HiddenField ID="Surname" runat="server" />
@@ -143,13 +168,13 @@
         <br />
         <div style="width:100%">
             <div style="float:left;width:30%;text-align:right">
-                <asp:Button ID="Add" runat="server" Text="Add/Update" OnClick="Add_Click" />
+                <asp:Button ID="Add" runat="server" Text="Add/Update" OnClick="Add_Click" Visible="False" />
             </div>
             <div style="float:left;width:40%;text-align:center">
-                <asp:Button ID="Delete" runat="server" Text="Delete" OnClick="Delete_Click" />
+                <asp:Button ID="Delete" runat="server" Text="Delete" OnClick="Delete_Click" CausesValidation="False" Visible="False" />
             </div>
             <div style="float:left;width:30%;text-align:left">
-                <asp:Button ID="Export" runat="server" Text="Export to PDF" OnClick="Export_Click" />
+                <asp:Button ID="Export" runat="server" Text="Export to PDF" OnClick="Export_Click" Visible="False" />
             </div>
             
         </div>

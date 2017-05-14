@@ -36,6 +36,8 @@ public partial class Default2 : System.Web.UI.Page
         YearsInIndustry.Text = "";
         DriverLicenseClass.Text = "";
         SiteSafe.ImageUrl = "";
+        GeneralCompetency.SelectedIndex = 0;
+        ToolCompetency.SelectedIndex = 0;
     }
 
     protected void Query_Click(object sender, EventArgs e)
@@ -137,9 +139,7 @@ public partial class Default2 : System.Web.UI.Page
 
         if (ErrCode != 0)
         {
-            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Add Error!')</script>");
-            conn.Close();
-            return;
+            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('"+ErrMsg+"')</script>");
         }
         else
         {
@@ -153,8 +153,11 @@ public partial class Default2 : System.Web.UI.Page
             Qualifications.Text = (string)myCommand.Parameters["@Qualifications"].Value;
             GeneralCompetency.Text = (string)myCommand.Parameters["@GeneralCompetency"].Value;
             ToolCompetency.Text = (string)myCommand.Parameters["@ToolCompetency"].Value;
+            Add.Visible = true;
+            Delete.Visible = true;
+            Export.Visible = true;
         }
-        
+        conn.Close();
     }
 
     protected void Add_Click(object sender, EventArgs e)
@@ -210,13 +213,13 @@ public partial class Default2 : System.Web.UI.Page
 
         if (ErrCode != 0)
         {
-            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Add Error!')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('"+ErrMsg+"')</script>");
 
         }
         else
         {
             Clear_Fields();
-            ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('Add successfully!')</script>");         
+            ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('"+ErrMsg+"')</script>");         
         }
     }
 
@@ -258,13 +261,12 @@ public partial class Default2 : System.Web.UI.Page
 
         if (ErrCode != 0)
         {
-            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Delete Error!')</script>");
-
+            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('"+ErrMsg+"')</script>");
         }
         else
         {
             Clear_Fields();
-            ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('Delete successfully!')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('"+ErrMsg+"')</script>");
         }
 
     }
@@ -273,9 +275,11 @@ public partial class Default2 : System.Web.UI.Page
     {
         try
         {
+            string FilePaht = "D:\\tmp\\";
+            string FileName = Forename.Value + "_" + Surname.Value + DateTime.Now.ToString("_yyyyMMdd") + ".pdf";
             Document document = new Document();
             //PdfWriter.GetInstance(document, new FileStream(Server.MapPath("Test.pdf"), FileMode.Create));
-            PdfWriter.GetInstance(document, new FileStream("D:\\tmp\\test.pdf", FileMode.Create));
+            PdfWriter.GetInstance(document, new FileStream(FilePaht+FileName, FileMode.Create));
 
             document.Open();
             //BaseFont bfChinese = BaseFont.CreateFont("C:\\WINDOWS\\Fonts\\simsun.ttc,1", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
@@ -311,10 +315,14 @@ public partial class Default2 : System.Web.UI.Page
             document.Add(Name);
             document.Add(new Paragraph(" ", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK)));
 
-            iTextSharp.text.Image Image = iTextSharp.text.Image.GetInstance(Server.MapPath(SiteSafe.ImageUrl));
-            Image.ScaleAbsolute(180,120);
-            document.Add(Image);
-            document.Add(new Paragraph(" ", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK)));
+            if (SiteSafe.ImageUrl!="")
+            {
+                iTextSharp.text.Image Image = iTextSharp.text.Image.GetInstance(Server.MapPath(SiteSafe.ImageUrl));
+                Image.ScaleAbsolute(180, 120);
+                document.Add(Image);
+                document.Add(new Paragraph(" ", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK)));
+            }
+
 
             //Position
             Chunk PositionTitle = new Chunk("POSITION HELD WITHIN BCD:  ", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLUE));
@@ -406,7 +414,7 @@ public partial class Default2 : System.Web.UI.Page
 
 
             document.Close();
-            Response.Write("<script>alert('导出成功！');</script>");
+            Response.Write("<script>alert('Export successfully！');</script>");
         }
         catch (DocumentException de)
         {
