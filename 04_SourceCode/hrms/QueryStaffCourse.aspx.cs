@@ -23,18 +23,18 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Export_Click(object sender, EventArgs e)
     {
-        //this.GridViewIndividualDebt.AllowPaging = false;
-        this.GridViewIndividualDebt.AllowSorting = false;
-        GridViewIndividualDebt.Columns[0].Visible = false;
-        GridViewIndividualDebt.Columns[1].Visible = false;
-        GridViewIndividualDebt.DataBind();
+        //this.GridViewStaffCourse.AllowPaging = false;
+        this.GridViewStaffCourse.AllowSorting = false;
+        GridViewStaffCourse.Columns[0].Visible = false;
+        GridViewStaffCourse.Columns[1].Visible = false;
+        GridViewStaffCourse.DataBind();
 
 
-        toExcel(this.GridViewIndividualDebt);
+        toExcel(this.GridViewStaffCourse);
 
-        //this.GridViewIndividualDebt.AllowPaging = true;
-        this.GridViewIndividualDebt.AllowSorting = true;
-        GridViewIndividualDebt.DataBind();
+        //this.GridViewStaffCourse.AllowPaging = true;
+        this.GridViewStaffCourse.AllowSorting = true;
+        GridViewStaffCourse.DataBind();
     }
 
     private void toExcel(GridView gv)
@@ -44,7 +44,7 @@ public partial class Default2 : System.Web.UI.Page
             //make the column invisible if don't want export them
             //gridview1.Columns[9].Visible = false;
 
-            string fileName = "IndividualDebt" + DateTime.Now.ToString("_yyyyMMdd") + ".xls";
+            string fileName = "StaffCourse" + DateTime.Now.ToString("_yyyyMMdd") + ".xls";
             string style = @"<style> .text { mso-number-format:\@; } </script> ";
             Response.ClearContent();
             Response.AddHeader("content-disposition", "attachment; filename=" + fileName);
@@ -53,7 +53,7 @@ public partial class Default2 : System.Web.UI.Page
 
             StringWriter sw = new StringWriter();
             HtmlTextWriter htw = new HtmlTextWriter(sw);
-            this.GridViewIndividualDebt.RenderControl(htw);
+            this.GridViewStaffCourse.RenderControl(htw);
             Response.Write(style);
             Response.Write(sw.ToString());
             Response.Flush();
@@ -71,7 +71,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Query_Click(object sender, EventArgs e)
     {
-        string sql = "SELECT e.Forename, e.Surname,i.* FROM[EMPLOYEE] e,[INDIVIDUAL_DEBT] i WHERE e.EmployeeID = i.EmployeeID and e.EmployeeStatus = 'Y' ";
+        string sql = "SELECT e.Forename, e.Surname,c.* FROM [EMPLOYEE] e,[COURSE] c WHERE e.EmployeeID = c.EmployeeID and e.EmployeeStatus = 'Y' ";
         if (Email.Text.Trim()!="")
         {
             sql += " and e.Email = '" + Email.Text.Trim() + "'";
@@ -83,15 +83,15 @@ public partial class Default2 : System.Web.UI.Page
 
         if (BeginDate.Text.Trim()!="")
         {
-            sql = sql  + " and i.date>='" + BeginDate.Text.Trim() + "'";
+            sql = sql  + " and c.date>='" + BeginDate.Text.Trim() + "'";
         }
 
         if (EndDate.Text.Trim()!="")
         {
-            sql = sql + " and i.date<='" + EndDate.Text.Trim() + "'";
+            sql = sql + " and c.date<='" + EndDate.Text.Trim() + "'";
         }
-        SqlDataSourceIndividualDebt.SelectCommand = sql + " order by e.Forename,i.[Date]";
-        GridViewIndividualDebt.DataBind();
+        SqlDataSourceStaffCourse.SelectCommand = sql + " order by c.[Date],e.Forename,e.Surname";
+        GridViewStaffCourse.DataBind();
     }
     protected void ImageButtonBeginDate_Click(object sender, ImageClickEventArgs e)
     {
