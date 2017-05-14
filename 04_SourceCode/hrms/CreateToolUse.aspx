@@ -13,25 +13,24 @@
                 Forename:&nbsp;&nbsp;
             </div>
             <div style="float: left; width: 25%">
-                <asp:TextBox ID="Forename" runat="server" MaxLength="50"></asp:TextBox>*
+                <asp:TextBox ID="Forename" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div style="float: left; width: 15%; text-align: right">Surname:&nbsp;&nbsp;</div>
             <div style="float: left; width: 35%">
-                <asp:TextBox ID="Surname" runat="server" MaxLength="50"></asp:TextBox>*
+                <asp:TextBox ID="Surname" runat="server" MaxLength="50"></asp:TextBox>
             </div>
         </div>
-        <br />
         <br />
         <div style="width: 100%; margin-top: 20px">
             <div style="float: left; width: 25%; text-align: right">
                 Email:&nbsp;&nbsp;
             </div>
             <div style="float: left; width: 25%">
-                <asp:TextBox ID="Email" runat="server" MaxLength="100"></asp:TextBox>*
+                <asp:TextBox ID="Email" runat="server" MaxLength="100"></asp:TextBox>
             </div>
             <div style="float: left; width: 15%; text-align: right">Date:&nbsp;&nbsp;</div>
             <div style="float: left; width: 35%">
-                <asp:TextBox ID="Date" runat="server" MaxLength="10"></asp:TextBox><asp:ImageButton ID="CalenderButton" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="CalenderButton_Click" CausesValidation="False" />*
+                <asp:TextBox ID="Date" runat="server" MaxLength="8"></asp:TextBox><asp:ImageButton ID="CalenderButton" runat="server" Height="22px" ImageAlign="Middle" ImageUrl="~/Images/Calendar-icon.png" OnClick="CalenderButton_Click" CausesValidation="False" />*
             </div>
         </div>
         <br />
@@ -40,16 +39,17 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div style="float: left; width: 25%">
-                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalide email address!" ControlToValidate="Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
             </div>
             <div style="float: left; width: 15%">
                 &nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div style="float: right; width: 35%">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Date" Display="Dynamic" ErrorMessage="Please input date!" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Invalide date!YYYYMMDD" ControlToValidate="Date" Display="Dynamic" ForeColor="Red" ValidationExpression="^\d{4}\d{1,2}\d{1,2}$"></asp:RegularExpressionValidator>
                 <asp:Calendar ID="Calendar" runat="server" Visible="false" OnSelectionChanged="Calendar_SelectionChanged"></asp:Calendar>
             </div>
         </div>
-        <br />
         <br />
         <div style="width: 100%">
             <div style="float: left; width: 25%; text-align: right">
@@ -77,15 +77,14 @@
             </div>
         </div>
         <br />
-        <br />
-        <div style="width: 100%">
+        <div style="float:left;width: 100%">
             <div style="float: left; width: 25%; text-align: right">
                 In/Out:&nbsp;&nbsp;
             </div>
             <div style="float: left; width: 25%">
                 <asp:DropDownList ID="InOut" runat="server">
-                    <asp:ListItem Value="I">In</asp:ListItem>
-                    <asp:ListItem Value="O">Out</asp:ListItem>
+                    <asp:ListItem Value="I">IN</asp:ListItem>
+                    <asp:ListItem Value="O">OUT</asp:ListItem>
                 </asp:DropDownList>*
             </div>
             <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
@@ -93,7 +92,6 @@
                 &nbsp;&nbsp;
             </div>
         </div>
-        <br />
         <br />
         <br />
         <div style="width: 100%; float: left">

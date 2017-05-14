@@ -126,13 +126,13 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void CalendarBeginDate_SelectionChanged(object sender, EventArgs e)
     {
-        BeginDate.Text = CalendarBeginDate.SelectedDate.ToString("dd-MM-yyyy");
+        BeginDate.Text = CalendarBeginDate.SelectedDate.ToString("yyyyMMdd");
         CalendarBeginDate.Visible = false;
     }
 
     protected void CalendarEndDate_SelectionChanged(object sender, EventArgs e)
     {
-        EndDate.Text = CalendarEndDate.SelectedDate.ToString("dd-MM-yyyy");
+        EndDate.Text = CalendarEndDate.SelectedDate.ToString("yyyyMMdd");
         CalendarEndDate.Visible = false;
     }
 

@@ -29,12 +29,6 @@ public partial class Default2 : System.Web.UI.Page
             return;
         }
 
-        if (Date.Text.Trim() == "")
-        {
-            ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('Please input date!')</script>");
-            return;
-        }
-
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
         SqlConnection conn = new SqlConnection(connectionString);
 
@@ -103,7 +97,7 @@ public partial class Default2 : System.Web.UI.Page
 
         if (ErrCode != 0)
         {
-            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Add Error!')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('"+ErrMsg+"')</script>");
 
         }
         else
@@ -116,7 +110,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Calendar_SelectionChanged(object sender, EventArgs e)
     {
-        Date.Text = Calendar.SelectedDate.ToString("dd-MM-yyyy");
+        Date.Text = Calendar.SelectedDate.ToString("yyyyMMdd");
         Calendar.Visible = false;
     }
 
