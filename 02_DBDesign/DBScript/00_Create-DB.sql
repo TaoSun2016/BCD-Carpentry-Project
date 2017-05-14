@@ -69,19 +69,19 @@ CREATE TABLE UNIFORM (
   Shoe			varchar(20) NOT NULL, 
 )
 go
+
 CREATE TABLE COURSE (
+  CourseID	   int IDENTITY(1,1) PRIMARY KEY,
   EmployeeID   int NOT NULL, 
   CourseName   varchar(60) NOT NULL, 
   [Date]       date NOT NULL, 
   Company      varchar(60) NOT NULL, 
-  DebtEntered  int DEFAULT 0 NOT NULL CHECK(DebtEntered in (0,1)), 
-  CertReceived int DEFAULT 0 NOT NULL CHECK(CertReceived in (0,1)), 
-  Copied       int DEFAULT 0 NOT NULL CHECK(Copied in (0,1)), 
-  Scanned      int DEFAULT 0 NOT NULL CHECK(Scanned in (0,1)), 
-  Presented    int DEFAULT 0 NOT NULL CHECK(Presented in (0,1)), 
-  PRIMARY KEY (EmployeeID, 
-  CourseName, 
-  [Date]));
+  DebtEntered  char NOT NULL CHECK(DebtEntered in ('Y','N')), 
+  CertReceived char NOT NULL CHECK(CertReceived in ('Y','N')), 
+  Copied       char NOT NULL CHECK(Copied in ('Y','N')), 
+  Scanned      char NOT NULL CHECK(Scanned in ('Y','N')), 
+  Presented    char NOT NULL CHECK(Presented in ('Y','N')), 
+)
 go
 
 CREATE TABLE ATTENDANCE (

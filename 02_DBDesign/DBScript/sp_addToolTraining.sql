@@ -25,7 +25,7 @@ begin
 		if @EmployeeID = 0
 		begin
 			set @ErrCode = -1
-			set @ErrMsg = 'Can not find the employee information!'
+			set @ErrMsg = 'Can not find the employee information by email!'
 			return
 		end
 	end
@@ -37,7 +37,7 @@ begin
 			if @Count = 0
 			begin
 				set @ErrCode = -1
-				set @ErrMsg = 'Can not find the employee information!'
+				set @ErrMsg = 'Can not find the employee information by name!'
 				return
 			end
 			if @Count > 1

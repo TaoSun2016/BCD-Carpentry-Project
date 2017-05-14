@@ -29,7 +29,7 @@ begin
 		if @EmployeeID = 0
 		begin
 			set @ErrCode = -1
-			set @ErrMsg = 'Can not find the employee information according email!'
+			set @ErrMsg = 'Can not find the employee information by email!'
 			insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg);
 			return
 		end
@@ -42,7 +42,7 @@ begin
 			if @Count = 0
 			begin
 				set @ErrCode = -1
-				set @ErrMsg = 'Can not find the employee information according name!'
+				set @ErrMsg = 'Can not find the employee information by name!'
 				insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg);
 				return
 			end

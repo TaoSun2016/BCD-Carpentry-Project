@@ -24,6 +24,8 @@ begin
 			set @ErrMsg = 'Update competency record error!'
 			return
 		end catch
+		set @ErrCode = 0
+		set @ErrMsg = 'Update competency record successfully!'
 	end
 	else
 	begin
@@ -36,9 +38,10 @@ begin
 			set @ErrMsg = 'Add new competency record error!'
 			return
 		end catch
+		set @ErrCode = 0
+		set @ErrMsg = 'Add new competency record successfully!'
 	end
-	set @ErrCode = 0
-	set @ErrMsg = 'Add/Update new competency record successfully!'
+
 end
 
 go

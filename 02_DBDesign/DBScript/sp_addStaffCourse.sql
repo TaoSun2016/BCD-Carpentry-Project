@@ -1,17 +1,19 @@
 use HRMSDB
 go
-drop procedure sp_addToolUse
+drop procedure sp_addStaffCourse
 go
-create procedure sp_addToolUse(
+create procedure sp_addStaffCourse(
 	@Forename	varchar(50),
 	@Surname	varchar(50),
 	@Email		varchar(100),
 	@Date		date,
-	@ToolName	varchar(60),
-	@ToolNumber	varchar(20),
-	@InOut		char(1),
-	@Comment	varchar(120),
-	
+	@Course		varchar(60),
+	@Company	varchar(60),
+	@DebtEntered char,
+	@CertReceived char,
+	@Copied		char,
+	@Scanned	char,
+	@Presented	char,
 
 	@ErrCode int output,
 	@ErrMsg varchar(60)output)
@@ -29,24 +31,27 @@ begin
 		begin
 			set @ErrCode = -1
 			set @ErrMsg = 'Can not find the employee information by email!'
+			insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg);
 			return
 		end
 	end
 	else
 	begin
-		if @Forename is not null and @Forename != '' or @Surname is not null and @Surname != ''
+		if @Forename is not null and @Forename !='' or @Surname is not null and @Surname !=''
 		begin
 			set @Count = (select count(*) from EMPLOYEE where Forename = @Forename and Surname = @Surname and EmployeeStatus = 'Y')
 			if @Count = 0
 			begin
 				set @ErrCode = -1
 				set @ErrMsg = 'Can not find the employee information by name!'
+				insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg);
 				return
 			end
 			if @Count > 1
 			begin
 				set @ErrCode = -1
 				set @ErrMsg = 'Find more than one employees!'
+				insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg);
 				return				
 			end
 			select @EmployeeID = EmployeeID from EMPLOYEE where Forename = @Forename and Surname = @Surname and EmployeeStatus = 'Y'
@@ -55,20 +60,21 @@ begin
 		begin
 			set @ErrCode = -1
 			set @ErrMsg = 'Please input employee''s information!'
+			insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),@ErrMsg);
 			return
 		end
 	end
 	begin try
-		insert into TOOL_USE_REGISTER  values (@EmployeeID,@Date,@ToolName,@ToolNumber,@InOut,@Comment);
+		insert into COURSE  values (@EmployeeID, @Course, @Date, @Company, @DebtEntered, @CertReceived, @Copied, @Scanned, @Presented);
 	end try
 	begin catch
 		insert into LOGTBL values (GETDATE(),ERROR_PROCEDURE(),ERROR_LINE(),ERROR_MESSAGE());
 		set @ErrCode = -1;
-		set @ErrMsg = 'Add new tool use record error!';
+		set @ErrMsg = 'Add new staff course record error!';
 		return;
 	end catch
 	set @ErrCode = 0;
-	set @ErrMsg = 'Add new tool use record successfully!';
+	set @ErrMsg = 'Add new staff course successfully!';
 end
 
 go
