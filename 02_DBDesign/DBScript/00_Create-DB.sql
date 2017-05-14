@@ -220,13 +220,15 @@ CREATE TABLE POSITION (
   Description  varchar(120) NULL, 
   PRIMARY KEY (PositionName));
 go
+
 CREATE TABLE TOOL_TRAINING (
+  TrainingID   int IDENTITY(1,1) PRIMARY KEY,
   [Date]       date NOT NULL, 
   TrainingType int NOT NULL CHECK(TrainingType in (1,2,3)), 
   EmployeeID   int NOT NULL, 
-  PRIMARY KEY ([Date], 
-  TrainingType, 
-  EmployeeID));
+)
+go
+CREATE UNIQUE INDEX UI_TOOL_TRAINING ON TOOL_TRAINING(EmployeeID,[Date],TrainingType)
 go
 
 CREATE TABLE VEHICLE (
