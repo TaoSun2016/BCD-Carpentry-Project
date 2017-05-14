@@ -38,11 +38,18 @@
             <div style="float: left; width: 40%">&nbsp;&nbsp</div>
         </div>
         <br />
+        <div style="float: left; width: 100%">
+            <div style="float: left; width: 25%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: left; width: 25%">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalide email address!" ControlToValidate="Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            </div>
+            <div style="float: left; width: 50%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
         <br />
-        
-    <br />
-
-
 
         <br />
 
@@ -64,7 +71,7 @@
                     <asp:BoundField DataField="Surname" HeaderText="SURNAME" ReadOnly="true" SortExpression="Surname"/>
                     <asp:BoundField DataField="Position" HeaderText="POSITION" ReadOnly="true" SortExpression="Position"/>
                     <asp:BoundField DataField="ToolName" HeaderText="TOOL NAME" ReadOnly="true" SortExpression="ToolName"/>
-                    <asp:BoundField DataField="RRP" HeaderText="RRP" SortExpression="RRP"/>
+                    <asp:BoundField DataField="RRP" HeaderText="RRP" DataFormatString="{0:N2}" SortExpression="RRP"/>
                     <asp:BoundField DataField="OnSite" HeaderText="ON SITE" SortExpression="OnSite"/>
                     <asp:BoundField DataField="Need" HeaderText="NEED" SortExpression="Need"/>
                     <asp:BoundField DataField="Competent" HeaderText="COMPETENT" SortExpression="Competent"/>

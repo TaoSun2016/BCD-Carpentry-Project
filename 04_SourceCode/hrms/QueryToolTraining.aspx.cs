@@ -66,4 +66,79 @@ public partial class Default2 : System.Web.UI.Page
     }
 
     public override void VerifyRenderingInServerForm(Control control) { }
+
+    protected void Query_Click(object sender, EventArgs e)
+    {
+        string sql = "SELECT e.Forename, e.Surname,t.* , case TrainingType when 1 then 'I OWN AND AM TRAINED IN THIS TOOL' when 2 then 'I HAVE READ THIS INFORMATION BOOK AND UNDERSTAND THE USE AND CARE' when 3 then 'FOREMAN TRAINED AND WITNESSED GOOD SAFE WORKING PRACTICES' end as TrainingTypeNote FROM [EMPLOYEE] e,[TOOL_TRAINING] t WHERE e.EmployeeID = t.EmployeeID and e.EmployeeStatus = 'Y' ";
+        if (Email.Text.Trim() != "")
+        {
+            sql += " and e.Email = '" + Email.Text.Trim() + "'";
+        }
+        else if (Forename.Text.Trim() != "" && Surname.Text.Trim() != "")
+        {
+            sql += " and e.Forename = '" + Forename.Text.Trim() + "' and e.Surname = '" + Surname.Text.Trim() + "'";
+        }
+
+        if (BeginDate.Text.Trim() != "")
+        {
+            sql = sql + " and t.date>='" + BeginDate.Text.Trim() + "'";
+        }
+
+        if (EndDate.Text.Trim() != "")
+        {
+            sql = sql + " and t.date<='" + EndDate.Text.Trim() + "'";
+        }
+        SqlDataSourceToolTraining.SelectCommand = sql + " order by e.Forename,e.Surname,t.[Date]";
+        GridViewToolTraining.DataBind();
+        GridViewToolTraining.Visible = true;
+        Export.Visible = true;
+    }
+
+    protected void ImageBeginDate_Click(object sender, EventArgs e)
+    {
+        if (CalendarBeginDate.Visible == true)
+        {
+            CalendarBeginDate.Visible = false;
+        }
+        else
+        {
+            CalendarBeginDate.Visible = true;
+        }
+    }
+
+    protected void ImageEndDate_Click(object sender, EventArgs e)
+    {
+        if (CalendarEndDate.Visible == true)
+        {
+            CalendarEndDate.Visible = false;
+        }
+        else
+        {
+            CalendarEndDate.Visible = true;
+        }
+    }
+
+    protected void CalendarBeginDate_SelectionChanged(object sender, EventArgs e)
+    {
+        BeginDate.Text = CalendarBeginDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarBeginDate.Visible = false;
+    }
+
+    protected void CalendarEndDate_SelectionChanged(object sender, EventArgs e)
+    {
+        EndDate.Text = CalendarEndDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarEndDate.Visible = false;
+    }
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarBeginDate.Visible == true)
+        {
+            CalendarBeginDate.Visible = false;
+        }
+        else
+        {
+            CalendarBeginDate.Visible = true;
+        }
+    }
 }

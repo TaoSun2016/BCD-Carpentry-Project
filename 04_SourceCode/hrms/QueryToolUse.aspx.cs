@@ -80,10 +80,6 @@ public partial class Default2 : System.Web.UI.Page
         {
             sql += " and e.Forename = '" + Forename.Text.Trim() + "' and e.Surname = '" + Surname.Text.Trim() + "'";
         }
-        else
-        {
-            ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('Please input employee''s name or Email address!')</script>");
-        }
 
         if (BeginDate.Text.Trim()!="")
         {

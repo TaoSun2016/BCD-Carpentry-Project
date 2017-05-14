@@ -23,6 +23,16 @@ public partial class Default2 : System.Web.UI.Page
         int ErrCode;
         string ErrMsg;
 
+        if ((Forename.Text.Trim() != "" || Surname.Text.Trim() != "") && Email.Text.Trim() != "")
+        {
+            ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not have value at the same time!')</script>");
+            return;
+        }
+        if (Forename.Text.Trim() == "" && Surname.Text.Trim() == "" && Email.Text.Trim() == "")
+        {
+            ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('The Email and employee's name can not be null at the same time!')</script>");
+            return;
+        }
 
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
         SqlConnection conn = new SqlConnection(connectionString);
@@ -78,12 +88,30 @@ public partial class Default2 : System.Web.UI.Page
 
         if (ErrCode != 0)
         {
-            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('Add Error!')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "error", "<script>alert('"+ErrMsg+"')</script>");
 
         }
         else
         {
             ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('Add successfully!')</script>");
         }
+    }
+
+    protected void ImageButtonDate_Click(object sender, ImageClickEventArgs e)
+    {
+        if (CalendarDate.Visible == true)
+        {
+            CalendarDate.Visible = false;
+        }
+        else
+        {
+            CalendarDate.Visible = true;
+        }
+    }
+
+    protected void CalendarDate_SelectionChanged(object sender, EventArgs e)
+    {
+        Date.Text = CalendarDate.SelectedDate.ToString("yyyyMMdd");
+        CalendarDate.Visible = false;
     }
 }

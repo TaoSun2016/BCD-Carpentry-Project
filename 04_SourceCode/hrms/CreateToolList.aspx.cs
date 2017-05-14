@@ -126,5 +126,6 @@ public partial class Default2 : System.Web.UI.Page
         Surname.Text = "";
         Email.Text = "";
         ToolName.Text = "";
+        RRP.Text = "0.00";
     }
 }

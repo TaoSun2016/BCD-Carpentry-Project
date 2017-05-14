@@ -22,7 +22,7 @@
         </div>
         <br />
         <br />
-        <div style="width: 100%; margin-top: 20px">
+        <div style="width: 100%;float:left">
             <div style="float: left; width: 25%; text-align: right">
                 Email:&nbsp;&nbsp;
             </div>
@@ -35,6 +35,20 @@
             </div>
         </div>
         <br />
+        <div style="float: left; width: 100%">
+            <div style="float: left; width: 25%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: left; width: 25%">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalide email address!" ControlToValidate="Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            </div>
+            <div style="float: left; width: 15%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: right; width: 35%; text-align: left">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ErrorMessage="Please input Tool Name!" ForeColor="Red" ControlToValidate="ToolName"></asp:RequiredFieldValidator>
+            </div>
+        </div>
         <br />
         <div style="width: 100%">
             <div style="float: left; width: 25%; text-align: right">
@@ -48,7 +62,7 @@
                 <asp:DropDownList ID="OnSite" runat="server">
                     <asp:ListItem Value="Y">Y</asp:ListItem>
                     <asp:ListItem Value="N">N</asp:ListItem>
-                </asp:DropDownList>
+                </asp:DropDownList>*
             </div>
         </div>
         <br />
@@ -61,14 +75,14 @@
                 <asp:DropDownList ID="Need" runat="server">
                     <asp:ListItem Value="Y">Y</asp:ListItem>
                     <asp:ListItem Value="N">N</asp:ListItem>
-                </asp:DropDownList>
+                </asp:DropDownList>*
             </div>
             <div style="float: left; width: 15%; text-align: right">Competent:&nbsp;&nbsp;</div>
             <div style="float: left; width: 35%">
                 <asp:DropDownList ID="Competent" runat="server">
                     <asp:ListItem Value="Y">Y</asp:ListItem>
                     <asp:ListItem Value="N">N</asp:ListItem>
-                </asp:DropDownList>
+                </asp:DropDownList>*
             </div>
         </div>
         <br />
@@ -81,7 +95,7 @@
                 <asp:DropDownList ID="RequireTraining" runat="server">
                     <asp:ListItem Value="Y">Y</asp:ListItem>
                     <asp:ListItem Value="N">N</asp:ListItem>
-                </asp:DropDownList>
+                </asp:DropDownList>*
             </div>
             <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
             <div style="float: left; width: 35%">
