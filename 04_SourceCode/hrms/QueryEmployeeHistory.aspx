@@ -38,6 +38,17 @@
             <div style="float: left; width: 30%">&nbsp;&nbsp;</div>
         </div>
         <br />
+        <div style="float: left; width: 100%">
+            <div style="float: left; width: 25%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: left; width: 25%">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalide email address!" ControlToValidate="Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            </div>
+            <div style="float: left; width: 50%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
         <br />
         
         <div style="text-align: center">
@@ -66,7 +77,7 @@
                     <asp:BoundField DataField="TaxRate" HeaderText="TaxRate" SortExpression="TaxRate" />
                     <asp:BoundField DataField="DriverLicenseNumber" HeaderText="DriverLicenseNumber" SortExpression="DriverLicenseNumber" />
                     <asp:BoundField DataField="DriverLicenseClass" HeaderText="DriverLicenseClass" SortExpression="DriverLicenseClass" />
-                    <asp:BoundField DataField="DriverLicenseExpiryDate" HeaderText="DriverLicenseExpiryDate" SortExpression="DriverLicenseExpiryDate" />
+                    <asp:BoundField DataField="DriverLicenseExpiryDate" HeaderText="DriverLicenseExpiryDate" DataFormatString="{0:yyyyMMdd}" SortExpression="DriverLicenseExpiryDate" />
                      <asp:BoundField DataField="SiteSafeNumber" HeaderText="SiteSafeNumber" SortExpression="SiteSafeNumber" />
                     <asp:BoundField DataField="SiteSafeExpiryDate" HeaderText="SiteSafeExpiryDate" DataFormatString="{0:yyyyMMdd}" SortExpression="SiteSafeExpiryDate" />     
                     <asp:BoundField DataField="HireDate" HeaderText="HireDate" DataFormatString="{0:yyyyMMdd}" SortExpression="HireDate" />

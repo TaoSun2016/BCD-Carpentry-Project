@@ -34,6 +34,17 @@
             </div>
         </div>
         <br />
+        <div style="float: left; width: 100%">
+            <div style="float: left; width: 25%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: left; width: 25%">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalide email address!" ControlToValidate="Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            </div>
+            <div style="float: left; width: 50%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
         <br />
         <div style="width: 100%">
             <div style="float: left; width: 25%; text-align: right">

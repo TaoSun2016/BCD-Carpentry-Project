@@ -32,6 +32,17 @@
             <div style="float: left; width: 40%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
         </div>
         <br />
+        <div style="float: left; width: 100%">
+            <div style="float: left; width: 25%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style="float: left; width: 25%">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalide email address!" ControlToValidate="Q_Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            </div>
+            <div style="float: left; width: 50%">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
         <br />
         <div style="text-align:center">
             <asp:Button ID="Query" runat="server" Text="Query" OnClick="Query_Click" />
@@ -58,10 +69,11 @@
                 <div style="float: left; width: 25%">
                     &nbsp;&nbsp;
                 </div>
-                <div style="float: left; width: 15%">
+                <div style="float: left; width: 10%">
                     &nbsp;&nbsp;
                 </div>
-                <div style="float: right; width: 35%">
+                <div style="float: left; width: 40%">
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Invalide date!YYYYMMDD" ControlToValidate="Expiry" Display="Dynamic" ForeColor="Red" ValidationExpression="^\d{4}\d{1,2}\d{1,2}$"></asp:RegularExpressionValidator>
                     <asp:Calendar ID="CalendarExpiry" runat="server" Visible="false" OnSelectionChanged="CalendarExpiry_SelectionChanged"></asp:Calendar>
                 </div>
             </div>
