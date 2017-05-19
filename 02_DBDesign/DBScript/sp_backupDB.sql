@@ -1,4 +1,4 @@
-USE [testdb] 
+USE [HRMSDB] 
 GO 
 
 SET ANSI_NULLS ON 
