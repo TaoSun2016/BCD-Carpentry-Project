@@ -1,0 +1,1 @@
+sqlcmd -U hrms -P aaa111 -S . -Q "EXEC sp_backupDB  @DBName='HRMSDB', @BackupPath ='D:\tmp\'"
