@@ -111,7 +111,7 @@
         <br/>
         <div style="float:left;width:100%">
             <div style="float:left;width:50%;text-align:center"><asp:CheckBox ID="InvoiceFlag" runat="server" Text="Invoice On Staff File" /></div>
-            <div style="float:left;width:50%;text-align:left"><asp:CheckBox ID="ATPAFlag" runat="server" Text="ATPA Signed On Sttaff File " /></div>
+            <div style="float:left;width:50%;text-align:left"><asp:CheckBox ID="ATPAFlag" runat="server" Text="ATPA Signed On Staff File " /></div>
          </div>
         <br/>
         <br/>
