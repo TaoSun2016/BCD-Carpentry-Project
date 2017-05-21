@@ -12,7 +12,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div style="height: 100%;overflow-y: scroll;">
-        <h2 class="auto-style6"><strong>Maintan Tax Information</strong></h2>
+        <h2 class="auto-style6"><strong>Maintain Tax Information</strong></h2>
         <div style="width: 100%">
             <div style="float: left; width: 25%; text-align: right">
                 Forename:&nbsp;&nbsp;
