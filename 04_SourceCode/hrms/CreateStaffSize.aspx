@@ -60,6 +60,8 @@
                     <asp:ListItem Value="3XL">3XL</asp:ListItem>
                     <asp:ListItem Value="4XL">4XL</asp:ListItem>
                     <asp:ListItem Value="5XL">5XL</asp:ListItem>
+                    <asp:ListItem Value="6XL">6XL</asp:ListItem>
+                    <asp:ListItem Value="7XL">7XL</asp:ListItem>
                 </asp:DropDownList>*
             </div>
             <div style="float: left; width: 15%; text-align: right">Jersey:&nbsp;&nbsp;</div>
@@ -73,6 +75,8 @@
                     <asp:ListItem Value="3XL">3XL</asp:ListItem>
                     <asp:ListItem Value="4XL">4XL</asp:ListItem>
                     <asp:ListItem Value="5XL">5XL</asp:ListItem>
+                    <asp:ListItem Value="6XL">6XL</asp:ListItem>
+                    <asp:ListItem Value="7XL">7XL</asp:ListItem>
                 </asp:DropDownList>*
             </div>
         </div>
@@ -92,6 +96,8 @@
                     <asp:ListItem Value="3XL">3XL</asp:ListItem>
                     <asp:ListItem Value="4XL">4XL</asp:ListItem>
                     <asp:ListItem Value="5XL">5XL</asp:ListItem>
+                    <asp:ListItem Value="6XL">6XL</asp:ListItem>
+                    <asp:ListItem Value="7XL">7XL</asp:ListItem>
                 </asp:DropDownList>*
             </div>
             <div style="float: left; width: 15%; text-align: right">WW Pants:&nbsp;&nbsp;</div>
@@ -105,6 +111,8 @@
                     <asp:ListItem Value="3XL">3XL</asp:ListItem>
                     <asp:ListItem Value="4XL">4XL</asp:ListItem>
                     <asp:ListItem Value="5XL">5XL</asp:ListItem>
+                    <asp:ListItem Value="6XL">6XL</asp:ListItem>
+                    <asp:ListItem Value="7XL">7XL</asp:ListItem>
                 </asp:DropDownList>*
             </div>
         </div>
@@ -119,11 +127,22 @@
             </div>
             <div style="float: left; width: 15%; text-align: right">Shoe:&nbsp;&nbsp;</div>
             <div style="float: left; width: 35%">
-                <asp:TextBox ID="Shoe" runat="server" MaxLength="20"></asp:TextBox>*
+                <asp:DropDownList ID="Shoe" runat="server">
+                    <asp:ListItem Value="6">6</asp:ListItem>
+                    <asp:ListItem Value="7">7</asp:ListItem>
+                    <asp:ListItem Value="8">8</asp:ListItem>
+                    <asp:ListItem Value="9">9</asp:ListItem>
+                    <asp:ListItem Value="10">10</asp:ListItem>
+                    <asp:ListItem Value="11">11</asp:ListItem>
+                    <asp:ListItem Value="12">12</asp:ListItem>
+                    <asp:ListItem Value="13">13</asp:ListItem>
+                    <asp:ListItem Value="14">14</asp:ListItem>
+                    <asp:ListItem Value="15">15</asp:ListItem>
+                </asp:DropDownList>*
             </div>
         </div>
         <br />
-        <div style="width: 100%">
+        <div style="float:left;width: 100%">
                 <div style="float: left; width: 25%; text-align: right">
                     &nbsp;&nbsp;
                 </div>
@@ -132,10 +151,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Pants" Display="Dynamic" ErrorMessage="Please input the size of pants!" ForeColor="Red"></asp:RequiredFieldValidator>
 
                 </div>
-                <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
-                <div style="float: right; width: 35%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Shoe" Display="Dynamic" ErrorMessage="Please input the size of shoe!" ForeColor="Red"></asp:RequiredFieldValidator>
-                </div>
+                <div style="float: left; width: 50%; text-align: right">&nbsp;&nbsp;</div>               
         </div>
         <br />
         <br />

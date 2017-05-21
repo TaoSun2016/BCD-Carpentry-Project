@@ -82,7 +82,7 @@ public partial class Default2 : System.Web.UI.Page
 
         cmdParameter = new SqlParameter("@Shoe", SqlDbType.Char);
         cmdParameter.Direction = ParameterDirection.Input;
-        cmdParameter.Value = Shoe.Text;
+        cmdParameter.Value = Shoe.SelectedValue;
         myCommand.Parameters.Add(cmdParameter);
         //////////////////////////////////////////////////////////
         cmdParameter = new SqlParameter("@ErrCode", SqlDbType.Int);
