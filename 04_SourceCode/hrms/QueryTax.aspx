@@ -68,7 +68,7 @@
                     <asp:BoundField DataField="WeekEndingDate" HeaderText="WEEK ENDING" ReadOnly="True" />
                     <asp:BoundField DataField="Wage" HeaderText="WAGE" ReadOnly="true" />
                     <asp:BoundField DataField="Tax" HeaderText="TAX" ReadOnly="true" />
-                    <asp:BoundField DataField="GST" HeaderText="WAGE" ReadOnly="true" />
+                    <asp:BoundField DataField="GST" HeaderText="GST" ReadOnly="true" />
                     <asp:BoundField DataField="Deduction" HeaderText="DEDUCTION" ReadOnly="true" />
                     <asp:BoundField DataField="Note" HeaderText="DEDUCTION NOTE" ReadOnly="true" />
 
