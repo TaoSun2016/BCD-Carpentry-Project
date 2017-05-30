@@ -236,11 +236,13 @@ public partial class Default2 : System.Web.UI.Page
 
         if (ErrCode != 0)
         {
-            Response.Write("<script language='JavaScript'>alert('Add employee error!')</script>");
+            //Response.Write("<script language='JavaScript'>alert('Add employee error!')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('Add employee error!')</script>");
         }
         else
         {
-            Response.Write("<script language='JavaScript'>alert('Add employee successfully!')</script>");
+            //Response.Write("<script language='JavaScript'>alert('Add employee successfully!')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('Add employee successfully!')</script>");
         }
         Clear_Fields();
 

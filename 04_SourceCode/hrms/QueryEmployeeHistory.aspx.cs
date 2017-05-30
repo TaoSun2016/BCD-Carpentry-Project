@@ -61,7 +61,8 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Response.Write("No data to export!");
+            //Response.Write("No data to export!");
+            ClientScript.RegisterStartupScript(typeof(string), "nodata", "<script>alert('No data to export!!')</script>");
         }
     }
 
@@ -95,9 +96,9 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            //ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('There no data returned!')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "alert", "<script>alert('There no data returned!')</script>");
 
-            Response.Write("<script language='JavaScript'>alert('There no data returned!')</script>");
+            //Response.Write("<script language='JavaScript'>alert('There no data returned!')</script>");
         }
 
     }

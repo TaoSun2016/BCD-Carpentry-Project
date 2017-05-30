@@ -60,7 +60,8 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Response.Write("No data to export!");
+            //Response.Write("No data to export!");
+            ClientScript.RegisterStartupScript(typeof(string), "nodata", "<script>alert('No data to export!!')</script>");
         }
     }
 

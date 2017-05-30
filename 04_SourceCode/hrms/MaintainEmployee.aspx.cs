@@ -412,12 +412,14 @@ public partial class Default2 : System.Web.UI.Page
 
             conn.Close();
 
-            Response.Write("<script language='JavaScript'>alert('"+ErrMsg+"')</script>");
+            //Response.Write("<script language='JavaScript'>alert('"+ErrMsg+"')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "nochange", "<script>alert('" + ErrMsg + "')</script>");
             Clear_Fields();
         }
         else
         {
-            Response.Write("<script language='JavaScript'>alert('Nothing changed')</script>");
+            //Response.Write("<script language='JavaScript'>alert('Nothing changed')</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "nochange", "<script>alert('Nothing changed')</script>");
         }
     }
 

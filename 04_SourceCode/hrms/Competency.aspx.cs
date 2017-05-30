@@ -414,7 +414,8 @@ public partial class Default2 : System.Web.UI.Page
 
 
             document.Close();
-            Response.Write("<script>alert('Export successfully！');</script>");
+            //Response.Write("<script>alert('Export successfully！');</script>");
+            ClientScript.RegisterStartupScript(typeof(string), "success", "<script>alert('Export successfully！')</script>");
         }
         catch (DocumentException de)
         {

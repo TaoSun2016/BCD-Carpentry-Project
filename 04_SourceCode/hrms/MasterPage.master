@@ -33,7 +33,7 @@
     
 </head>
 <body style="background-position: center; background-image: url('/hrms/Images/Bankground.jpg'); background-repeat: repeat;">
-    <div style ="height:20%;text-align:center;margin-top:50px;margin-bottom:50px">
+    <div style ="height:20%;text-align:center;padding-top:30px;padding-bottom:30px">
         <span class="auto-style3"><strong>BCD&nbsp;</strong></span> <strong><span class="auto-style4">CARPENTRY&nbsp;</span></strong> <span class="auto-style5"><strong>LTD</strong></span><br />
     </div>
     <br />

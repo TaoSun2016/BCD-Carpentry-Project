@@ -392,7 +392,7 @@
                     Country:&nbsp;&nbsp;
                 </div>
                 <div style="float: left; width: 25%">
-                    <asp:TextBox ID="Country" runat="server" MaxLength="30"></asp:TextBox>*
+                    <asp:TextBox ID="Country" runat="server" MaxLength="30" ReadOnly="True">NZ</asp:TextBox>*
                 </div>
                 <div style="float: left; width: 15%; text-align: right">City:&nbsp;&nbsp;</div>
                 <div style="float: left; width: 35%">
