@@ -370,6 +370,7 @@
                 <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
                 <div style="float: right; width: 35%">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="AccountNumber" Display="Dynamic" ErrorMessage="Please input account number!" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="Format: xx-xxxx-xxxxxxx-xxx" ControlToValidate="AccountNumber" Display="Dynamic" ForeColor="Red" ValidationExpression="^\d{2}-\d{4}-\d{7}-\d{3}$"></asp:RegularExpressionValidator>                
                 </div>
             </div>
             <br />  
@@ -417,7 +418,7 @@
                 <div style="float: left; width: 25%">
 
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="IRDNumber" Display="Dynamic" ErrorMessage="Please input IRD number!" ForeColor="Red"></asp:RequiredFieldValidator>
-
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ErrorMessage="Format: xxx-xxx-xxx" ControlToValidate="IRDNumber" Display="Dynamic" ForeColor="Red" ValidationExpression="^\d{3}-\d{3}-\d{3}$"></asp:RegularExpressionValidator>
                 </div>
                 <div style="float: left; width: 15%; text-align: right">&nbsp;&nbsp;</div>
                 <div style="float: right; width: 35%">
