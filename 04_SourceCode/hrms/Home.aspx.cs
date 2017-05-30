@@ -17,6 +17,7 @@ public partial class Default2 : System.Web.UI.Page
         {
             Forename.Text = (string)Session["Forename"];
             Surname.Text = (string)Session["Surname"];
+            LogTime.Text = ((DateTime)Session["LogTime"]).ToString("yyyy-MM-dd HH:mm:ss");
         }
 
     }

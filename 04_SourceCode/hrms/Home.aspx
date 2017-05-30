@@ -10,5 +10,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
         Welcome, &nbsp;<asp:Label ID="Forename" runat="server" ForeColor="Red"></asp:Label>&nbsp<asp:Label ID="Surname" runat="server" ForeColor="Red"></asp:Label>
-        <span class="auto-style6">!</span></div>
+        <span class="auto-style6">!</span>
+        <br />
+        You logged in successfully at
+        <asp:Label ID="LogTime" runat="server" ForeColor="Red"></asp:Label>
+    </div>
 </asp:Content>
