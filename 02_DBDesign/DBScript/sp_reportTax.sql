@@ -77,6 +77,11 @@ begin
 			insert into TAX_REPORT values (@SeqNumber,null,null,null,null,'Subtotal:',@SubWage, @SubTax, @SubGST, @SubDeduction,null)
 			set @OldEmployeeID = @EmployeeID
 			select @Forename = Forename, @Surname = Surname, @IRDNumber = IRDNumber, @TaxRate = TaxRate from EMPLOYEE where EmployeeID = @EmployeeID
+			set @WageAmount = 0.00
+			set @TaxAmount = 0.00
+			set @GSTAmount = 0.00
+			set @DeductionAmount = 0.00
+			set @DeductionNote = ''
 			set @SubWage = 0.00
 			set @SubTax = 0.00
 			set @SubGST = 0.00
