@@ -36,17 +36,15 @@
     <div style ="height:20%;text-align:center;padding-top:30px;padding-bottom:30px">
         <span class="auto-style3"><strong>BCD&nbsp;</strong></span> <strong><span class="auto-style4">CARPENTRY&nbsp;</span></strong> <span class="auto-style5"><strong>LTD</strong></span><br />
     </div>
-    <br />
     <div style ="height:75%">
     <form id="form1" runat="server">
     <hr />
-    <div class="auto-style2">
         <div style="float:left;width:20%;height:100%;overflow-y:scroll;overflow-x:scroll">
             <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" ImageSet="Simple" Height="481px" Width="122px">
                 <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
-                <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="0px" NodeSpacing="0px" VerticalPadding="0px" />
+                <NodeStyle Font-Names="Tahoma" Font-Size="12pt" ForeColor="Black" HorizontalPadding="0px" NodeSpacing="0px" VerticalPadding="0px" />
                 <ParentNodeStyle Font-Bold="False" />
-                <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" HorizontalPadding="0px" VerticalPadding="0px" />
+                <SelectedNodeStyle Font-Underline="True" ForeColor="White" HorizontalPadding="0px" VerticalPadding="0px" />
             </asp:TreeView>
            
         </div>
@@ -64,10 +62,9 @@
       
           </asp:ContentPlaceHolder>
         </div>      
-    </div>
     </form>
     </div>
-    <div style="clear:left;text-align:center;height:5%;max-height:30px">
+    <div style="clear:left;text-align:center;height:5%;max-height:20px">
         <hr />
         © 2017 Whitireia New Zealand &amp; BCD Carpentry Ltd</div>
      <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
