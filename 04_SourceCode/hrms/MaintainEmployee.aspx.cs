@@ -472,7 +472,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
         SqlConnection conn = new SqlConnection(connectionString);
-        SqlCommand myCommand = new SqlCommand("delete from EMPLOYEE where EmployeeID = "+EmployeeID.Value, conn);
+        SqlCommand myCommand = new SqlCommand("Update EMPLOYEE set EmployeeStatus='N' where EmployeeID = "+EmployeeID.Value, conn);
         myCommand.CommandType = CommandType.Text;
 
         conn.Open();
@@ -480,6 +480,7 @@ public partial class Default2 : System.Web.UI.Page
         myCommand.ExecuteNonQuery();
         conn.Close();
         ClientScript.RegisterStartupScript(typeof(string), "delete", "<script>alert('Delete successfully!')</script>");
+        Clear_Fields();
     }
 
     protected void ImageButtonDOB_Click(object sender, ImageClickEventArgs e)
