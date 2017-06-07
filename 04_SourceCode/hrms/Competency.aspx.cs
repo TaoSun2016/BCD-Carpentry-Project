@@ -93,6 +93,10 @@ public partial class Default2 : System.Web.UI.Page
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
 
+        cmdParameter = new SqlParameter("@OtherPositions", SqlDbType.VarChar, 128);
+        cmdParameter.Direction = ParameterDirection.Output;
+        myCommand.Parameters.Add(cmdParameter);
+
         cmdParameter = new SqlParameter("@HireDate", SqlDbType.Date);
         cmdParameter.Direction = ParameterDirection.Output;
         myCommand.Parameters.Add(cmdParameter);
@@ -147,6 +151,8 @@ public partial class Default2 : System.Web.UI.Page
             Forename.Value = myCommand.Parameters["@Forename"].Value.ToString();
             Surname.Value = myCommand.Parameters["@Surname"].Value.ToString();
             Position.Text = (string)myCommand.Parameters["@Position"].Value;
+            OtherPositions.Text = (string)myCommand.Parameters["@OtherPositions"].Value;
+            DriverLicenseClass.Text = (string)myCommand.Parameters["@DriverLicenseClass"].Value;
             HireDate.Text = ((DateTime)(myCommand.Parameters["@HireDate"].Value)).ToString("yyyymmdd");
             YearsInIndustry.Text = myCommand.Parameters["@YearsInIndustry"].Value.ToString();
             SiteSafe.ImageUrl = myCommand.Parameters["@SiteSafePhoto"].Value.ToString();
@@ -177,7 +183,7 @@ public partial class Default2 : System.Web.UI.Page
         cmdParameter.Value = EmployeeID.Value;
         myCommand.Parameters.Add(cmdParameter);
 
-        cmdParameter = new SqlParameter("@Qualifications", SqlDbType.VarChar, 50);
+        cmdParameter = new SqlParameter("@Qualifications", SqlDbType.VarChar, 512);
         cmdParameter.Direction = ParameterDirection.Input;
         cmdParameter.Value = Qualifications.Text.Trim();
         myCommand.Parameters.Add(cmdParameter);
@@ -331,7 +337,7 @@ public partial class Default2 : System.Web.UI.Page
             Position1.Add(PositionTitle);
             Position1.Add(PositionContent1);
             document.Add(Position1);
-            Chunk PositionContent2 = new Chunk("                                                      " + Position.Text, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK));
+            Chunk PositionContent2 = new Chunk("                                                      " + OtherPositions.Text, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK));
             document.Add(new Paragraph(PositionContent2));
             document.Add(new Paragraph(" ", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK)));
 
