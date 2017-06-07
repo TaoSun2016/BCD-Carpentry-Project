@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div style="height: 100%; width: 100%">
         <div style="text-align: center">
-            <h2><strong>Attendance Information</strong></h2>
+            <h2><strong>Vehicle Information</strong></h2>
         </div>
         <br />
         <div style="width: 100%;float:left"">
