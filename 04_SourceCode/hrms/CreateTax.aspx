@@ -81,7 +81,7 @@
                 
             </div>
             <div style="float: left; width: 75%">
-                <asp:TextBox ID="Note" runat="server" Width="450px" MaxLength="256"></asp:TextBox>
+                <asp:TextBox ID="Note" runat="server" Width="450px" MaxLength="256" ReadOnly="True"></asp:TextBox>
             </div>        
         </div>
         <br />

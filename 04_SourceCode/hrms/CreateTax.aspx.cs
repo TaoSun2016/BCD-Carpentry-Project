@@ -121,6 +121,10 @@ public partial class Default2 : System.Web.UI.Page
         {
             Note.ReadOnly = false;
         }
+        else
+        {
+            Note.ReadOnly = true;
+        }
     }
     protected void ImageButtonWeekEndingDate_Click(object sender, ImageClickEventArgs e)
     {
