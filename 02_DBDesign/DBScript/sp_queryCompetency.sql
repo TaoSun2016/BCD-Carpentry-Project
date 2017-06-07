@@ -12,6 +12,7 @@ create procedure sp_queryCompetency(
 	@Forename	varchar(50) output,
 	@Surname	varchar(50) output,
 	@Position	varchar(10) output,
+	@OtherPositions varchar(128) output,
 	@HireDate	date output,
 	@YearsInIndustry	int output,
 	@DriverLicenseClass	varchar(10) output,
@@ -29,7 +30,7 @@ begin
 
 	if @Q_Email is not null and @Q_Email !=''
 	begin
-		select @EmployeeID = EmployeeID, @Forename =Forename, @Surname = Surname, @Position = Position, @HireDate = HireDate, @YearsInIndustry = YearsInIndustry, @DriverLicenseClass = DriverLicenseClass, @SiteSafePhoto = SiteSafePhoto from EMPLOYEE where Email = @Q_Email and EmployeeStatus = 'Y';
+		select @EmployeeID = EmployeeID, @Forename =Forename, @Surname = Surname, @Position = Position, @OtherPositions = OtherPositions, @HireDate = HireDate, @YearsInIndustry = YearsInIndustry, @DriverLicenseClass = DriverLicenseClass, @SiteSafePhoto = SiteSafePhoto from EMPLOYEE where Email = @Q_Email and EmployeeStatus = 'Y';
 		if @EmployeeID = 0
 		begin
 			set @ErrCode = -1
@@ -54,7 +55,7 @@ begin
 				set @ErrMsg = 'Find more than one employees!'
 				return				
 			end
-			select @EmployeeID = EmployeeID, @Forename =Forename, @Surname = Surname, @Position = Position, @HireDate = HireDate, @YearsInIndustry = YearsInIndustry, @DriverLicenseClass = DriverLicenseClass, @SiteSafePhoto = SiteSafePhoto  from EMPLOYEE where Forename = @Q_Forename and Surname = @Q_Surname and EmployeeStatus = 'Y'
+			select @EmployeeID = EmployeeID, @Forename =Forename, @Surname = Surname, @Position = Position, @OtherPositions = OtherPositions, @HireDate = HireDate, @YearsInIndustry = YearsInIndustry, @DriverLicenseClass = DriverLicenseClass, @SiteSafePhoto = SiteSafePhoto  from EMPLOYEE where Forename = @Q_Forename and Surname = @Q_Surname and EmployeeStatus = 'Y'
 		end
 		else
 		begin
